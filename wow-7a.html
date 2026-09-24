@@ -1,0 +1,1846 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WOW! 7A — منصّة الإنجليزي التفاعلية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF5F1; --bg-dot:rgba(47,59,82,.055);
+  --card:#FFFFFF; --card2:#F5FAF7;
+  --ink:#2F3B52; --muted:#66748A; --line:rgba(47,59,82,.11);
+  --sun:#FFD27A; --sun-soft:#FFF4DA;
+  --peach:#FFAE96; --peach-soft:#FFEAE3;
+  --mint:#7FCDB6; --mint-soft:#DDF3EB;
+  --sky:#94C3F0; --sky-soft:#E1EEFC;
+  --lilac:#BFAEF0; --lilac-soft:#EEE9FD;
+  --gold:#F4C04E; --gold-soft:#FFF2CE;
+  --ok:#2F9E78; --ok-soft:#DAF3E8; --no:#D9705E; --no-soft:#FDE5E0;
+  --brand:#25896F; --on-brand:#fff; --on-accent:#27324A;
+  --sh:0 22px 44px -26px rgba(47,59,82,.35), 0 2px 6px -2px rgba(47,59,82,.08);
+  --sh-s:0 10px 24px -18px rgba(47,59,82,.45);
+  --ease:cubic-bezier(.32,.72,0,1); --spring:cubic-bezier(.34,1.56,.64,1);
+  --r:26px;
+  --font:"Baloo Bhaijaan 2","Tajawal","Segoe UI",system-ui,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#1B2332; --bg-dot:rgba(255,255,255,.035); --card:#243046; --card2:#2A374F;
+  --ink:#EAF0F8; --muted:#A9B5C8; --line:rgba(255,255,255,.10);
+  --sun-soft:#3B3526; --peach-soft:#3F2F2D; --mint-soft:#213B38; --sky-soft:#233651; --lilac-soft:#302B4B; --gold-soft:#3A3322;
+  --ok:#5CCB9F; --ok-soft:#1E3C33; --no:#F09585; --no-soft:#422C2C; --brand:#4DB896; --on-brand:#10231D;
+  --sh:0 22px 44px -26px rgba(0,0,0,.6); --sh-s:0 10px 24px -18px rgba(0,0,0,.7);
+}}
+:root[data-theme="dark"]{
+  --bg:#1B2332; --bg-dot:rgba(255,255,255,.035); --card:#243046; --card2:#2A374F;
+  --ink:#EAF0F8; --muted:#A9B5C8; --line:rgba(255,255,255,.10);
+  --sun-soft:#3B3526; --peach-soft:#3F2F2D; --mint-soft:#213B38; --sky-soft:#233651; --lilac-soft:#302B4B; --gold-soft:#3A3322;
+  --ok:#5CCB9F; --ok-soft:#1E3C33; --no:#F09585; --no-soft:#422C2C; --brand:#4DB896; --on-brand:#10231D;
+  --sh:0 22px 44px -26px rgba(0,0,0,.6); --sh-s:0 10px 24px -18px rgba(0,0,0,.7);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 90px);-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--font);font-size:18px;line-height:1.7;color:var(--ink);
+  background-color:var(--bg);background-image:radial-gradient(var(--bg-dot) 1.4px,transparent 1.6px);background-size:22px 22px;min-height:100dvh}
+img,svg{max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--brand);outline-offset:3px;border-radius:12px}
+.en,[dir="ltr"]{font-feature-settings:"kern"}
+p{margin:0 0 .4em}
+h1,h2,h3,h4{line-height:1.25;margin:0}
+.muted{color:var(--muted)}
+.lat{unicode-bidi:isolate;direction:ltr;font-weight:600}
+
+/* header */
+#hdr{position:sticky;top:calc(env(safe-area-inset-top,0px) + 10px);z-index:20;margin:10px auto 0;width:min(1080px,calc(100% - 24px));
+  display:flex;align-items:center;gap:12px;padding:8px 10px 8px 14px;border-radius:999px;
+  background:color-mix(in srgb,var(--card) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:var(--sh-s);border:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo .mascot.mini{width:40px;height:40px}
+.logo span{display:flex;flex-direction:column;line-height:1.1}
+.logo b{font-size:17px;font-weight:800}
+.logo small{font-size:12px;color:var(--muted)}
+.hnav{display:flex;gap:4px;margin-inline-start:8px}
+.hnav a{text-decoration:none;padding:6px 14px;border-radius:999px;font-weight:600;font-size:16px;transition:background .3s var(--ease)}
+.hnav a:hover{background:var(--card2)}
+.htools{margin-inline-start:auto;display:flex;align-items:center;gap:6px}
+.starpill{background:var(--sun-soft);border-radius:999px;padding:4px 14px;font-weight:700;display:inline-flex;gap:4px;align-items:center}
+.starpill.pop{animation:pop .6s var(--spring)}
+.ibtn{width:40px;height:40px;border-radius:50%;border:0;background:var(--card2);font-size:18px;display:grid;place-items:center;transition:transform .3s var(--spring)}
+.ibtn:active{transform:scale(.9)}
+@media (max-width:640px){.hnav{display:none}.logo small{display:none}}
+
+main{width:min(1080px,calc(100% - 24px));margin:0 auto;padding:18px 0 70px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;text-decoration:none;font-weight:700;font-size:18px;
+  padding:10px 12px 10px 22px;border-radius:999px;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s var(--ease)}
+.btn:active{transform:scale(.97)}
+.btn.primary{background:var(--brand);color:var(--on-brand);box-shadow:0 12px 24px -14px var(--brand)}
+.btn.primary .bi{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;font-style:normal;transition:transform .4s var(--ease)}
+.btn.primary:hover .bi{transform:translateX(-4px) scale(1.06)}
+.btn.soft{background:var(--card);box-shadow:var(--sh-s);padding:12px 22px;border:1px solid var(--line)}
+.btn.soft:hover{background:var(--card2)}
+.btn.tiny{font-size:15px;padding:6px 14px}
+.spk{border:0;background:var(--cs,var(--card2));width:34px;height:34px;border-radius:50%;font-size:15px;display:inline-grid;place-items:center;vertical-align:middle;flex:0 0 auto;transition:transform .3s var(--spring)}
+.spk:hover{transform:scale(1.1)}
+.spk.speaking{animation:pulse .7s var(--ease)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.25fr .75fr;align-items:center;gap:20px;padding:28px 8px 10px}
+.hello{font-size:20px;font-weight:600;color:var(--muted);margin:0}
+.hero h1{font-size:clamp(34px,5.4vw,60px);font-weight:800;letter-spacing:-.01em;margin:4px 0 10px;text-wrap:balance}
+.lead{font-size:22px;font-weight:700;color:var(--brand);margin:0}
+.lead2{color:var(--muted);max-width:44ch;margin:.3em 0 1em}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px}
+.hero-art{position:relative;display:grid;place-items:center}
+.hero-art .mascot{width:min(260px,70vw)}
+.bubble{position:absolute;top:6%;left:0;background:var(--card);padding:6px 14px;border-radius:18px 18px 18px 4px;font-weight:700;box-shadow:var(--sh-s);font-size:16px}
+.mascot .bob{animation:bob 3.4s var(--ease) infinite alternate;transform-origin:110px 200px}
+.mascot .wave{animation:wave 1.6s var(--ease) infinite alternate;transform-origin:186px 118px}
+.mascot.mini .bob,.mascot.mini .wave{animation:none}
+@media (max-width:760px){.hero{grid-template-columns:1fr;text-align:center;padding-top:14px}.hero-art{order:-1}.hero-art .mascot{width:170px}.hero-cta{justify-content:center}.lead2{margin-inline:auto}.bubble{left:auto;right:8%}}
+
+/* chips */
+.chips{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0 10px}
+.chip{background:var(--card);border-radius:22px;padding:12px 16px;box-shadow:var(--sh-s);display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:10px;align-items:center}
+.chip>span{grid-row:span 2;font-size:28px}
+.chip b{font-size:24px;font-weight:800;line-height:1.1}
+.chip b small{font-size:15px;color:var(--muted);font-weight:600}
+.chip em{font-style:normal;color:var(--muted);font-size:15px}
+@media (max-width:560px){.chips{grid-template-columns:1fr 1fr 1fr;gap:8px}.chip{grid-template-columns:1fr;text-align:center;padding:10px 6px}.chip>span{grid-row:auto;font-size:22px}.chip b{font-size:19px}.chip em{font-size:13px}}
+
+/* map */
+.mapsec{margin-top:38px}
+.mapsec h2{font-size:clamp(28px,4vw,40px);font-weight:800}
+.sub{color:var(--muted);margin:.2em 0 1em}
+.map{position:relative;max-width:760px;margin:10px auto 0}
+.stop{display:flex;align-items:center;gap:16px;text-decoration:none;position:relative;z-index:1}
+.stop.s-l{padding-left:calc(25% - 58px)}
+.stop.s-r{flex-direction:row-reverse;padding-right:calc(25% - 58px)}
+.island{flex:0 0 116px;height:116px;border-radius:50%;display:grid;place-items:center;
+  background:conic-gradient(var(--c) calc(var(--p)*1%),var(--line) 0);padding:7px;box-shadow:var(--sh);transition:transform .5s var(--spring)}
+.island .em{width:100%;height:100%;border-radius:50%;background:var(--cs);display:grid;place-items:center;font-size:48px;box-shadow:inset 0 -6px 0 rgba(47,59,82,.06)}
+.stop:hover .island{transform:translateY(-4px) rotate(-3deg) scale(1.04)}
+.label{background:var(--card);border-radius:20px;padding:10px 16px;box-shadow:var(--sh-s);display:flex;flex-direction:column;line-height:1.3;min-width:0;border:1px solid var(--line)}
+.label b{font-size:18px;font-weight:800;text-align:end}
+.label span{font-weight:600}
+.label small{color:var(--muted);font-size:14px}
+.trail{display:block;width:100%;height:64px;margin:-8px 0}
+.trail path{fill:none;stroke:var(--muted);stroke-width:3;stroke-dasharray:2 10;stroke-linecap:round;vector-effect:non-scaling-stroke;opacity:.55}
+@media (max-width:560px){.island{flex-basis:92px;height:92px}.island .em{font-size:38px}.stop.s-l{padding-left:calc(25% - 46px)}.stop.s-r{padding-right:calc(25% - 46px)}.label b{font-size:16px}}
+.foot{text-align:center;color:var(--muted);font-size:14px;margin-top:40px}
+
+/* crumbs */
+.crumbs{display:flex;gap:8px;align-items:center;margin:4px 0 14px;font-size:16px;color:var(--muted)}
+.crumbs a{text-decoration:none;display:inline-flex;align-items:center;gap:4px;padding:4px 12px;background:var(--card);border-radius:999px;box-shadow:var(--sh-s);color:var(--ink);font-weight:600}
+
+/* unit hero */
+.unit-hero{display:grid;grid-template-columns:auto 1fr;gap:22px;background:var(--cs);border-radius:34px;padding:28px;position:relative;overflow:hidden}
+.unit-hero::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:var(--c);opacity:.35;left:-80px;bottom:-120px}
+.uh-em{font-size:74px;width:124px;height:124px;display:grid;place-items:center;background:var(--card);border-radius:36px;box-shadow:var(--sh);transform:rotate(-4deg)}
+.uh-txt{position:relative;z-index:1}
+.uh-txt small{font-weight:700;color:var(--muted)}
+.unit-hero h1{font-size:clamp(28px,4.5vw,44px);font-weight:800;display:flex;flex-wrap:wrap;gap:.2em .5em;align-items:baseline}
+.unit-hero h1 .ar{font-size:.7em;font-weight:600;color:var(--muted)}
+.gl{margin:.6em 0 .2em;font-weight:700}
+.unit-hero ul{margin:0 0 12px;padding-inline-start:22px}
+.bar{height:12px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--c,var(--brand));transform-origin:right;transition:transform 1s var(--ease)}
+.barlbl{font-size:15px;color:var(--muted);margin-top:4px}
+@media (max-width:600px){.unit-hero{grid-template-columns:1fr;padding:22px}.uh-em{width:96px;height:96px;font-size:56px}}
+
+/* lesson cards */
+.lessons{display:grid;gap:12px;margin-top:20px}
+.lcard,.review{display:flex;align-items:center;gap:14px;background:var(--card);border-radius:24px;padding:12px 16px;text-decoration:none;box-shadow:var(--sh-s);border:1px solid var(--line);transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.lcard:hover,.review:hover{transform:translateY(-3px);box-shadow:var(--sh)}
+.num{width:34px;height:34px;border-radius:50%;background:var(--c);color:var(--on-accent);font-weight:800;display:grid;place-items:center;flex:0 0 auto}
+.lic{font-size:34px;width:58px;height:58px;display:grid;place-items:center;background:var(--cs);border-radius:18px;flex:0 0 auto}
+.lt{display:flex;flex-direction:column;min-width:0;flex:1}
+.lt b{font-size:19px;text-align:end;font-weight:700}
+.lt span{color:var(--muted);font-size:16px}
+.lmeta{display:flex;flex-direction:column;align-items:center;flex:0 0 auto}
+.st{color:#E7A92B;letter-spacing:2px;font-size:20px}
+.lmeta small{color:var(--muted);font-size:14px}
+.review{background:var(--cs);border-style:dashed;border-color:var(--c)}
+.review>span:first-child{font-size:30px}
+.review>span:nth-child(2){display:flex;flex-direction:column;flex:1}
+.review small{color:var(--muted)}
+.review .bi{width:36px;height:36px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-style:normal}
+@media (max-width:520px){.num{display:none}.lic{width:48px;height:48px;font-size:28px}.lt b{font-size:17px}}
+
+/* lesson head + tabs */
+.lhead{display:flex;align-items:center;gap:16px;background:var(--cs);border-radius:30px;padding:18px 22px}
+.lh-ic{font-size:46px;width:78px;height:78px;display:grid;place-items:center;background:var(--card);border-radius:24px;box-shadow:var(--sh-s);flex:0 0 auto;transform:rotate(-4deg)}
+.lhead small{font-weight:700;color:var(--muted)}
+.lhead h1{font-size:clamp(22px,3.6vw,34px);font-weight:800;text-align:end}
+.lhead div{flex:1;min-width:0}
+.lhead p{margin:0;color:var(--muted);font-weight:600}
+.lh-st{color:#E7A92B;font-size:24px;letter-spacing:2px}
+@media (max-width:560px){.lh-st{display:none}.lh-ic{width:62px;height:62px;font-size:36px}}
+.tabs{display:flex;gap:6px;background:var(--card);padding:6px;border-radius:999px;margin:16px 0 18px;box-shadow:var(--sh-s);position:sticky;top:calc(env(safe-area-inset-top,0px) + 78px);z-index:10}
+.tab{flex:1;text-align:center;text-decoration:none;padding:8px 6px;border-radius:999px;font-weight:700;display:flex;gap:6px;justify-content:center;align-items:center;transition:background .4s var(--ease),color .3s}
+.tab.on{background:var(--c);color:var(--on-accent)}
+.tab span{font-size:20px}
+
+/* learn */
+.langsw{display:inline-flex;gap:4px;background:var(--card);padding:4px;border-radius:999px;box-shadow:var(--sh-s);margin-bottom:14px}
+.langsw button{border:0;background:none;padding:4px 14px;border-radius:999px;font-weight:600;font-size:15px}
+.langsw button.on{background:var(--cs);box-shadow:inset 0 0 0 2px var(--c)}
+.lang-ar .en-block{display:none}.lang-en .ar-block{display:none}
+.card{background:var(--card);border-radius:var(--r);padding:20px 22px;box-shadow:var(--sh-s);border:1px solid var(--line)}
+.intro{border-inline-start:8px solid var(--c)}
+.intro .ar-block p{font-size:19px}
+.en-block{background:var(--card2);border-radius:18px;padding:12px 16px;margin-top:10px;font-weight:500;line-height:1.6}
+.en-block p{display:inline}
+.en-block p+p::before{content:"";display:block;height:.4em}
+.ar-block.muted p{font-size:16px}
+.extra .ar-block{margin-top:10px}
+.sec{font-size:22px;font-weight:800;margin:26px 0 10px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.sec small{font-size:14px;color:var(--muted);font-weight:500}
+.words{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.word{border:0;background:var(--card);border-radius:22px;padding:14px 10px;box-shadow:var(--sh-s);display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center;transition:transform .45s var(--spring),background .3s}
+.word:hover{transform:translateY(-4px) rotate(-1.5deg);background:var(--cs)}
+.word.speaking{background:var(--cs)}
+.we{font-size:40px;line-height:1.2}
+.word b{font-size:18px;font-weight:800}
+.wa{color:var(--muted);font-size:15px;font-weight:600}
+.word small{font-size:13px;color:var(--muted);line-height:1.4;margin-top:4px}
+.rule .rt{font-weight:800;font-size:18px;margin-bottom:10px;text-align:end}
+.tbl{overflow-x:auto;border-radius:16px;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:16px}
+th{background:var(--cs);padding:8px 12px;font-weight:700}
+td{padding:9px 12px;border-top:1px solid var(--line)}
+tbody tr:nth-child(even) td{background:var(--card2)}
+.note{display:flex;gap:10px;margin-top:12px;background:var(--card2);border-radius:16px;padding:10px 14px}
+.note p{margin:0}
+.note .en{font-weight:600}
+.exs,.phr{display:grid;gap:8px}
+.ex,.ph{display:flex;align-items:center;gap:12px;background:var(--card);border-radius:18px;padding:10px 16px;box-shadow:var(--sh-s);border:1px solid var(--line)}
+.ex>div{flex:1}
+.ph{box-shadow:none;background:var(--card2);display:grid;grid-template-columns:1fr auto;align-items:center}
+.ph .ar{grid-column:1;color:var(--muted);font-size:15px}
+.ph .spk{grid-row:1/span 2;grid-column:2}
+.ex .en,.ph .en{font-weight:700;margin:0;text-align:end}
+.ex .ar{margin:0;color:var(--muted);font-size:15px}
+.extra{margin-top:16px}
+.extra h4{font-size:20px;font-weight:800;margin-bottom:10px}
+.tip{display:flex;gap:12px;align-items:flex-start;background:var(--sun-soft);border-radius:22px;padding:14px 18px;margin-top:18px;border:2px dashed var(--sun)}
+.tip span{font-size:26px}.tip p{margin:0;font-weight:600}
+.nextrow{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px}
+
+/* games list */
+.glist{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.gcard{border:0;background:var(--card);border-radius:26px;padding:18px;box-shadow:var(--sh-s);display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:start;transition:transform .45s var(--spring)}
+.gcard:hover{transform:translateY(-4px) rotate(1deg)}
+.gcard .gi{font-size:36px;width:62px;height:62px;border-radius:20px;background:var(--cs);display:grid;place-items:center;margin-bottom:6px}
+.gcard b{font-size:20px}
+.gcard small{color:var(--muted);font-size:14px;line-height:1.4}
+.gcard .gs{margin-top:6px;color:#E7A92B;font-weight:700}
+.gcard.off{opacity:.5;cursor:not-allowed}
+
+/* game shell */
+.game{padding:16px 18px 22px}
+.ghead{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.gtitle{display:flex;align-items:center;gap:8px;flex:1;justify-content:center;font-size:20px}
+.gtitle span{font-size:26px}
+.gprog{background:var(--cs);border-radius:999px;padding:2px 12px;font-weight:700;font-size:15px;min-width:64px;text-align:center}
+.ginst{text-align:center;color:var(--muted);margin:10px 0 16px;font-size:16px}
+.gbody{min-height:260px}
+
+.match{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.col{display:grid;gap:8px;align-content:start}
+.tile{border:2px solid var(--line);background:var(--card2);border-radius:18px;padding:10px 12px;font-weight:700;font-size:17px;min-height:54px;transition:transform .35s var(--spring),background .3s,border-color .3s,opacity .4s}
+.tile.sel{border-color:var(--c);background:var(--cs);transform:scale(1.03)}
+.tile.done{background:var(--ok-soft);border-color:var(--ok);opacity:.55;transform:scale(.97)}
+
+.memory{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:560px;margin:0 auto;perspective:900px}
+@media (max-width:520px){.memory{grid-template-columns:repeat(3,1fr)}}
+.mcard{border:0;padding:0;background:none;aspect-ratio:1/1;position:relative;transform-style:preserve-3d;transition:transform .55s var(--ease)}
+.mcard.open{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;border-radius:18px;display:grid;place-items:center;backface-visibility:hidden;-webkit-backface-visibility:hidden;font-weight:800;padding:6px;text-align:center;line-height:1.2}
+.face.back{background:var(--c);color:var(--on-accent);font-size:30px;box-shadow:inset 0 -6px 0 rgba(0,0,0,.08)}
+.face.front{background:var(--card2);border:2px solid var(--line);transform:rotateY(180deg);font-size:16px}
+.face.front.emo{font-size:42px}
+.mcard.done .front{background:var(--ok-soft);border-color:var(--ok)}
+
+.listen{display:grid;gap:18px;justify-items:center}
+.bigspk{width:110px;height:110px;border-radius:50%;border:0;background:var(--c);font-size:46px;box-shadow:var(--sh);transition:transform .4s var(--spring)}
+.bigspk:active{transform:scale(.92)}
+.lopts{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:560px}
+.lopt{border:2px solid var(--line);background:var(--card2);border-radius:20px;padding:12px;display:flex;align-items:center;gap:10px;font-size:17px;transition:transform .3s var(--spring)}
+.lopt span{font-size:30px}
+.lopt.ok{background:var(--ok-soft);border-color:var(--ok)}
+.lopt.no{background:var(--no-soft);border-color:var(--no);opacity:.6}
+
+.scr{display:grid;gap:16px;justify-items:center}
+.scr-hint{display:flex;align-items:center;gap:12px;font-size:20px;font-weight:700;background:var(--cs);border-radius:20px;padding:8px 18px}
+.se{font-size:42px}
+.slots{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;padding:6px;border-radius:18px;transition:background .3s}
+.slots.ok{background:var(--ok-soft)}
+.slot{width:40px;height:48px;border-radius:12px;border:2px dashed var(--muted);display:grid;place-items:center;font-size:24px;font-weight:800}
+.slot.f{border-style:solid;border-color:var(--c);background:var(--cs);animation:pop .35s var(--spring)}
+.fixed{width:18px;display:grid;place-items:center;font-size:24px;font-weight:800}
+.letters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;max-width:560px}
+.let{width:48px;height:52px;border-radius:14px;border:0;background:var(--c);color:var(--on-accent);font-size:24px;font-weight:800;box-shadow:inset 0 -5px 0 rgba(0,0,0,.1);transition:transform .3s var(--spring),opacity .3s}
+.let:active{transform:scale(.9)}
+.let.used{opacity:.18;pointer-events:none}
+.scr-tools{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+
+.sort{display:grid;gap:18px}
+.scard{min-height:110px;background:var(--cs);border-radius:24px;padding:18px;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;text-align:center;font-size:21px;font-weight:700;border:2px solid var(--c)}
+.scard.in{animation:cardIn .5s var(--spring)}
+.scard.out{transform:translateY(20px) scale(.92);opacity:.25;transition:transform .45s var(--ease),opacity .45s var(--ease)}
+.buckets{display:grid;grid-template-columns:repeat(var(--n),1fr);gap:10px}
+.bucket{border:0;background:var(--card2);border-radius:22px;padding:16px 8px;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:18px;border-bottom:6px solid var(--line);transition:transform .35s var(--spring),background .3s}
+.bucket small{font-size:14px;color:var(--muted)}
+.bucket.hit{background:var(--ok-soft);transform:scale(1.05)}
+.bucket.hint{background:var(--ok-soft);outline:3px solid var(--ok)}
+@media (max-width:480px){.buckets{grid-template-columns:1fr}.scard{font-size:18px}}
+
+.build{display:grid;gap:14px}
+.bhint{text-align:center;font-weight:700;background:var(--cs);border-radius:16px;padding:8px 14px;margin:0}
+.answer{min-height:70px;border-radius:20px;border:2px dashed var(--c);padding:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;transition:background .3s}
+.answer.ok{background:var(--ok-soft);border-style:solid;border-color:var(--ok)}
+.ph0{color:var(--muted);font-size:15px}
+.bank{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.tok{border:0;background:var(--card2);border-radius:14px;padding:8px 14px;font-size:18px;font-weight:700;box-shadow:inset 0 -4px 0 var(--line);transition:transform .3s var(--spring),opacity .3s}
+.tok.in{background:var(--c);color:var(--on-accent);animation:pop .3s var(--spring)}
+.tok.used{opacity:.2;pointer-events:none}
+
+.fill{display:grid;gap:16px}
+.timer{height:12px;border-radius:99px;background:var(--line);overflow:hidden}
+.timer i{display:block;height:100%;background:linear-gradient(90deg,var(--no),var(--sun),var(--ok));transform-origin:left}
+.combo{text-align:center;font-weight:800;color:#E08A2B;min-height:1.5em}
+.fq{font-size:24px;font-weight:700;text-align:center;background:var(--cs);border-radius:22px;padding:22px 16px}
+.fopts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fopt{border:2px solid var(--line);background:var(--card2);border-radius:20px;padding:14px;font-size:20px;font-weight:800;transition:transform .3s var(--spring)}
+.fopt.ok{background:var(--ok-soft);border-color:var(--ok)}
+.fopt.no{background:var(--no-soft);border-color:var(--no)}
+.blank{display:inline-block;min-width:64px;border-bottom:3px solid var(--c);color:var(--muted);text-align:center;margin:0 4px}
+.blank.filled{color:var(--ok);border-color:var(--ok);min-width:0;padding:0 4px}
+
+.win,.result{text-align:center}
+.winst{font-size:54px;color:#E7A92B;letter-spacing:6px;animation:pop .7s var(--spring)}
+.win h3,.result h3{font-size:26px;font-weight:800;margin:6px 0}
+
+/* quiz */
+.quiz{padding:20px 22px}
+.qtop{display:grid;gap:6px;font-weight:700;color:var(--muted);font-size:15px}
+.qq{font-size:clamp(21px,3vw,27px);font-weight:800;margin:18px 0 6px;text-align:center;line-height:1.5}
+.qh{text-align:center;color:var(--muted)}
+.opts{display:grid;gap:10px;margin-top:16px}
+.opt{border:2px solid var(--line);background:var(--card2);border-radius:20px;padding:12px 14px;display:flex;align-items:center;gap:12px;font-size:19px;font-weight:700;text-align:start;transition:transform .3s var(--spring),background .3s,border-color .3s}
+.opt:hover{border-color:var(--c)}
+.opt .ol{width:34px;height:34px;border-radius:50%;background:var(--cs);display:grid;place-items:center;flex:0 0 auto;font-size:16px}
+.opt.picked{border-color:var(--c);background:var(--cs)}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft)}
+.opt.no{border-color:var(--no);background:var(--no-soft)}
+.fbbox{margin-top:16px;border-radius:20px;padding:14px 18px;text-align:center;animation:cardIn .45s var(--spring)}
+.fbbox.good{background:var(--ok-soft)}.fbbox.bad{background:var(--no-soft)}
+.fbbox b{font-size:21px;display:block}
+.fbbox .btn{margin-top:8px}
+.passage{background:var(--card2);border-radius:18px;padding:10px 16px;margin-top:12px}
+.passage summary{cursor:pointer;font-weight:700}
+.passage p{margin:.6em 0;font-size:17px;line-height:1.7}
+.qintro{text-align:center;max-width:560px;margin:0 auto}
+.qintro .big{font-size:56px;display:block}
+.qintro h3{font-size:26px;font-weight:800}
+.rules{text-align:start;margin:12px 0 16px;padding-inline-start:22px}
+.mist{text-align:start;margin-top:16px;background:var(--card2);border-radius:18px;padding:10px 16px}
+.mist summary{cursor:pointer;font-weight:800}
+.mi{border-top:1px solid var(--line);padding:10px 0}
+.mi .en{font-weight:700;text-align:end}
+.mi .x{color:var(--no);font-weight:700}.mi .v{color:var(--ok);font-weight:700;margin-inline-start:10px}
+.mi a{font-weight:700;color:var(--brand)}
+.score{width:150px;height:150px;border-radius:50%;margin:0 auto 10px;display:grid;place-items:center;background:conic-gradient(var(--gold) calc(var(--p)*1%),var(--line) 0);padding:12px}
+.score span{width:100%;height:100%;border-radius:50%;background:var(--card);display:grid;place-items:center;font-size:38px;font-weight:800}
+.urows{display:grid;gap:10px;margin:18px 0;text-align:start}
+.urow{display:grid;grid-template-columns:minmax(0,1.3fr) 1fr auto;gap:10px;align-items:center}
+.urow b{margin-inline-end:6px}
+.urow em{font-style:normal;font-weight:800}
+@media (max-width:520px){.urow{grid-template-columns:1fr auto}.urow .bar{grid-column:1/-1;grid-row:2}}
+.weak{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.weak a{display:inline-flex;gap:6px;align-items:center;text-decoration:none;background:var(--cs);border-radius:999px;padding:6px 14px;font-weight:700;font-size:16px}
+
+/* confetti + motion */
+.confetti{position:fixed;inset:0;pointer-events:none;z-index:30;overflow:hidden}
+.confetti i{position:absolute;top:-14px;width:10px;height:15px;border-radius:3px;animation:fall 1.6s cubic-bezier(.2,.6,.3,1) forwards}
+@keyframes fall{to{transform:translate(var(--dx),105vh) rotate(var(--r))}}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(-10px)}}
+@keyframes wave{from{transform:rotate(0)}to{transform:rotate(-14deg)}}
+@keyframes pop{0%{transform:scale(.6)}100%{transform:scale(1)}}
+@keyframes pulse{50%{transform:scale(1.25)}}
+@keyframes cardIn{from{transform:translateY(18px) scale(.94);opacity:0}to{transform:none;opacity:1}}
+@keyframes shake{20%,60%{transform:translateX(-7px)}40%,80%{transform:translateX(7px)}}
+.shake{animation:shake .42s var(--ease)}
+#app>*{animation:cardIn .6s var(--ease) both}
+#app>*:nth-child(2){animation-delay:.06s}#app>*:nth-child(3){animation-delay:.12s}#app>*:nth-child(4){animation-delay:.18s}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header id="hdr"></header>
+<main id="app"></main>
+<script>
+/* ============ CONTENT: Team Together 7A (Oman) ============ */
+const UNITS = [
+  { id: "w", en: "Welcome", ar: "الترحيب", emoji: "👋", c: "sun",
+    goals: ["تتعرّف على فريق مجلة WOW!", "تراجع وصف الأشخاص وما يحبّونه"] },
+  { id: "u1", en: "Entertainment", ar: "الترفيه", emoji: "🎭", c: "peach",
+    goals: ["كلمات وظائف الترفيه وأماكنه", "المضارع التام مع since و for", "المضارع المستمر للخطط المستقبلية", "شراء التذاكر وكتابة إعلان"] },
+  { id: "u2", en: "Awesome animals", ar: "حيوانات مدهشة", emoji: "🦔", c: "mint",
+    goals: ["أجزاء جسم الحيوان وأفعاله", "must / might / can't للاستنتاج", "الجملة الشرطية الأولى If ... will", "التعبير عمّا تحبّ وتكره"] },
+  { id: "u3", en: "Travel", ar: "السفر", emoji: "✈️", c: "sky",
+    goals: ["أغراض السفر وأفعال التنقّل", "الفرق بين going to و will", "المضارع البسيط للمواعيد والجداول", "مشاعرك تجاه المستقبل وكتابة إيميل"] },
+  { id: "lc", en: "WOW! Learning Club", ar: "نادي التعلّم", emoji: "🔬", c: "lilac",
+    goals: ["الشهور والفصول", "قراءة الساعة بالإنجليزي", "مخطط كارول: needs / doesn't need"] }
+];
+
+const Q = (q, o, a, w, h) => ({ q, o, a, w, h });
+
+const LESSONS = [
+/* ---------------- WELCOME ---------------- */
+{
+  id: "w1", unit: "w", icon: "🧑‍🤝‍🧑", en: "Meet the WOW! Team", ar: "تعرّف على فريق WOW!",
+  intro: {
+    ar: "هذه السنة عندنا فريق جديد لمجلة WOW! (عالم العجائب): ماجد، بيان، إيميلي، وفرانك. كل واحد منهم يحكي عن نفسه: عمره، شكله، ملابسه، وهواياته. سنتعلم كيف نصف الأشخاص بالإنجليزي.",
+    en: "Meet the new WOW! Team: Majid, Bayan, Emily and Frank. Each of them tells us about their age, looks, clothes and hobbies."
+  },
+  extra: [
+    { t: "👦 Majid — ماجد", en: "He's twelve. He wears an Omani hat and a dishdasha. He goes camping with his family and he loves technology and football.", ar: "عمره 12، يلبس الكمّة والدشداشة، يحب التخييم والتقنية وكرة القدم." },
+    { t: "🧕 Bayan — بيان", en: "She's twelve. She likes wearing a hijab and casual clothes. She loves animals. Last time she went camping, she didn't take enough food!", ar: "عمرها 12، تحب الحيوانات. في رحلة التخييم السابقة لم يأخذوا طعاماً كافياً." },
+    { t: "👧 Emily — إيميلي", en: "She's twelve. She loves reading. She has a long coat, but it's not usually cold enough in Oman to wear it!", ar: "عمرها 12، تحب القراءة. عندها معطف طويل لكن الجو في عُمان ليس بارداً بما يكفي للبسه." },
+    { t: "👱 Frank — فرانك", en: "He's thirteen. He loves travelling with his parents and eating food from different countries. He wants to cook more this year.", ar: "عمره 13، يحب السفر وتجربة أكلات من دول مختلفة." }
+  ],
+  examples: [
+    ["I'm twelve and I have short dark hair.", "عمري 12 وشعري قصير وغامق."],
+    ["She likes wearing casual clothes.", "هي تحب لبس الملابس العادية المريحة."],
+    ["He loves learning about technology.", "هو يحب التعلّم عن التقنية."]
+  ],
+  tip: "لما توصف شخص: ابدأ بالعمر (I'm twelve) ثم الشكل (I have brown eyes) ثم ما يحب (I love reading).",
+  games: [
+    { type: "match", title: "من هو؟", pairs: [
+      ["Majid", "يلبس الدشداشة ويحب التقنية"], ["Bayan", "تحب الحيوانات والتخييم"],
+      ["Emily", "تحب القراءة وعندها معطف طويل"], ["Frank", "عمره 13 ويحب السفر"] ] },
+    { type: "build", items: [
+      ["I have short dark hair.", "عندي شعر قصير غامق."], ["She loves reading books.", "هي تحب قراءة الكتب."],
+      ["He often goes camping with his family.", "هو غالباً يذهب للتخييم مع عائلته."] ] }
+  ],
+  quiz: [
+    Q("Who wears an Omani hat and a dishdasha?", ["Majid", "Frank", "Emily"], 0, "ماجد يلبس الكمّة والدشداشة."),
+    Q("Why doesn't Emily usually wear her long coat?", ["It's too small.", "It's not cold enough in Oman.", "She doesn't like it."], 1, "لأن الجو في عُمان ليس بارداً بما يكفي."),
+    Q("Who has tried food from different countries?", ["Bayan", "Frank", "Majid"], 1, "فرانك يحب السفر وتجربة الأكل."),
+    Q("Why was Bayan hungry on her last camping trip?", ["They didn't take enough food.", "She was ill.", "She didn't like the food."], 0, "لم يأخذوا طعاماً كافياً."),
+    Q("What should you always take when you camp outdoors?", ["a first-aid kit", "a long coat", "a guidebook"], 0, "ماجد قال: خذ دائماً حقيبة إسعافات أولية first-aid kit."),
+    Q("Choose the correct sentence.", ["I has brown eyes.", "I have brown eyes.", "I having brown eyes."], 1, "مع I نستخدم have.")
+  ]
+},
+
+/* ---------------- UNIT 1 ---------------- */
+{
+  id: "u1l1", unit: "u1", icon: "🤡", en: "Jobs in entertainment", ar: "وظائف الترفيه",
+  intro: {
+    ar: "في عالم الترفيه (المسرح، السينما، السيرك) يوجد ناس كثير يعملون: بعضهم نراه على المسرح مثل المهرّج والمقدّم، وبعضهم يعمل خلف الكواليس مثل مصمّم الأزياء ومحرّر الصوت. لاحظ أن كثيراً من أسماء الوظائف تنتهي بـ er أو or أو ist.",
+    en: "Many people work in entertainment. Some are on the stage, like clowns and presenters. Others work behind the scenes, like costume designers and sound editors."
+  },
+  words: [
+    ["presenter", "مقدّم برامج", "🎤", "Emily wants to be the presenter."],
+    ["performer", "مؤدّي عروض", "🎭", "The performers sing and dance."],
+    ["comedian", "ممثل كوميدي", "😂", "A comedian tells funny jokes."],
+    ["clown", "مهرّج", "🤡", "The clown has a red nose."],
+    ["puppeteer", "محرّك الدمى", "🧸", "Frank is a puppeteer."],
+    ["sound editor", "محرّر الصوت", "🎧", "The sound editor works with music."],
+    ["stunt performer", "مؤدّي الحركات الخطرة", "🏍️", "Stunt performers must be very fit."],
+    ["animator", "رسّام رسوم متحركة", "🎞️", "An animator makes cartoons."],
+    ["writer", "كاتب", "✍️", "The writer writes the story."],
+    ["costume designer", "مصمّم الأزياء", "👗", "Bayan is the costume designer."],
+    ["make-up artist", "فنان المكياج", "💄", "The make-up artist paints faces."],
+    ["camera operator", "مصوّر الكاميرا", "🎥", "Majid is the camera operator."]
+  ],
+  extra: [
+    { t: "🎬 WOW! Talent Show", en: "Emily is the presenter. Bayan is the costume designer. Frank is the clown and a puppeteer. Majid is the camera operator — he's going to video the show.", ar: "في حفل المواهب: إيميلي المقدّمة، بيان مصمّمة الأزياء، فرانك المهرّج ومحرّك الدمى، وماجد المصوّر." }
+  ],
+  tip: "حيلة: الوظيفة = فعل + er/or/ist. write → writer ، animate → animator ، art → artist.",
+  games: [{ type: "match" }, { type: "memory" }, { type: "listen" }, { type: "scramble" }],
+  quiz: [
+    Q("This person wears a red nose and big shoes. Who is it?", ["a writer", "a clown", "a sound editor"], 1, "المهرّج clown يلبس أنف أحمر وحذاء كبير."),
+    Q("Who designs the clothes for a show?", ["costume designer", "camera operator", "presenter"], 0, "مصمّم الأزياء costume designer."),
+    Q("A ______ makes puppets move.", ["comedian", "puppeteer", "animator"], 1, "puppet = دمية، و puppeteer يحرّكها."),
+    Q("Who films the show?", ["make-up artist", "camera operator", "writer"], 1, "camera operator يصوّر بالكاميرا."),
+    Q("Which job needs people who are very fit?", ["stunt performer", "sound editor", "writer"], 0, "مؤدّي الحركات الخطرة يحتاج لياقة عالية."),
+    Q("Emily talks to the audience. She is the ______.", ["animator", "presenter", "clown"], 1, "المقدّم presenter يتكلّم مع الجمهور."),
+    Q("A ______ tells jokes and makes people laugh.", ["comedian", "camera operator", "costume designer"], 0, "الكوميدي comedian يقول النكت.")
+  ]
+},
+{
+  id: "u1l2", unit: "u1", icon: "⏳", en: "Present perfect with since & for", ar: "المضارع التام مع since و for",
+  intro: {
+    ar: "نستخدم المضارع التام (have / has + التصريف الثالث للفعل) لما نتكلّم عن شيء بدأ في الماضي وما زال مستمراً إلى الآن.\nمثال: فرانك صار محرّك دمى وهو عمره 8، وما زال محرّك دمى الآن ← He has been a puppeteer since he was eight.\n• since = منذ ← نضع بعدها نقطة البداية (2019، Monday، lunchtime، I was eight).\n• for = لمدة ← نضع بعدها طول الفترة (ten years، two days، a long time).",
+    en: "We use the Present perfect (have/has + past participle) for something that started in the past and is still true now. Use since + a point in time. Use for + a period of time."
+  },
+  rule: {
+    title: "Present perfect with since and for",
+    head: ["الجملة", "since (نقطة بداية)", "for (مدة)"],
+    rows: [
+      ["I've had this costume", "since April", "for a long time"],
+      ["He's been a comedian", "since 2015", "for ten years"],
+      ["She's lived here", "since she was eight", "for two days"],
+      ["How long have you lived here?", "since lunchtime", "for a week"]
+    ],
+    notes: [
+      { ar: "مع I / you / we / they نستخدم have ، ومع he / she / it نستخدم has.", en: "I have → I've, he has → he's" },
+      { ar: "للسؤال عن المدة نبدأ بـ How long.", en: "How long has he had that costume?" }
+    ]
+  },
+  examples: [
+    ["I've been a comedian for a long time.", "أنا كوميدي منذ وقت طويل."],
+    ["He's lived here since he was eight.", "هو يسكن هنا منذ كان عمره ثمانية."],
+    ["Majid's uncle has been a comedian for ten years.", "عمّ ماجد كوميدي منذ عشر سنوات."],
+    ["I haven't seen his show since I was five.", "لم أشاهد عرضه منذ كنت في الخامسة."],
+    ["I've been ready since lunchtime!", "أنا جاهز من وقت الغداء!"]
+  ],
+  tip: "اسأل نفسك: هل الكلمة بعدها «متى بدأ؟» → since. أم «كم المدة؟» → for.",
+  games: [
+    { type: "sort", title: "since أم for؟", buckets: ["since", "for"], items: [
+      ["2019", 0], ["ten years", 1], ["Monday", 0], ["a long time", 1], ["lunchtime", 0], ["two days", 1],
+      ["6 o'clock", 0], ["a week", 1], ["April", 0], ["five minutes", 1], ["I was eight", 0], ["three months", 1] ] },
+    { type: "fill", items: [
+      ["I've lived in Sohar ___ five years.", ["since", "for"], 1],
+      ["She's been a writer ___ 2015.", ["since", "for"], 0],
+      ["How long ___ he had that costume?", ["have", "has"], 1],
+      ["They ___ known each other since they were six.", ["have", "has"], 0],
+      ["We've been at the circus ___ two hours.", ["since", "for"], 1],
+      ["I haven't eaten noodles ___ February.", ["since", "for"], 0],
+      ["He ___ been a clown for a long time.", ["has", "have"], 0],
+      ["I've wanted a new bike ___ my birthday.", ["since", "for"], 0] ] },
+    { type: "build", items: [
+      ["He has been a puppeteer since he was eight.", "هو محرّك دمى منذ كان عمره ثمانية."],
+      ["I have lived here for five years.", "أسكن هنا منذ خمس سنوات."],
+      ["How long have you had that costume?", "منذ متى وأنت عندك هذا الزيّ؟"] ] }
+  ],
+  quiz: [
+    Q("I have lived in Sohar ______ five years.", ["since", "for"], 1, "five years مدة ← for."),
+    Q("She has been a writer ______ 2015.", ["since", "for"], 0, "2015 نقطة بداية ← since."),
+    Q("How long ______ he had that costume?", ["have", "has", "is"], 1, "مع he نستخدم has."),
+    Q("They ______ known each other since they were six.", ["has", "have", "are"], 1, "مع they نستخدم have."),
+    Q("Choose the correct sentence.", ["I've been here since two hours.", "I've been here for two hours.", "I've been here for lunchtime."], 1, "two hours مدة ← for."),
+    Q("We use 'since' before ______.", ["a point in time (when it started)", "a period of time (how long)"], 0, "since + نقطة البداية."),
+    Q("Frank has been ready ______ lunchtime.", ["for", "since"], 1, "lunchtime وقت محدد ← since.")
+  ]
+},
+{
+  id: "u1l3", unit: "u1", icon: "🎢", en: "Places of entertainment", ar: "أماكن الترفيه",
+  intro: {
+    ar: "أين نذهب لنستمتع؟ في هذا الدرس نتعلم أسماء أماكن الترفيه، ونقرأ مذكّرات عائلة زارت مسقط في إجازة. المذكّرات (diary) نكتبها بضمير المتكلم I / we ونكتب التاريخ في بداية كل يوم.",
+    en: "Where do we go for fun? Learn the names of places of entertainment and read about a family's holiday diary in Muscat."
+  },
+  words: [
+    ["soft play centre", "مركز ألعاب ناعمة", "🤸", "Little children love the soft play centre."],
+    ["science museum", "متحف العلوم", "🔬", "We saw a hot-air balloon at the science museum."],
+    ["3D cinema", "سينما ثلاثية الأبعاد", "🎬", "You wear special glasses in a 3D cinema."],
+    ["art gallery", "معرض فنون", "🖼️", "There are many paintings in the art gallery."],
+    ["planetarium", "القبة الفلكية", "🪐", "We learned about planets at the planetarium."],
+    ["circus", "سيرك", "🎪", "The circus has clowns and acrobats."],
+    ["aquarium", "حوض الأحياء المائية", "🐠", "I loved the turtles at the aquarium."],
+    ["bowling alley", "صالة البولينغ", "🎳", "We played at the bowling alley."],
+    ["ice rink", "حلبة تزلّج على الجليد", "⛸️", "You can skate at the ice rink."],
+    ["theme park", "مدينة ملاهي", "🎢", "The theme park has big rides."],
+    ["adventure playground", "ملعب المغامرات", "🧗", "Climb and swing at the adventure playground."],
+    ["safari park", "حديقة السفاري", "🦁", "We saw lions at the safari park."]
+  ],
+  extra: [
+    { t: "📔 My Muscat diary — ملخّص القصة", en: "A family from Khasab spends a holiday in Muscat. They visit Al-Qurum park, an art gallery, the aquarium (the writer loves the turtles!), the National Museum and a planetarium. They go shopping at a big mall and watch a show at the Royal Opera House. On the way back, the little sister and brother fall asleep in the taxi!", ar: "عائلة من خصب تقضي إجازة في مسقط: حديقة القرم، معرض فنون، الأحياء المائية (أحبّ الكاتب السلاحف)، المتحف الوطني، القبة الفلكية، التسوّق، ثم عرض في دار الأوبرا السلطانية. وفي التاكسي نام الأخ والأخت الصغار!" }
+  ],
+  tip: "ربط الكلمة بالصورة يثبّتها: planet (كوكب) → planetarium ، aqua (ماء) → aquarium.",
+  games: [{ type: "memory" }, { type: "match" }, { type: "listen" }, { type: "scramble" }],
+  quiz: [
+    Q("You can see stars and planets here.", ["aquarium", "planetarium", "bowling alley"], 1, "planetarium = القبة الفلكية."),
+    Q("You can see fish, sharks and turtles here.", ["aquarium", "art gallery", "circus"], 0, "aquarium = الأحياء المائية."),
+    Q("Where can you skate?", ["ice rink", "safari park", "3D cinema"], 0, "ice rink = حلبة الجليد."),
+    Q("You look at paintings and sculptures in an ______.", ["art gallery", "ice rink", "soft play centre"], 0, "art gallery = معرض فنون."),
+    Q("In the diary, what did the writer love at the aquarium?", ["the sharks", "the turtles", "the penguins"], 1, "كتب أنه أحبّ السلاحف turtles."),
+    Q("Where did the family watch a show on the last evening?", ["at the circus", "at the Royal Opera House", "at the 3D cinema"], 1, "في دار الأوبرا السلطانية."),
+    Q("A diary uses ______.", ["the first person (I, we)", "the third person (he, she)"], 0, "المذكّرات بضمير المتكلم I / we.")
+  ]
+},
+{
+  id: "u1l4", unit: "u1", icon: "📅", en: "Present continuous for future plans", ar: "المضارع المستمر للخطط القادمة",
+  intro: {
+    ar: "لما نكون رتّبنا لشيء في المستقبل (حجزنا أو اتفقنا عليه)، نستخدم المضارع المستمر: am / is / are + الفعل مع ing، ونضيف كلمة تدل على المستقبل مثل: tonight، tomorrow، next week، on Saturday.\nمثال: We're watching a show tomorrow. = سنشاهد عرضاً غداً (والتذاكر محجوزة!).",
+    en: "We use the Present continuous (am/is/are + -ing) for future arrangements — things we have already decided or arranged. Add a future time: tonight, tomorrow, next week, on Saturday."
+  },
+  rule: {
+    title: "Present continuous for future arrangements",
+    head: ["الفاعل", "الفعل", "الوقت"],
+    rows: [
+      ["I'm", "watching a film", "tonight"],
+      ["He's / She's", "going to the museum", "tomorrow"],
+      ["We're", "seeing friends", "on Saturday"],
+      ["They aren't", "flying to Cairo", "next week"]
+    ],
+    notes: [
+      { ar: "النفي: نضيف not ← aren't / isn't / I'm not.", en: "They aren't going out tonight." },
+      { ar: "السؤال: نقدّم am / is / are.", en: "Are you visiting the aquarium on Sunday?" }
+    ]
+  },
+  examples: [
+    ["Tomorrow we're visiting Al-Qurum park.", "غداً سنزور حديقة القرم."],
+    ["This evening we're going to the cinema.", "هذا المساء سنذهب إلى السينما."],
+    ["We aren't going out tonight.", "لن نخرج الليلة."],
+    ["We're flying home to Khasab on Wednesday.", "سنطير إلى خصب يوم الأربعاء."]
+  ],
+  tip: "إذا شفت is/are + ing ومعها tomorrow أو next week ← الجملة عن خطة مستقبلية مرتّبة.",
+  games: [
+    { type: "fill", items: [
+      ["We ___ watching a show on Tuesday.", ["are", "is"], 0],
+      ["She ___ visiting her grandma tomorrow.", ["is", "are"], 0],
+      ["They ___ going out tonight. They're tired.", ["aren't", "isn't"], 0],
+      ["I'm ___ my friends on Saturday.", ["seeing", "see"], 0],
+      ["___ you going to the museum next week?", ["Are", "Is"], 0],
+      ["He's ___ to Cairo next month.", ["flying", "fly"], 0],
+      ["I ___ playing football this evening.", ["am", "are"], 0] ] },
+    { type: "build", items: [
+      ["We are visiting the aquarium tomorrow.", "سنزور الأحياء المائية غداً."],
+      ["She is flying to Cairo next week.", "ستطير إلى القاهرة الأسبوع القادم."],
+      ["They aren't going out tonight.", "لن يخرجوا الليلة."] ] }
+  ],
+  quiz: [
+    Q("We ______ a show at the Opera House on Tuesday.", ["are watching", "watches", "is watching"], 0, "we + are + watching."),
+    Q("She ______ her grandma tomorrow.", ["are visiting", "is visiting", "visiting"], 1, "she + is + visiting."),
+    Q("They ______ going out tonight. They are tired.", ["isn't", "aren't", "don't"], 1, "they + aren't."),
+    Q("Which sentence is a future arrangement?", ["I'm seeing my friends on Saturday.", "I see my friends every day.", "I saw my friends yesterday."], 0, "خطة مرتّبة لسبت قادم."),
+    Q("______ you going to the museum next week?", ["Is", "Are", "Do"], 1, "السؤال مع you يبدأ بـ Are."),
+    Q("We use the Present continuous for the future when we have ______ something.", ["arranged", "not decided"], 0, "للخطط المرتّبة مسبقاً.")
+  ]
+},
+{
+  id: "u1l5", unit: "u1", icon: "🎟️", en: "Buying tickets, adverts & culture", ar: "شراء التذاكر والإعلان والثقافة",
+  intro: {
+    ar: "كيف تشتري تذاكر بالإنجليزي؟ نتعلم جملاً مفيدة عند شبّاك التذاكر، وكيف نكتب إعلاناً جذّاباً، ونتعرّف على عروض من حول العالم مثل «الهبوت» العُماني.",
+    en: "Learn how to buy tickets, how to write a great advert, and meet performers around the world."
+  },
+  extra: [
+    { t: "🎫 At the ticket office — عند شبّاك التذاكر", list: [
+      ["Can I have four tickets, please?", "ممكن أربع تذاكر لو سمحت؟"],
+      ["One adult and three children, please.", "بالغ واحد وثلاثة أطفال لو سمحت."],
+      ["How much is a guide?", "كم سعر المرشد؟"],
+      ["That's 29 rials in total.", "المجموع 29 ريال."],
+      ["Here you are.", "تفضّل (عند إعطاء النقود)."],
+      ["Here are your tickets. Enjoy the fort!", "هذه تذاكرك. استمتع بالقلعة!"] ] },
+    { t: "💰 قائمة الأسعار في القلعة", en: "Adult: 7 OMR · Child: 4 OMR · Guide: 10 OMR", ar: "مثال: بالغ + 3 أطفال = 7 + 12 = 19 ريال. ومع المرشد: 19 + 10 = 29 ريال." },
+    { t: "📣 How to write an advert — كيف تكتب إعلاناً", ar: "أعطِ المعلومات المهمة (المكان، الوقت، السعر). استخدم نقاطاً (•)، وشعاراً logo، وجملة مميزة slogan مثل Hours of fun for all the family، وعرضاً خاصاً special offer. واستخدم أفعالاً وصفات مثيرة: ride, climb, amazing, the biggest.", en: "Give important information. Use bullet points, a logo, a slogan and special offers." },
+    { t: "🌍 Performers around the world", en: "Al Haboot is a traditional Omani performance, popular in Dhofar. Performers sing a poem to a special rhythm, move with it and often carry swords. Cirque du Soleil is a big circus from Canada. Its name means 'circus of the sun'. It started in 1984.", ar: "الهبوت فنّ عُماني تقليدي مشهور في ظفار: يغنّون قصيدة على إيقاع خاص ويحملون السيوف. سيرك الشمس Cirque du Soleil من كندا وبدأ عام 1984." }
+  ],
+  tip: "النطق: نهايات الوظائف مثل performer و editor و operator تُنطق بصوت خفيف قصير «ə» وليس «إير» قويّة.",
+  games: [
+    { type: "fill", title: "شبّاك التذاكر", items: [
+      ["Adult 7, child 4. One adult + one child = ___ rials", ["11", "14"], 0],
+      ["Two adults = ___ rials", ["14", "8"], 0],
+      ["Three children = ___ rials", ["12", "7"], 0],
+      ["One adult + three children = ___ rials", ["19", "21"], 0],
+      ["19 rials + a guide (10) = ___ rials", ["29", "27"], 0],
+      ["You give the money and say: ___", ["Here you are.", "Enjoy the fort!"], 0],
+      ["The seller says: ___", ["Here are your tickets.", "Can I have four tickets?"], 0] ] },
+    { type: "build", items: [
+      ["Can I have four tickets, please?", "ممكن أربع تذاكر لو سمحت؟"],
+      ["One adult and three children, please.", "بالغ واحد وثلاثة أطفال لو سمحت."],
+      ["How much is a guide?", "كم سعر المرشد؟"] ] }
+  ],
+  quiz: [
+    Q("Adult tickets are 7 rials and child tickets are 4 rials. How much for 1 adult and 3 children?", ["19 rials", "11 rials", "28 rials"], 0, "7 + (3×4) = 19."),
+    Q("What do you say when you give someone money?", ["Here you are.", "You're welcome.", "Enjoy the show!"], 0, "Here you are = تفضّل."),
+    Q("How do you ask for tickets politely?", ["Give me tickets.", "Can I have two tickets, please?", "I tickets want."], 1, "Can I have ..., please? مهذّبة."),
+    Q("Al Haboot is a traditional performance from ______.", ["Oman", "Canada", "Egypt"], 0, "الهبوت فن عُماني من ظفار."),
+    Q("'Cirque du Soleil' means ______.", ["circus of the moon", "circus of the sun", "circus of the sea"], 1, "Soleil = الشمس."),
+    Q("'Hours of fun for all the family' is an example of a ______.", ["slogan", "logo", "price"], 0, "slogan جملة قصيرة مميّزة في الإعلان."),
+    Q("In an advert, we often use ______ for dates and times.", ["bullet points (•)", "long stories"], 0, "النقاط • تجعل المعلومات واضحة.")
+  ]
+},
+
+/* ---------------- UNIT 2 ---------------- */
+{
+  id: "u2l1", unit: "u2", icon: "🐪", en: "Animal body parts", ar: "أجزاء جسم الحيوان",
+  intro: {
+    ar: "كل حيوان له أجزاء جسم مميّزة: الجمل له سنام، والقنفذ له أشواك، والسمكة لها زعانف وحراشف. تعلّم أسماءها لتصف أي حيوان بالإنجليزي!",
+    en: "Animals have amazing body parts. Learn their names so you can describe any animal."
+  },
+  words: [
+    ["beak", "منقار", "🐦", "A duck has a beak."],
+    ["tongue", "لسان", "👅", "A lizard has a long tongue."],
+    ["hump", "سنام", "🐪", "Camels in Oman have one hump."],
+    ["whiskers", "شوارب", "🐱", "Cats have long whiskers."],
+    ["antennae", "قرون استشعار", "🐜", "Bees use their antennae to smell."],
+    ["spines", "أشواك", "🦔", "A hedgehog has spines."],
+    ["scales", "حراشف", "🐍", "Snakes have scales."],
+    ["fin", "زعنفة", "🦈", "A shark has a big fin."],
+    ["paws", "كفوف", "🐾", "Dogs have four paws."],
+    ["claws", "مخالب", "🦅", "Eagles have sharp claws."],
+    ["flippers", "زعانف (أطراف السباحة)", "🦭", "Seals have flippers, not feet."],
+    ["horns", "قرون", "🦏", "The Arabian oryx has long horns."]
+  ],
+  extra: [
+    { t: "🧩 WOW! Quiz — خمّن الحيوان", en: "It lives in the desert and has one hump. → a camel\nIt has flippers, huge eyes and long whiskers. → a seal\nIt has a beak and swims in the pond. → a duck\nIt has six legs, four wings and two antennae. → a bee", ar: "من الوصف نعرف الحيوان: سنام ← جمل، زعانف وشوارب ← فقمة، منقار ← بطّة، قرون استشعار ← نحلة." }
+  ],
+  tip: "بعض الكلمات جمع دائماً: whiskers، antennae، spines، scales، paws، claws.",
+  games: [{ type: "memory" }, { type: "match" }, { type: "scramble" }, { type: "listen" }],
+  quiz: [
+    Q("In Oman, camels have one ______.", ["hump", "fin", "beak"], 0, "السنام hump."),
+    Q("A seal doesn't have feet. It has ______.", ["claws", "flippers", "horns"], 1, "الفقمة لها flippers."),
+    Q("Bees use their ______ to smell.", ["antennae", "tongue", "scales"], 0, "قرون الاستشعار antennae."),
+    Q("A hedgehog has ______.", ["scales", "spines", "a hump"], 1, "القنفذ له أشواك spines."),
+    Q("Fish have ______ and ______.", ["fins and scales", "paws and claws", "horns and whiskers"], 0, "السمك له زعانف وحراشف."),
+    Q("The Arabian oryx has long ______.", ["horns", "flippers", "antennae"], 0, "المها العربي له قرون طويلة."),
+    Q("A bird uses its ______ to eat.", ["beak", "hump", "fin"], 0, "الطائر يأكل بمنقاره beak.")
+  ]
+},
+{
+  id: "u2l2", unit: "u2", icon: "🔍", en: "Guessing: must, might, can't", ar: "الاستنتاج: must / might / can't",
+  intro: {
+    ar: "لما نشوف شيئاً ولا نعرفه بالضبط، نخمّن باستخدام هذه الكلمات:\n• must = متأكد أنه صحيح ✅ (It has spines. It must be a hedgehog.)\n• may / might / could = ربما، لست متأكداً 🤔 (It might be a bird.)\n• can't = متأكد أنه غير صحيح ❌ (Bears don't live here. It can't be a bear.)\nوبعدها دائماً الفعل في أصله: be أو have.",
+    en: "Use must when you're sure something is true. Use may, might or could when you're not sure. Use can't when you're sure something is not true."
+  },
+  rule: {
+    title: "Modals of deduction",
+    head: ["الكلمة", "المعنى", "مثال"],
+    rows: [
+      ["must", "✅ متأكد: صحيح", "It must be a hedgehog."],
+      ["may / might / could", "🤔 ربما", "It might be a bird. It could have fur."],
+      ["can't", "❌ متأكد: غير صحيح", "It can't be a snake."]
+    ],
+    notes: [{ ar: "بعد must / might / can't لا نضيف s ولا to.", en: "It could have fur. ✔  It could has fur. ✘" }]
+  },
+  examples: [
+    ["It can't be a bear. Bears don't live here.", "لا يمكن أن يكون دبّاً. الدببة لا تعيش هنا."],
+    ["It could be a bird. I can hear birds.", "ربما يكون طائراً. أسمع أصوات طيور."],
+    ["It can't be a snake. It doesn't have scales.", "لا يمكن أن يكون أفعى. ليس له حراشف."],
+    ["It has spines. It must be a hedgehog.", "له أشواك. لا بد أنه قنفذ."],
+    ["It isn't moving. It may be scared.", "لا يتحرك. ربما هو خائف."]
+  ],
+  tip: "تخيّل مقياس: must = 100٪ ، might = 50٪ ، can't = 0٪.",
+  games: [
+    { type: "sort", title: "كم أنت متأكد؟", buckets: ["must ✅", "might 🤔", "can't ❌"], items: [
+      ["It has spines and it's rolling into a ball. It ___ be a hedgehog.", 0],
+      ["Bears don't live in Oman. It ___ be a bear.", 2],
+      ["I can hear something in the tree. It ___ be a bird.", 1],
+      ["It doesn't have wings. It ___ be a bird.", 2],
+      ["It has a hump and it's in the desert. It ___ be a camel.", 0],
+      ["It's small and brown. I can't see it well. It ___ be a mouse.", 1],
+      ["It swims and has fins and scales. It ___ be a fish.", 0],
+      ["It's very dark. It ___ be a cat or a dog.", 1],
+      ["It has no fur. It ___ be a lion.", 2] ] },
+    { type: "fill", items: [
+      ["It has a beak and wings. It ___ be a bird.", ["must", "can't"], 0],
+      ["It doesn't have scales. It ___ be a snake.", ["can't", "must"], 0],
+      ["I'm not sure. It ___ be a cat.", ["might", "must"], 0],
+      ["It could ___ fur.", ["have", "has"], 0],
+      ["He's been awake all night. He ___ be tired.", ["must", "can't"], 0],
+      ["Penguins don't live in the desert. It ___ be a penguin.", ["can't", "might"], 0] ] }
+  ],
+  quiz: [
+    Q("It has a beak and wings. It ______ be a bird.", ["must", "can't", "might not"], 0, "الأدلة واضحة ← متأكد ← must."),
+    Q("It doesn't have scales. It ______ be a snake.", ["must", "can't", "may"], 1, "الأفعى لها حراشف، إذن متأكد أنها ليست أفعى ← can't."),
+    Q("I'm not sure what it is. It ______ be a cat.", ["must", "might", "can't"], 1, "غير متأكد ← might."),
+    Q("Which word means 'I'm sure it's true'?", ["could", "must", "may"], 1, "must = متأكد."),
+    Q("The hedgehog isn't moving. It ______ be scared.", ["may", "can't", "is"], 0, "إيميلي خمّنت: ربما هو خائف ← may."),
+    Q("Choose the correct sentence.", ["It could has fur.", "It could have fur.", "It could to have fur."], 1, "بعد could الفعل بدون s."),
+    Q("In the story, why did they know it was a hedgehog?", ["It had spines.", "It had wings.", "It could roar."], 0, "لأن له أشواك spines.")
+  ]
+},
+{
+  id: "u2l3", unit: "u2", icon: "🦁", en: "Animal verbs & a folk tale", ar: "أفعال الحيوانات وحكاية شعبية",
+  intro: {
+    ar: "ماذا تفعل الحيوانات؟ الأسد يزأر، والنحلة تلدغ، والقنفذ يتكوّر! ونقرأ حكاية شعبية عن حيوان «البلاتيبوس» (منقار البط). الحكاية الشعبية (folk tale) قصة قديمة تعلّمنا درساً مهماً.",
+    en: "What do animals do? Lions roar, bees sting and hedgehogs curl up. Then read a folk tale about the platypus."
+  },
+  words: [
+    ["bite", "يعضّ", "🦷", "Some snakes can bite."],
+    ["sting", "يلدغ", "🐝", "A bee can sting you."],
+    ["roar", "يزأر", "🦁", "Lions roar loudly."],
+    ["fight", "يتقاتل", "🥊", "The animals were fighting."],
+    ["dive", "يغوص", "🤿", "Fish can swim and dive."],
+    ["dig", "يحفر", "⛏️", "Rabbits dig holes."],
+    ["hide", "يختبئ", "🙈", "The platypus was hiding."],
+    ["lay eggs", "يضع البيض", "🥚", "Birds lay eggs."],
+    ["curl up", "يتكوّر", "🌀", "The hedgehog curls up."],
+    ["fly away", "يطير بعيداً", "🕊️", "The bird flew away."],
+    ["run away", "يهرب ركضاً", "🏃", "The leopard runs away."],
+    ["die", "يموت", "🥀", "Plants die without water."]
+  ],
+  extra: [
+    { t: "🦆 The platypus folk tale — ملخّص الحكاية", en: "Long ago, the animals were fighting to be the best group. The lions said, 'Join us — you have fur and you can run.' The fish said, 'Join us — you can swim and dive.' The birds said, 'Join us — you have a beak and you lay eggs.' The next day, the platypus said: 'I don't want to join any group. You are all special in different ways, and I am special in my own way, too.' Then she curled up and went to sleep.", ar: "كل مجموعة (الأسود، الأسماك، الطيور) أرادت البلاتيبوس لأنها تشبههم في شيء. لكنها رفضت الانضمام لأي مجموعة وقالت: كلّكم مميّزون وأنا مميّزة بطريقتي. الدرس: كل واحد مميّز بطريقته." }
+  ],
+  tip: "بعض الأفعال من كلمتين (phrasal verbs): curl up، fly away، run away — احفظها كقطعة واحدة.",
+  games: [{ type: "match" }, { type: "memory" }, { type: "scramble" }, { type: "listen" }],
+  quiz: [
+    Q("A bee can ______ you.", ["roar", "sting", "dive"], 1, "النحلة تلدغ sting."),
+    Q("Lions ______ loudly.", ["roar", "lay eggs", "curl up"], 0, "الأسد يزأر roar."),
+    Q("When a hedgehog is scared, it ______.", ["flies away", "curls up", "dives"], 1, "القنفذ يتكوّر curl up."),
+    Q("Birds ______.", ["lay eggs", "have humps", "sting"], 0, "الطيور تبيض."),
+    Q("Which group did the platypus join?", ["the lions", "the birds", "no group"], 2, "رفضت الانضمام لأي مجموعة."),
+    Q("Why couldn't the platypus join the fish?", ["She can't breathe underwater.", "She can't swim.", "She has no fur."], 0, "قالت: لا أستطيع التنفّس تحت الماء."),
+    Q("What can we learn from the story?", ["Lions are the best.", "Everyone is special in their own way.", "Don't sleep a lot."], 1, "الدرس: كل واحد مميّز بطريقته.")
+  ]
+},
+{
+  id: "u2l4", unit: "u2", icon: "🌼", en: "First conditional: If ... will", ar: "الجملة الشرطية الأولى",
+  intro: {
+    ar: "نستخدم الجملة الشرطية الأولى للكلام عن شيء ممكن يحدث في المستقبل ونتيجته.\nالشكل: If + مضارع بسيط ، will + فعل.\nمثال: If we plant more flowers, more bees will come. = إذا زرعنا زهوراً أكثر، سيأتي نحل أكثر.\nانتبه: بعد If لا نستخدم will!",
+    en: "We use the first conditional for something that might happen in the future and its result: If + present simple, will + verb."
+  },
+  rule: {
+    title: "First conditional",
+    head: ["If + present", "will / won't + verb"],
+    rows: [
+      ["If you come with us,", "you'll be with the best animals."],
+      ["If I don't join the fish,", "they'll be angry."],
+      ["If I join the lions,", "the birds won't be happy."],
+      ["If we put bird food outdoors,", "more birds will come."]
+    ],
+    notes: [
+      { ar: "جزء If بالمضارع البسيط، والجزء الثاني بـ will.", en: "If it rains, we'll stay at home." },
+      { ar: "won't = will not.", en: "If you're late, you won't see the show." }
+    ]
+  },
+  examples: [
+    ["If you come and see me tomorrow, I'll tell you.", "إذا جئت لرؤيتي غداً، سأخبرك."],
+    ["If you wait, I'll decide tomorrow.", "إذا انتظرت، سأقرّر غداً."],
+    ["If there is water, animals will come.", "إذا كان هناك ماء، ستأتي الحيوانات."],
+    ["If you look carefully, you'll see lots of camels.", "إذا نظرت بعناية، سترى جمالاً كثيرة."]
+  ],
+  tip: "قاعدة سهلة: If ... (بدون will) ، ... will.",
+  games: [
+    { type: "match", title: "وصّل نصفي الجملة", pairs: [
+      ["If we plant more flowers,", "more bees will come."],
+      ["If we put bird food outdoors,", "birds will visit."],
+      ["If a scorpion stings you,", "you'll need to go to hospital."],
+      ["If you join us,", "you'll be in the best group."],
+      ["If it rains tomorrow,", "we'll stay at home."],
+      ["If you look up,", "you'll see an eagle."] ] },
+    { type: "fill", items: [
+      ["If it ___ tomorrow, we'll stay at home.", ["rains", "will rain"], 0],
+      ["If we put water outside, birds ___ come.", ["will", "are"], 0],
+      ["If you touch it, it ___ sting you.", ["will", "is"], 0],
+      ["If I don't join the fish, they ___ be angry.", ["will", "do"], 0],
+      ["If she ___ hard, she'll win the prize.", ["works", "will work"], 0],
+      ["If you're late, you ___ see the show.", ["won't", "don't"], 0] ] },
+    { type: "build", items: [
+      ["If we plant more flowers, more bees will come.", "إذا زرعنا زهوراً أكثر سيأتي نحل أكثر."],
+      ["If you look up, you will see an eagle.", "إذا نظرت للأعلى سترى نسراً."] ] }
+  ],
+  quiz: [
+    Q("If it ______ tomorrow, we'll stay at home.", ["will rain", "rains", "raining"], 1, "بعد If مضارع بسيط: rains."),
+    Q("If we put bird food outside, more birds ______ come.", ["will", "are", "did"], 0, "النتيجة بـ will."),
+    Q("If you touch a scorpion, it ______ sting you.", ["will", "is", "was"], 0, "النتيجة بـ will."),
+    Q("If I ______ join the fish, they'll be angry.", ["won't", "don't", "am not"], 1, "بعد If نستخدم don't وليس won't."),
+    Q("The 'if' part of the sentence uses the ______.", ["present simple", "future with will"], 0, "جزء If بالمضارع البسيط."),
+    Q("Choose the correct sentence.", ["If we will plant trees, animals come.", "If we plant trees, animals will come.", "If we plant trees, animals came."], 1, "If + present ، will + verb.")
+  ]
+},
+{
+  id: "u2l5", unit: "u2", icon: "🦌", en: "Likes, dislikes & national animals", ar: "ما أحبّه وما أكرهه والحيوانات الوطنية",
+  intro: {
+    ar: "كيف تقول إنك تحب شيئاً جداً أو تكرهه؟ عندنا سلّم من الجمل من «أحبّه جداً» إلى «لا أطيقه». ونتعرّف على الحيوانات الوطنية لبعض الدول، وأهمها المها العربي حيوان عُمان الوطني، ونتعلم كتابة ملف معلومات (fact file).",
+    en: "Learn how to say what you like and don't like, discover national animals, and write an information text from a fact file."
+  },
+  extra: [
+    { t: "😍 → 😫 سلّم المشاعر", list: [
+      ["I'm crazy about sea animals.", "😍 أحبّها جداً"],
+      ["I find ants really interesting.", "🤩 أجدها ممتعة جداً"],
+      ["I quite like cats.", "🙂 أحبّها نوعاً ما"],
+      ["I don't mind spiders.", "😐 لا تزعجني"],
+      ["I'm not keen on snakes.", "🙁 لا أحبّها كثيراً"],
+      ["I don't like sharks at all.", "😖 لا أحبّها أبداً"],
+      ["I can't stand spiders!", "😫 لا أطيقها!"] ] },
+    { t: "🇴🇲 National animals — الحيوانات الوطنية", en: "Oman: the Arabian oryx — white fur, long horns; lives in groups of 15–30 and gets all its water from its food.\nMadagascar: the ring-tailed lemur — a long striped tail; very good at jumping and climbing.\nIndonesia: the Komodo dragon — the largest lizard in the world; it tastes the air with its tongue and has venom.", ar: "عُمان: المها العربي (فرو أبيض وقرون طويلة، يأخذ الماء من طعامه). مدغشقر: الليمور ذو الذيل المخطّط. إندونيسيا: تنّين كومودو أكبر سحلية في العالم." },
+    { t: "📋 Fact file — ملف معلومات", ar: "ملف المعلومات فيه: الاسم، النوع (فقاري vertebrate أو لا فقاري invertebrate)، المسكن، الطعام، الحجم، الجسم، هل يبيض؟ وحقائق ممتعة. عند الكتابة: جمل كاملة، بدون اختصارات، وأضف صفات.", en: "Name · Type · Home · Food · Size · Body · Family · Interesting facts" }
+  ],
+  tip: "عند مقارنة معلومتين متعاكستين استخدم but: They are small, but they have very big ears!",
+  games: [
+    { type: "sort", title: "أحبّ أم لا أحبّ؟", buckets: ["👍 like", "😐 OK", "👎 don't like"], items: [
+      ["I'm crazy about dolphins.", 0], ["I can't stand spiders.", 2], ["I don't mind ants.", 1],
+      ["I find sharks really interesting.", 0], ["I'm not keen on snakes.", 2], ["I quite like cats.", 0],
+      ["I don't like bees at all.", 2] ] },
+    { type: "match", title: "حيوان ودولة", pairs: [
+      ["Arabian oryx", "Oman 🇴🇲"], ["Komodo dragon", "Indonesia 🇮🇩"], ["Ring-tailed lemur", "Madagascar 🇲🇬"],
+      ["Mata mata turtle", "South America"], ["Giant prickly stick insect", "Australia"] ] }
+  ],
+  quiz: [
+    Q("What is the national animal of Oman?", ["the camel", "the Arabian oryx", "the Arabian leopard"], 1, "المها العربي."),
+    Q("Where does the Arabian oryx get its water?", ["from rivers", "from its food", "from the sea"], 1, "يأخذ كل الماء من طعامه."),
+    Q("The Komodo dragon is the largest ______ in the world.", ["bird", "lizard", "fish"], 1, "أكبر سحلية."),
+    Q("'I can't stand spiders' means ______.", ["I love spiders.", "I really don't like spiders.", "Spiders can't stand."], 1, "لا أطيقها."),
+    Q("Which sentence shows the strongest LIKE?", ["I don't mind it.", "I'm crazy about it.", "I quite like it."], 1, "crazy about = أحبّه جداً."),
+    Q("A stick insect has no backbone. It is an ______.", ["invertebrate", "vertebrate"], 0, "لا فقاري = invertebrate."),
+    Q("In an information text, you should ______.", ["write full sentences", "use lots of abbreviations"], 0, "جمل كاملة بدون اختصارات.")
+  ]
+},
+
+/* ---------------- UNIT 3 ---------------- */
+{
+  id: "u3l1", unit: "u3", icon: "🧳", en: "Things to take when you travel", ar: "أغراض السفر",
+  intro: {
+    ar: "قبل السفر نجهّز حقيبتنا. ماذا نأخذ؟ جواز السفر، الشاحن، فرشاة الأسنان... فرانك يعطينا نصائح للسفر: تأكد من تاريخ جوازك، واكتب اسمك وعنوانك على الحقيبة، ولا تنسَ الشاحن!",
+    en: "What do you pack for a trip? Learn the words and read Frank's travel tips."
+  },
+  words: [
+    ["passport", "جواز سفر", "🛂", "Check the date on your passport."],
+    ["guidebook", "كتيّب إرشادي", "📘", "Guidebooks are heavy."],
+    ["umbrella", "مظلّة", "☂️", "Take an umbrella for rainy days."],
+    ["flip-flops", "شبشب / نعال", "🩴", "Take flip-flops for sunny days."],
+    ["charger", "شاحن", "🔌", "Don't forget the charger for your phone!"],
+    ["suitcase", "حقيبة سفر", "🧳", "Use a suitcase on wheels."],
+    ["raincoat", "معطف مطر", "🧥", "I'll pack my raincoat."],
+    ["medicine", "دواء", "💊", "Don't forget your medicine."],
+    ["pillow", "وسادة", "🛌", "Take a pillow if you travel at night."],
+    ["washbag", "حقيبة أدوات الاستحمام", "👝", "My toothbrush is in my washbag."],
+    ["toothbrush", "فرشاة أسنان", "🪥", "Bring your toothbrush."],
+    ["soap", "صابون", "🧼", "Soap goes in the washbag."]
+  ],
+  extra: [
+    { t: "✈️ Frank's travel tips — نصائح فرانك", en: "Remember your passport, ticket and money. Children need a new passport every five years. Put your name and address on your bag — then you won't lose it. Take a raincoat or an umbrella for rainy days, and a pillow if you travel at night. Don't take heavy guidebooks — download apps instead. But remember your charger!", ar: "الأطفال يحتاجون جوازاً جديداً كل 5 سنوات، والكبار كل 10 سنوات. اكتب اسمك وعنوانك على الحقيبة. خذ وسادة للسفر ليلاً، وحمّل تطبيقات بدل الكتيّبات الثقيلة." }
+  ],
+  tip: "wash + bag = washbag ، tooth + brush = toothbrush ، rain + coat = raincoat. كلمات مركّبة سهلة!",
+  games: [{ type: "memory" }, { type: "scramble" }, { type: "match" }, { type: "listen" }],
+  quiz: [
+    Q("You need a ______ to travel to another country.", ["pillow", "passport", "soap"], 1, "جواز السفر passport."),
+    Q("It's raining! Take your ______.", ["flip-flops", "umbrella", "charger"], 1, "المظلّة umbrella."),
+    Q("My phone battery is empty. I need my ______.", ["charger", "washbag", "guidebook"], 0, "الشاحن charger."),
+    Q("Which thing goes in your washbag?", ["toothbrush", "passport", "pillow"], 0, "فرشاة الأسنان في حقيبة الاستحمام."),
+    Q("Children need a new passport every ______ years.", ["five", "ten", "two"], 0, "حسب فرانك: كل 5 سنوات."),
+    Q("Why should you put your name and address on your bag?", ["So you won't lose it.", "So it looks nice.", "So it's lighter."], 0, "حتى لا تضيع."),
+    Q("Which things can you WEAR?", ["raincoat and flip-flops", "soap and charger", "pillow and medicine"], 0, "نلبس معطف المطر والشبشب.")
+  ]
+},
+{
+  id: "u3l2", unit: "u3", icon: "🗺️", en: "going to and will", ar: "going to و will",
+  intro: {
+    ar: "كلاهما للمستقبل، لكن الفرق:\n• going to = خطة أو قرار اتخذته من قبل 📝 (I'm going to take a small rucksack.)\n• will = قرار تأخذه الآن لحظة الكلام ⚡، أو عرض مساعدة (Don't worry. I'll take one.)\nمثال من الحوار: ماجد ما عنده مظلّة، ففرانك قرّر فوراً: I'll take one. We can share it.",
+    en: "Use going to for things you have already decided. Use will when you decide at the time of speaking, or to offer help."
+  },
+  rule: {
+    title: "going to and will",
+    head: ["", "إيجاب", "نفي"],
+    rows: [
+      ["going to 📝", "I'm going to visit London.", "She isn't going to take a guidebook."],
+      ["will ⚡", "I'll take a small bag, too.", "I won't forget my passport."]
+    ],
+    notes: [{ ar: "will مع كل الضمائر بنفس الشكل: I'll, you'll, he'll...", en: "I will = I'll · will not = won't" }]
+  },
+  examples: [
+    ["I'm going to take a small rucksack.", "سآخذ حقيبة ظهر صغيرة (قرار سابق)."],
+    ["Good idea. I'll take a small bag, too.", "فكرة جيدة، سآخذ حقيبة صغيرة أيضاً (قرار الآن)."],
+    ["We're going to visit London.", "سنزور لندن (خطة)."],
+    ["I'll go home and look for it now.", "سأذهب للبيت وأبحث عنه الآن."]
+  ],
+  tip: "إذا الجملة فيها ردّ فعل مفاجئ (Oh! / Don't worry / OK then) غالباً will.",
+  games: [
+    { type: "sort", title: "خطة أم قرار الآن؟", buckets: ["going to 📝", "will ⚡"], items: [
+      ["We bought the tickets last week. We ___ visit Salalah.", 0],
+      ["The phone is ringing! I ___ answer it.", 1],
+      ["You don't have an umbrella? Don't worry. I ___ take one.", 1],
+      ["She decided yesterday. She ___ study art.", 0],
+      ["It's hot in here. I ___ open the window.", 1],
+      ["Our plan for the holiday: we ___ go camping.", 0],
+      ["That bag looks heavy. I ___ help you.", 1] ] },
+    { type: "fill", items: [
+      ["I've already packed. I'm ___ to travel by train.", ["going", "will"], 0],
+      ["Oh no, I forgot my pen! — Don't worry, I ___ lend you one.", ["'ll", "'m going to"], 0],
+      ["We ___ going to visit London.", ["are", "will"], 0],
+      ["I ___ forget my passport. I promise!", ["won't", "am not"], 0],
+      ["She ___ going to take her camera.", ["is", "will"], 0],
+      ["I'm thirsty. — I ___ get you some water.", ["'ll", "am going"], 0] ] }
+  ],
+  quiz: [
+    Q("I've already bought the tickets. We ______ visit London.", ["will", "are going to", "going"], 1, "قرار سابق (التذاكر مشتراة) ← going to."),
+    Q("The phone is ringing! — I ______ answer it.", ["'ll", "'m going to", "am"], 0, "قرار لحظي ← will."),
+    Q("Majid: I don't have an umbrella. Frank: Don't worry. I ______ take one.", ["'ll", "am going to"], 0, "قرر فرانك الآن ← I'll."),
+    Q("We use 'will' when we ______.", ["decide at the time of speaking", "have a plan from before"], 0, "will = قرار لحظة الكلام."),
+    Q("The negative of 'will' is ______.", ["willn't", "won't", "don't will"], 1, "will not = won't."),
+    Q("Who said 'I'm going to take a small rucksack'?", ["Frank", "Majid"], 0, "فرانك قالها في الحوار."),
+    Q("Where are Frank and Majid going?", ["to London", "to Cairo", "to Salalah"], 0, "سيزوران لندن ليتدرّبا على الإنجليزي.")
+  ]
+},
+{
+  id: "u3l3", unit: "u3", icon: "🚀", en: "Travel verbs & a science-fiction story", ar: "أفعال السفر وقصة خيال علمي",
+  intro: {
+    ar: "كيف نتحرك ونسافر؟ نركب الحافلة، ننزل من القطار، الطائرة تقلع وتهبط... ونقرأ قصة خيال علمي عن رحلة عائلة إلى القمر! قصص الخيال العلمي عادة تكون في المستقبل وفي عالم مختلف عن عالمنا.",
+    en: "Learn verbs for travelling and read a science-fiction story about a family holiday on the Moon."
+  },
+  words: [
+    ["pack your suitcase", "احزم حقيبتك", "🧳", "Go and pack your suitcase."],
+    ["go on a journey", "اذهب في رحلة", "🗺️", "We're going on an exciting journey."],
+    ["travel by train", "سافر بالقطار", "🚆", "We travelled by Moon train."],
+    ["catch a bus", "الحق بالحافلة", "🚌", "We'll catch a bus to the hotel."],
+    ["get on", "اصعد (إلى وسيلة النقل)", "⬆️", "We got on the rocket."],
+    ["get off", "انزل", "⬇️", "We got off the rocket."],
+    ["take off", "تُقلع", "🛫", "We took off into the sky."],
+    ["land", "تهبط", "🛬", "We land in fifteen minutes."],
+    ["arrive", "يصل", "📍", "We arrive tomorrow."],
+    ["leave", "يغادر", "👋", "The flight leaves in ten minutes."],
+    ["explore", "يستكشف", "🧭", "They explored the corridors."],
+    ["take a seat", "تفضّل بالجلوس", "💺", "Please take your seats."]
+  ],
+  extra: [
+    { t: "🌙 Holiday on the Moon — ملخّص القصة", en: "Issa is bored in the holidays. Dad says, 'We're going on an exciting journey tomorrow!' They catch a train to the launch pad and get on a rocket. It takes off, and the Earth gets smaller and smaller. They land, travel by Moon train to a space hotel and can see Mars from the window. It's fun at first, but there isn't much to do and the food isn't fresh. At the end, Issa says: 'When we get home, I'm going to ride my bike and go to the park!'", ar: "عيسى يشعر بالملل، فتأخذه العائلة في رحلة إلى القمر بالصاروخ. يقيمون في فندق فضائي ويرون المريخ! لكن لا يوجد الكثير لفعله والأكل ليس طازجاً، فيشتاق عيسى للبيت والدرّاجة والحديقة." }
+  ],
+  tip: "احفظ الأضداد معاً: get on ↔ get off ، take off ↔ land ، arrive ↔ leave.",
+  games: [
+    { type: "match", title: "وصّل الأضداد", pairs: [
+      ["get on", "get off"], ["take off", "land"], ["arrive", "leave"], ["pack your suitcase", "unpack"], ["go on a journey", "come home"] ] },
+    { type: "memory" }, { type: "listen" }, { type: "scramble" }
+  ],
+  quiz: [
+    Q("The opposite of 'take off' is ______.", ["land", "leave", "get on"], 0, "تقلع ↔ تهبط."),
+    Q("The opposite of 'get on' is ______.", ["arrive", "get off", "explore"], 1, "اصعد ↔ انزل."),
+    Q("'Please take your ______.' The flight leaves in ten minutes.", ["seats", "suitcases", "buses"], 0, "take a seat = اجلس."),
+    Q("Where did Issa's family go on holiday?", ["to the beach", "to the Moon", "to Mars"], 1, "إلى القمر."),
+    Q("Where did they stay?", ["in a tent", "in a space hotel", "at Grandma's house"], 1, "في فندق فضائي."),
+    Q("Why did Issa want to go home?", ["The food wasn't fresh and there wasn't much to do.", "He was ill.", "The hotel was too big."], 0, "لا يوجد الكثير لفعله والأكل ليس طازجاً."),
+    Q("Science-fiction stories are usually ______.", ["in the future", "in the past", "about real people"], 0, "الخيال العلمي غالباً في المستقبل.")
+  ]
+},
+{
+  id: "u3l4", unit: "u3", icon: "🕐", en: "Present simple for timetables", ar: "المضارع البسيط للمواعيد",
+  intro: {
+    ar: "لما نتكلم عن جدول مواعيد ثابت (القطار، الطائرة، الفيلم، المدرسة) في المستقبل، نستخدم المضارع البسيط!\nThe train leaves in 15 minutes. = القطار يغادر بعد 15 دقيقة.\nتذكّر: مع he / she / it / the train نضيف s للفعل: leaves، lands، arrives.\nوالسؤال: What time does the flight land?",
+    en: "We use the Present simple for timetables and fixed plans in the future: The train leaves in 15 minutes. What time does the flight land?"
+  },
+  rule: {
+    title: "Present simple for the future",
+    head: ["الجملة", "الوقت"],
+    rows: [
+      ["The train leaves", "in 15 minutes."],
+      ["The flight lands", "at 6 o'clock."],
+      ["The plane takes off", "tomorrow."],
+      ["What time does the flight land? / When do we arrive?", ""]
+    ],
+    notes: [{ ar: "الجدول ثابت لا يتغيّر حسب رغبتنا ← مضارع بسيط.", en: "School starts at 7:30 tomorrow." }]
+  },
+  examples: [
+    ["The flight leaves in ten minutes.", "الرحلة تغادر بعد عشر دقائق."],
+    ["We arrive tomorrow!", "نصل غداً!"],
+    ["We land in fifteen minutes.", "نهبط بعد خمس عشرة دقيقة."],
+    ["When do we go back to Earth? — We leave in three days.", "متى نعود إلى الأرض؟ — نغادر بعد ثلاثة أيام."]
+  ],
+  tip: "شفت جدول مواعيد؟ ← مضارع بسيط + s مع المفرد.",
+  games: [
+    { type: "fill", title: "لوحة المطار", items: [
+      ["The flight to Doha ___ at 8:15.", ["takes off", "take off"], 0],
+      ["What time ___ the train arrive?", ["does", "do"], 0],
+      ["We ___ in fifteen minutes.", ["land", "lands"], 0],
+      ["The bus ___ at 4.30 p.m.", ["leaves", "leave"], 0],
+      ["When ___ we go back home?", ["do", "does"], 0],
+      ["The film ___ at 8 p.m. tonight.", ["starts", "start"], 0],
+      ["The coach ___ at Bahla at 6.30 p.m.", ["arrives", "arrive"], 0] ] },
+    { type: "build", items: [
+      ["The train leaves in fifteen minutes.", "القطار يغادر بعد خمس عشرة دقيقة."],
+      ["What time does the flight land?", "متى تهبط الرحلة؟"],
+      ["We arrive in Edinburgh at four o'clock.", "نصل إلى إدنبرة الساعة الرابعة."] ] }
+  ],
+  quiz: [
+    Q("The flight ______ at 6 o'clock tomorrow.", ["take off", "takes off", "taking off"], 1, "الرحلة (مفرد) ← takes off."),
+    Q("What time ______ the train arrive?", ["do", "does", "is"], 1, "السؤال مع the train ← does."),
+    Q("We ______ in fifteen minutes.", ["lands", "land", "landing"], 1, "we بدون s."),
+    Q("Which sentence talks about a timetable?", ["The film starts at 8 p.m.", "I'm going to watch a film.", "I watched a film."], 0, "موعد ثابت ← مضارع بسيط."),
+    Q("We use the Present simple for ______.", ["timetables and fixed plans", "things happening right now"], 0, "للجداول والمواعيد الثابتة."),
+    Q("In the Bahla email, the express coach leaves at ______.", ["4.30 p.m.", "6.30 p.m.", "9 a.m."], 0, "الحافلة تغادر 4:30 مساءً.")
+  ]
+},
+{
+  id: "u3l5", unit: "u3", icon: "🚆", en: "Feelings, emails & famous railways", ar: "المشاعر والإيميل وسكك حديد مشهورة",
+  intro: {
+    ar: "كيف تعبّر عن شعورك تجاه شيء قادم؟ متحمّس أو قلقان؟ ونتعلم كتابة إيميل رسمي مثل إيميل رحلة المدرسة إلى بهلاء، ونتعرّف على أشهر خطّين للقطارات في العالم.",
+    en: "Say how you feel about the future, learn to write a formal email, and read about two famous railways."
+  },
+  extra: [
+    { t: "😃 / 😟 Feelings about the future", list: [
+      ["I'm really looking forward to the holidays.", "😃 أنتظرها بشوق"],
+      ["I can't wait for the summer!", "🤩 لا أطيق الانتظار"],
+      ["I'm excited about camping.", "😄 متحمّس"],
+      ["I'm not looking forward to the long journey.", "😕 لا أنتظره بشوق"],
+      ["I'm worried about the exam.", "😟 قلقان"] ] },
+    { t: "📧 How to write an email — كيف تكتب إيميل", ar: "1) اكتب لمن الإيميل (To). 2) اكتب الموضوع (Subject). 3) ابدأ بـ Dear + الاسم. 4) في الفقرة الأولى قل لماذا تكتب. 5) قسّم الإيميل لفقرات. 6) الإيميل الرسمي ينتهي بـ Yours, + اسمك.", en: "To · Subject · Dear ... · Why you're writing · Paragraphs · Yours, (name)" },
+    { t: "🏰 School trip to Bahla — ملخّص الإيميل", en: "The trip is next Sunday. The express coach leaves at 4.30 p.m. and arrives in Bahla at 6.30 p.m. The hotel has a brand-new swimming pool, so bring your swimsuit. On Monday they visit Bahla fort — a UNESCO World Heritage site since 1987. Bring money, a sunhat and comfortable shoes.", ar: "رحلة مدرسية لبهلاء: الحافلة 4:30، الوصول 6:30. زيارة قلعة بهلاء (تراث عالمي في اليونسكو منذ 1987). أحضر ملابس سباحة، قبّعة، وحذاءً مريحاً." },
+    { t: "🚄 Famous railways", en: "Haramain High-Speed Railway (Saudi Arabia): between Makkah and Madinah, stopping at Jeddah. Trains go at 300 km an hour. It opened in 2018 and has 12 places where camels can cross!\nTrans-Siberian Railway (Russia): from Moscow to Vladivostok — the longest railway in the world, more than 9,000 km. You get on in Europe and get off in Asia!", ar: "قطار الحرمين السريع: بين مكة والمدينة مروراً بجدة، سرعته 300 كم/س، افتُتح 2018. سكة سيبيريا: من موسكو إلى فلاديفوستوك، الأطول في العالم (أكثر من 9000 كم)." }
+  ],
+  tip: "الإيميل الرسمي: Dear ... في البداية و Yours, في النهاية. لا تكتب Hi في إيميل رسمي!",
+  games: [
+    { type: "sort", title: "متحمّس أم قلقان؟", buckets: ["😃 excited", "😟 worried"], items: [
+      ["I can't wait for the trip!", 0], ["I'm worried about the long journey.", 1], ["I'm really looking forward to it.", 0],
+      ["I'm not looking forward to the exam.", 1], ["I'm excited about camping.", 0], ["I'm worried about the weather.", 1] ] },
+    { type: "build", title: "رتّب الإيميل", items: [
+      ["Dear students, the trip is next Sunday.", "أعزائي الطلاب، الرحلة يوم الأحد القادم."],
+      ["I'm really looking forward to the summer holidays.", "أنتظر الإجازة الصيفية بشوق."],
+      ["I can't wait to explore the city.", "لا أطيق الانتظار لاستكشاف المدينة."] ] }
+  ],
+  quiz: [
+    Q("'I can't wait for the summer!' means you feel ______.", ["worried", "excited", "bored"], 1, "لا أطيق الانتظار = متحمّس."),
+    Q("Which sentence shows a worry?", ["I'm excited about camping.", "I'm worried about the journey.", "I'm looking forward to it."], 1, "worried = قلقان."),
+    Q("A formal email starts with ______.", ["Dear ...", "Hey!", "Bye"], 0, "الرسمي يبدأ بـ Dear."),
+    Q("A formal email ends with ______.", ["Yours, (name)", "See ya!", "Dear ..."], 0, "ينتهي بـ Yours,"),
+    Q("Which is the longest railway in the world?", ["Haramain High-Speed", "Trans-Siberian"], 1, "سكة سيبيريا أكثر من 9000 كم."),
+    Q("How fast can Haramain trains travel?", ["100 km an hour", "300 km an hour", "900 km an hour"], 1, "300 كم في الساعة."),
+    Q("Bahla fort has been a UNESCO World Heritage site since ______.", ["1987", "2018", "1984"], 0, "منذ 1987.")
+  ]
+},
+
+/* ---------------- LEARNING CLUB ---------------- */
+{
+  id: "lc1", unit: "lc", icon: "📆", en: "Months, seasons & telling the time", ar: "الشهور والفصول والساعة",
+  intro: {
+    ar: "نتعلّم أسماء الشهور الاثني عشر، والفصول الأربعة، وكيف نقرأ الساعة بالإنجليزي. معلومة مدهشة: عندما يكون الصيف في أوروبا يكون الشتاء في أستراليا! وعندما تكون الساعة 7 مساءً في مسقط تكون 11 صباحاً في نيويورك.",
+    en: "Learn the months, the four seasons and how to tell the time. When it's summer in Europe, it's winter in Australia!"
+  },
+  words: [
+    ["January", "يناير", "❄️", "January is in winter in Europe."],
+    ["February", "فبراير", "💝", ""],
+    ["March", "مارس", "🌱", ""],
+    ["April", "أبريل", "🌷", ""],
+    ["May", "مايو", "🌼", ""],
+    ["June", "يونيو", "☀️", "June, July and August are in summer in Europe."],
+    ["July", "يوليو", "🏖️", ""],
+    ["August", "أغسطس", "🍉", ""],
+    ["September", "سبتمبر", "🎒", ""],
+    ["October", "أكتوبر", "🍂", ""],
+    ["November", "نوفمبر", "🌧️", ""],
+    ["December", "ديسمبر", "⛄", ""]
+  ],
+  extra: [
+    { t: "🌍 Seasons — الفصول", list: [["spring", "الربيع 🌷"], ["summer", "الصيف ☀️"], ["autumn", "الخريف 🍂"], ["winter", "الشتاء ❄️"]] },
+    { t: "🕓 Telling the time — الساعة", list: [
+      ["It's four o'clock. (4:00)", "الساعة الرابعة تماماً"],
+      ["It's quarter past four. (4:15)", "الرابعة والربع"],
+      ["It's half past four. (4:30)", "الرابعة والنصف"],
+      ["It's quarter to five. (4:45)", "الخامسة إلا ربعاً"] ] }
+  ],
+  tip: "past = بعد الساعة، to = قبل الساعة التالية. 4:45 = quarter to five (الخامسة إلا ربع).",
+  games: [
+    { type: "build", title: "رتّب الشهور", items: [
+      ["January February March April May June", "من يناير إلى يونيو"],
+      ["July August September October November December", "من يوليو إلى ديسمبر"],
+      ["spring summer autumn winter", "الفصول بالترتيب"] ] },
+    { type: "match", title: "الساعة", pairs: [
+      ["🕓 4:00", "four o'clock"], ["4:15", "quarter past four"], ["🕟 4:30", "half past four"], ["4:45", "quarter to five"], ["2:15", "quarter past two"], ["8:30", "half past eight"] ] },
+    { type: "scramble" }, { type: "listen" }
+  ],
+  quiz: [
+    Q("Which month comes after March?", ["February", "April", "May"], 1, "March ثم April."),
+    Q("4:45 is ______.", ["quarter past four", "quarter to five", "half past four"], 1, "الخامسة إلا ربع."),
+    Q("7:30 is ______.", ["half past seven", "half to seven", "seven o'clock"], 0, "half past seven."),
+    Q("In Europe, June, July and August are in ______.", ["winter", "summer", "autumn"], 1, "صيف أوروبا."),
+    Q("In Australia, December, January and February are in ______.", ["summer", "winter"], 0, "أستراليا عكس أوروبا ← صيف."),
+    Q("How many days are there in a year?", ["360", "365", "300"], 1, "الأرض تدور حول الشمس في 365 يوماً."),
+    Q("The last month of the year is ______.", ["November", "December", "January"], 1, "December.")
+  ]
+},
+{
+  id: "lc2", unit: "lc", icon: "🔬", en: "Science: Carroll diagrams", ar: "العلوم: مخطط كارول",
+  intro: {
+    ar: "مخطط كارول (Carroll diagram) جدول يرتّب الأشياء في 4 مربّعات حسب سؤالين بـ «نعم / لا». مثلاً: هل يحتاج المكان إلى ضوء؟ هل يحتاج إلى صوت؟\nالسينما تحتاج ضوءاً وصوتاً. الـ zip wire لا يحتاج ضوءاً ولا صوتاً.\nنقول: A cinema needs sound and light. A zip wire doesn't need light or sound.",
+    en: "A Carroll diagram sorts things with 'yes' and 'no' information. For example: it needs light / it doesn't need light."
+  },
+  rule: {
+    title: "Carroll diagram",
+    head: ["", "it needs sound 🔊", "it doesn't need sound 🔇"],
+    rows: [
+      ["it needs light 💡", "cinema, theatre", "art gallery"],
+      ["it doesn't need light 🌑", "(e.g. a street parade in the day)", "zip wire, trampoline"]
+    ],
+    notes: [
+      { ar: "needs للإيجاب، و doesn't need للنفي.", en: "A bowling alley needs sound, but it doesn't need light." },
+      { ar: "بعض الآلات تحوّل الكهرباء إلى حرارة (المحمصة) أو حركة (الخلّاط).", en: "A toaster makes heat. A food mixer makes movement." }
+    ]
+  },
+  examples: [
+    ["A cinema needs sound and it needs light.", "السينما تحتاج صوتاً وضوءاً."],
+    ["A zip wire doesn't need any light and it doesn't need any sound.", "الحبل المنزلق لا يحتاج ضوءاً ولا صوتاً."],
+    ["A hair dryer makes heat and movement.", "مجفّف الشعر يُنتج حرارة وحركة."]
+  ],
+  tip: "ارسم مربّعاً وقسّمه 4 أجزاء: سؤال فوق (نعم/لا) وسؤال على الجانب (نعم/لا).",
+  games: [
+    { type: "sort", title: "حرارة أم حركة؟", buckets: ["🔥 makes heat", "🌀 makes movement"], items: [
+      ["toaster", 0], ["food mixer", 1], ["escalator", 1], ["blender", 1], ["oven", 0], ["vacuum cleaner", 1], ["kettle", 0] ] },
+    { type: "fill", items: [
+      ["A cinema ___ sound.", ["needs", "doesn't need"], 0],
+      ["A zip wire ___ light.", ["doesn't need", "needs"], 0],
+      ["An art gallery needs light, but it ___ sound.", ["doesn't need", "needs"], 0],
+      ["A toaster makes ___.", ["heat", "movement"], 0],
+      ["An escalator makes ___.", ["movement", "heat"], 0] ] }
+  ],
+  quiz: [
+    Q("A Carroll diagram shows 'yes' and '______' information.", ["no", "maybe", "true"], 0, "نعم / لا."),
+    Q("A cinema ______.", ["needs sound and light", "doesn't need light", "doesn't need sound"], 0, "السينما تحتاج الاثنين."),
+    Q("A zip wire ______ any sound.", ["needs", "doesn't need"], 1, "لا يحتاج صوتاً."),
+    Q("A toaster makes ______.", ["heat", "movement", "sound"], 0, "المحمصة تُنتج حرارة."),
+    Q("Choose the correct sentence.", ["A theatre need light.", "A theatre needs light.", "A theatre doesn't needs light."], 1, "مع المفرد: needs."),
+    Q("A Carroll diagram has ______ boxes.", ["two", "four", "ten"], 1, "4 مربعات.")
+  ]
+}
+];
+
+/* ------ Final-exam-only items (A2 Flyers / Key style) ------ */
+const EXAM_PASSAGE = {
+  t: "📖 Read about Salim",
+  en: "Salim is a camera operator. He has worked for a TV company since 2018. Next week, he's travelling to Salalah by plane to film Arabian leopards in the mountains. 'If we're lucky, we'll see one,' he says. He isn't looking forward to getting up early, but he can't wait to explore the mountains. His flight takes off at 7 a.m. on Sunday. He's going to take his camera, a raincoat and, of course, a charger!"
+};
+const EXAM_EXTRA = [
+  Object.assign(Q("What is Salim's job?", ["He's a writer.", "He's a camera operator.", "He's a pilot."], 1, "في أول جملة: camera operator."), { p: 1, unit: "exam" }),
+  Object.assign(Q("How long has Salim worked for the TV company?", ["since 2018", "for 2018 years", "since two years"], 0, "has worked ... since 2018."), { p: 1, unit: "exam" }),
+  Object.assign(Q("How is Salim travelling to Salalah?", ["by train", "by bus", "by plane"], 2, "by plane."), { p: 1, unit: "exam" }),
+  Object.assign(Q("What isn't Salim looking forward to?", ["getting up early", "exploring the mountains", "seeing a leopard"], 0, "isn't looking forward to getting up early."), { p: 1, unit: "exam" }),
+  Object.assign(Q("When does his flight take off?", ["at 7 p.m. on Saturday", "at 7 a.m. on Sunday", "next month"], 1, "7 a.m. on Sunday."), { p: 1, unit: "exam" }),
+  Object.assign(Q("Fahad: Can I come with you? — Yousuf: ______", ["Of course you can!", "In the morning, I think.", "I like them all!"], 0, "ردّ مناسب على طلب: Of course you can!"), { unit: "exam" }),
+  Object.assign(Q("Fahad: How do we buy tickets? — Yousuf: ______", ["No, it isn't.", "You have to visit the website.", "Yes, please."], 1, "السؤال How ← الجواب بالطريقة."), { unit: "exam" }),
+  Object.assign(Q("Fahad: Are you going to have lunch in the café? — Yousuf: ______", ["No, we're taking a picnic.", "To the safari park.", "I like them all!"], 0, "سؤال نعم/لا عن الغداء ← No, we're taking a picnic.")
+    , { unit: "exam" })
+];
+
+</script>
+<script>
+/* ============ APP ============ */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const isAr = t => /[\u0600-\u06FF]/.test(t);
+const dirOf = t => isAr(t) ? "rtl" : "ltr";
+const blank = t => esc(t).replace(/_{3,}/g, '<span class="blank">?</span>');
+const bidi = t => esc(t).replace(/(?<![&#\w])[A-Za-z][A-Za-z0-9'’\/+\- ,.!?]*[A-Za-z0-9!?.']/g, m => `<bdi class="lat">${m}</bdi>`);
+const nl = t => String(t).split("\n").map(x => `<p>${bidi(x)}</p>`).join("");
+
+const EXAM_N = LESSONS.length + EXAM_EXTRA.length;
+const UNIT = Object.fromEntries(UNITS.map(u => [u.id, u]));
+const LES = Object.fromEntries(LESSONS.map(l => [l.id, l]));
+const unitLessons = id => LESSONS.filter(l => l.unit === id);
+const unitNo = id => ({ w: "Welcome", u1: "Unit 1", u2: "Unit 2", u3: "Unit 3", lc: "Learning Club" }[id]);
+const cvars = u => `--c:var(--${u.c});--cs:var(--${u.c}-soft)`;
+
+const GAME_META = {
+  match: ["🔗", "وصّل", "اختر بطاقة، ثم اختر البطاقة التي تناسبها."],
+  memory: ["🃏", "لعبة الذاكرة", "اقلب بطاقتين وطابق الصورة مع الكلمة."],
+  listen: ["🎧", "اسمع واختر", "اسمع الكلمة واختر الصحيحة. اضغط 🔊 لتسمعها مرة ثانية."],
+  scramble: ["🔤", "رتّب الحروف", "اضغط الحروف بالترتيب لتكتب الكلمة."],
+  sort: ["🧺", "صنّف", "ضع كل بطاقة في السلة الصحيحة."],
+  build: ["🧩", "كوّن الجملة", "اضغط الكلمات بالترتيب الصحيح."],
+  fill: ["⚡", "تحدّي السرعة", "اختر الإجابة الصحيحة قبل أن ينتهي الوقت!"]
+};
+
+/* ---------- progress (per-viewer, browser only) ---------- */
+const KEY = "wow7a-progress-v1";
+let P = { stars: {}, games: {}, exam: null, mute: false, theme: null, lang: "both" };
+try { const s = localStorage.getItem(KEY); if (s) P = Object.assign(P, JSON.parse(s)); } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(P)); } catch (e) {} };
+const starsTotal = () => LESSONS.reduce((n, l) => n + (P.stars[l.id] || 0), 0);
+const unitStars = id => unitLessons(id).reduce((n, l) => n + (P.stars[l.id] || 0), 0);
+const starStr = n => "★".repeat(n) + "☆".repeat(3 - n);
+
+/* ---------- speech + sound ---------- */
+const canSpeak = "speechSynthesis" in window;
+let voice = null;
+function pickVoice() { if (!canSpeak) return; const v = speechSynthesis.getVoices(); voice = v.find(x => /en-GB/i.test(x.lang)) || v.find(x => /^en/i.test(x.lang)) || null; }
+if (canSpeak) { pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+function say(t) {
+  if (!canSpeak || !t) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(t.replace(/_{3,}/g, "blank").replace(/[🕓🕟]/g, ""));
+  u.lang = "en-GB"; if (voice) u.voice = voice; u.rate = 0.85;
+  speechSynthesis.speak(u);
+}
+let AC = null;
+function tone(fs, d = 0.11, type = "sine") {
+  if (P.mute) return;
+  try {
+    AC = AC || new (window.AudioContext || window.webkitAudioContext)();
+    const t = AC.currentTime;
+    fs.forEach((f, i) => {
+      const o = AC.createOscillator(), g = AC.createGain();
+      o.type = type; o.frequency.value = f;
+      g.gain.setValueAtTime(0.0001, t + i * d);
+      g.gain.exponentialRampToValueAtTime(0.16, t + i * d + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + i * d + d);
+      o.connect(g).connect(AC.destination); o.start(t + i * d); o.stop(t + i * d + d + 0.03);
+    });
+  } catch (e) {}
+}
+const sfx = { ok: () => tone([660, 880]), no: () => tone([320, 240], 0.13, "triangle"), win: () => tone([523, 659, 784, 1046], 0.12), tap: () => tone([520], 0.05) };
+const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+function confetti() {
+  if (reduced()) return;
+  const box = document.createElement("div"); box.className = "confetti";
+  const cols = ["var(--sun)", "var(--peach)", "var(--mint)", "var(--sky)", "var(--lilac)"];
+  for (let i = 0; i < 48; i++) {
+    const s = document.createElement("i");
+    s.style.left = Math.random() * 100 + "%"; s.style.background = cols[i % 5];
+    s.style.setProperty("--dx", (Math.random() * 180 - 90) + "px");
+    s.style.setProperty("--r", (Math.random() * 720 - 360) + "deg");
+    s.style.animationDelay = Math.random() * 0.25 + "s";
+    s.style.animationDuration = 1.3 + Math.random() * 0.9 + "s";
+    box.appendChild(s);
+  }
+  document.body.appendChild(box); setTimeout(() => box.remove(), 2600);
+}
+const shake = el => { el.classList.remove("shake"); void el.offsetWidth; el.classList.add("shake"); };
+
+/* ---------- timers (cleared on navigation) ---------- */
+let TIMERS = [];
+const later = (fn, ms) => { const t = setTimeout(fn, ms); TIMERS.push(t); return t; };
+const stopAll = () => { TIMERS.forEach(clearTimeout); TIMERS = []; if (canSpeak) speechSynthesis.cancel(); };
+
+/* ---------- icons ---------- */
+const ICON = {
+  back: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  go: '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+};
+function mascot(cls = "") {
+  return `<svg class="mascot ${cls}" viewBox="0 0 220 220" aria-hidden="true">
+  <ellipse cx="110" cy="208" rx="62" ry="8" fill="var(--line)"/>
+  <g class="bob">
+    <path d="M110 24 L110 48" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/>
+    <polygon points="110,2 113.5,10.2 122.4,10.9 115.6,16.6 117.8,25.3 110,20.6 102.2,25.3 104.4,16.6 97.6,10.9 106.5,10.2" fill="var(--sun)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/>
+    <path class="wave" d="M186 118 Q214 100 204 74" stroke="var(--mint)" stroke-width="15" stroke-linecap="round" fill="none"/>
+    <path d="M34 132 Q14 148 24 170" stroke="var(--mint)" stroke-width="15" stroke-linecap="round" fill="none"/>
+    <path d="M110 46 C166 46 196 86 196 132 C196 178 160 200 110 200 C60 200 24 178 24 132 C24 86 54 46 110 46Z" fill="var(--mint)" stroke="var(--ink)" stroke-width="3"/>
+    <ellipse cx="110" cy="158" rx="50" ry="32" fill="#fff" opacity=".45"/>
+    <circle cx="82" cy="112" r="20" fill="#fff" stroke="var(--ink)" stroke-width="3"/>
+    <circle cx="138" cy="112" r="20" fill="#fff" stroke="var(--ink)" stroke-width="3"/>
+    <g class="eyes"><circle cx="86" cy="115" r="9" fill="#2F3B52"/><circle cx="142" cy="115" r="9" fill="#2F3B52"/>
+    <circle cx="89" cy="111" r="3" fill="#fff"/><circle cx="145" cy="111" r="3" fill="#fff"/></g>
+    <ellipse cx="64" cy="140" rx="11" ry="7" fill="var(--peach)" opacity=".9"/>
+    <ellipse cx="156" cy="140" rx="11" ry="7" fill="var(--peach)" opacity=".9"/>
+    <path d="M95 142 Q110 157 125 142" stroke="#2F3B52" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g></svg>`;
+}
+
+/* ---------- header ---------- */
+function header() {
+  $("#hdr").innerHTML = `
+    <a class="logo" href="#/" aria-label="الصفحة الرئيسية">${mascot("mini")}<span><b dir="ltr">WOW! 7A</b><small>منصّة الإنجليزي</small></span></a>
+    <nav class="hnav">
+      <a href="#/">الخريطة</a>
+      <a href="#/exam">الاختبار النهائي</a>
+    </nav>
+    <div class="htools">
+      <span class="starpill" title="نجومك">⭐ <b id="starCount">${starsTotal()}</b></span>
+      <button class="ibtn" id="muteBtn" aria-label="الصوت">${P.mute ? "🔇" : "🔊"}</button>
+      <button class="ibtn" id="themeBtn" aria-label="الوضع الليلي">🌙</button>
+    </div>`;
+  $("#muteBtn").onclick = () => { P.mute = !P.mute; save(); $("#muteBtn").textContent = P.mute ? "🔇" : "🔊"; };
+  $("#themeBtn").onclick = () => {
+    const dark = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    P.theme = dark ? "light" : "dark"; save(); applyTheme();
+  };
+  applyTheme();
+}
+function applyTheme() {
+  if (P.theme) document.documentElement.dataset.theme = P.theme; else delete document.documentElement.dataset.theme;
+  const dark = P.theme ? P.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  const b = $("#themeBtn"); if (b) b.textContent = dark ? "☀️" : "🌙";
+}
+const bumpStars = () => { const s = $("#starCount"); if (s) { s.textContent = starsTotal(); s.parentElement.classList.remove("pop"); void s.offsetWidth; s.parentElement.classList.add("pop"); } };
+
+/* ---------- router ---------- */
+const app = () => $("#app");
+function route() {
+  stopAll();
+  const [a, b, c] = location.hash.replace(/^#\/?/, "").split("/");
+  if (a === "u" && UNIT[b]) unitView(b);
+  else if (a === "l" && LES[b]) lessonView(b, c || "learn");
+  else if (a === "exam") examView();
+  else if (a === "review" && UNIT[b]) reviewView(b);
+  else homeView();
+  window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+}
+window.addEventListener("hashchange", route);
+
+/* global delegation: speak buttons */
+document.addEventListener("click", e => {
+  const s = e.target.closest("[data-say]");
+  if (s) { e.stopPropagation(); say(s.dataset.say); s.classList.add("speaking"); setTimeout(() => s.classList.remove("speaking"), 700); }
+});
+const spk = t => canSpeak ? `<button class="spk" data-say="${esc(t)}" aria-label="استمع">🔊</button>` : "";
+
+/* ================= HOME ================= */
+function homeView() {
+  const total = starsTotal(), max = LESSONS.length * 3;
+  const done = LESSONS.filter(l => P.stars[l.id] > 0).length;
+  const next = LESSONS.find(l => !(P.stars[l.id] > 0)) || LESSONS[0];
+  const stops = [...UNITS.map(u => ({ href: `#/u/${u.id}`, u, emoji: u.emoji, en: `${unitNo(u.id)}${u.id.startsWith("u") ? ": " + u.en : ""}`, ar: u.ar, p: Math.round(unitStars(u.id) / (unitLessons(u.id).length * 3) * 100), meta: `⭐ ${unitStars(u.id)} / ${unitLessons(u.id).length * 3}` })),
+    { href: "#/exam", u: { c: "gold" }, emoji: "🏆", en: "Final test", ar: "الاختبار النهائي", p: P.exam ? P.exam : 0, meta: P.exam != null ? `أفضل نتيجة ${P.exam}٪` : `${EXAM_N} سؤالاً من كل الكتاب` }];
+  app().innerHTML = `
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="hello">أهلاً يا بطل! 👋</p>
+      <h1>مغامرتك مع كتاب الإنجليزي تبدأ من هنا</h1>
+      <p class="lead en" dir="ltr">Learn it. Play it. Pass the final test!</p>
+      <p class="lead2">كل درس فيه شرح بالعربي والإنجليزي، ألعاب ممتعة، واختبار صغير تجمع منه النجوم.</p>
+      <div class="hero-cta">
+        <a class="btn primary" href="#/l/${next.id}/learn"><span>${total ? "كمّل من حيث وقفت" : "ابدأ أول درس"}</span><i class="bi">${ICON.go}</i></a>
+        <a class="btn soft" href="#/exam">🏆 الاختبار النهائي</a>
+      </div>
+    </div>
+    <div class="hero-art">${mascot()}<div class="bubble" dir="ltr">Hi! I'm Wowi 👋</div></div>
+  </section>
+  <section class="chips">
+    <div class="chip"><span>⭐</span><b>${total}<small> / ${max}</small></b><em>نجومك</em></div>
+    <div class="chip"><span>✅</span><b>${done}<small> / ${LESSONS.length}</small></b><em>دروس مكتملة</em></div>
+    <div class="chip"><span>🏆</span><b>${P.exam != null ? P.exam + "٪" : "—"}</b><em>الاختبار النهائي</em></div>
+  </section>
+  <section class="mapsec">
+    <h2>خريطة المغامرة</h2>
+    <p class="sub">امشِ على الطريق محطة بعد محطة، وفي النهاية ينتظرك الاختبار النهائي.</p>
+    <div class="map" dir="ltr">
+      ${stops.map((s, i) => `
+        <a class="stop ${i % 2 ? "s-r" : "s-l"}" href="${s.href}" style="--c:var(--${s.u.c});--cs:var(--${s.u.c}-soft);--p:${s.p}">
+          <span class="island"><span class="em">${s.emoji}</span></span>
+          <span class="label" dir="rtl"><b dir="ltr">${esc(s.en)}</b><span>${esc(s.ar)}</span><small>${s.meta}</small></span>
+        </a>
+        ${i < stops.length - 1 ? `<svg class="trail" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true"><path d="${i % 2 ? "M75 0 C75 34 25 26 25 60" : "M25 0 C25 34 75 26 75 60"}"/></svg>` : ""}
+      `).join("")}
+    </div>
+  </section>
+  <footer class="foot">مبنية على كتاب <span dir="ltr">Team Together 7A</span> — سلطنة عُمان. تقدّمك محفوظ في هذا المتصفح.</footer>`;
+}
+
+/* ================= UNIT ================= */
+function unitView(id) {
+  const u = UNIT[id], ls = unitLessons(id), max = ls.length * 3, st = unitStars(id);
+  app().innerHTML = `
+  <nav class="crumbs"><a href="#/">${ICON.back} الخريطة</a></nav>
+  <section class="unit-hero" style="${cvars(u)}">
+    <div class="uh-em">${u.emoji}</div>
+    <div class="uh-txt">
+      <small dir="ltr">${unitNo(id)}</small>
+      <h1><span dir="ltr">${esc(u.en)}</span> <span class="ar">${esc(u.ar)}</span></h1>
+      <p class="gl">في هذه الوحدة ستتعلّم:</p>
+      <ul>${u.goals.map(g => `<li>${bidi(g)}</li>`).join("")}</ul>
+      <div class="bar"><i style="transform:scaleX(${st / max})"></i></div>
+      <p class="barlbl">⭐ ${st} من ${max} نجمة</p>
+    </div>
+  </section>
+  <section class="lessons">
+    ${ls.map((l, i) => {
+      const gd = (l.games || []).filter((g, gi) => P.games[l.id + ":" + gi]).length;
+      return `<a class="lcard" href="#/l/${l.id}/learn" style="${cvars(u)}">
+        <span class="num">${i + 1}</span>
+        <span class="lic">${l.icon}</span>
+        <span class="lt"><b dir="ltr">${esc(l.en)}</b><span>${bidi(l.ar)}</span></span>
+        <span class="lmeta"><span class="st" aria-label="${P.stars[l.id] || 0} نجوم">${starStr(P.stars[l.id] || 0)}</span><small>🎮 ${gd}/${(l.games || []).length}</small></span>
+      </a>`; }).join("")}
+    <a class="review" href="#/review/${id}" style="${cvars(u)}"><span>🔁</span><span><b>مراجعة الوحدة</b><small>10 أسئلة عشوائية من كل دروس الوحدة</small></span><i class="bi">${ICON.go}</i></a>
+  </section>`;
+}
+
+/* ================= LESSON ================= */
+function lessonView(id, tab) {
+  const L = LES[id], u = UNIT[L.unit], ls = unitLessons(L.unit), idx = ls.indexOf(L);
+  const tabs = [["learn", "📖", "الشرح"], ["play", "🎮", "الألعاب"], ["quiz", "📝", "الاختبار"]];
+  app().innerHTML = `
+  <nav class="crumbs"><a href="#/">الخريطة</a><span>/</span><a href="#/u/${u.id}">${esc(u.ar)}</a></nav>
+  <section class="lhead" style="${cvars(u)}">
+    <span class="lh-ic">${L.icon}</span>
+    <div><small dir="ltr">${unitNo(u.id)} · Lesson ${idx + 1}</small>
+    <h1 dir="ltr">${esc(L.en)}</h1><p>${bidi(L.ar)}</p></div>
+    <span class="lh-st">${starStr(P.stars[id] || 0)}</span>
+  </section>
+  <div class="tabs" role="tablist" style="${cvars(u)}">
+    ${tabs.map(t => `<a role="tab" aria-selected="${t[0] === tab}" class="tab ${t[0] === tab ? "on" : ""}" href="#/l/${id}/${t[0]}"><span>${t[1]}</span>${t[2]}</a>`).join("")}
+  </div>
+  <div id="stage" style="${cvars(u)}"></div>`;
+  const st = $("#stage");
+  if (tab === "play") playTab(st, L); else if (tab === "quiz") quizTab(st, L); else learnTab(st, L);
+}
+
+function learnTab(st, L) {
+  const lang = P.lang || "both";
+  let h = `<div class="langsw" role="group" aria-label="لغة الشرح">
+    ${[["both", "عربي + English"], ["ar", "عربي"], ["en", "English"]].map(x => `<button data-lang="${x[0]}" class="${lang === x[0] ? "on" : ""}">${x[1]}</button>`).join("")}
+  </div><div class="learn lang-${lang}">`;
+  h += `<article class="card intro"><div class="ar-block">${nl(L.intro.ar)}</div><div class="en-block" dir="ltr">${nl(L.intro.en)} ${spk(L.intro.en)}</div></article>`;
+  if (L.words) h += `<h3 class="sec">📚 الكلمات الجديدة <small>اضغط أي بطاقة لتسمعها</small></h3>
+    <div class="words">${L.words.map(w => `<button class="word" data-say="${esc(w[0])}"><span class="we">${w[2]}</span><b dir="ltr">${esc(w[0])}</b><span class="wa">${esc(w[1])}</span>${w[3] ? `<small dir="ltr">${esc(w[3])}</small>` : ""}</button>`).join("")}</div>`;
+  if (L.rule) h += `<h3 class="sec">🧠 القاعدة</h3><article class="card rule"><p class="rt" dir="ltr">${esc(L.rule.title)}</p>
+    <div class="tbl"><table><thead><tr>${L.rule.head.map(x => `<th dir="${dirOf(x)}">${esc(x)}</th>`).join("")}</tr></thead>
+    <tbody>${L.rule.rows.map(r => `<tr>${r.map(c => `<td dir="${dirOf(c)}">${esc(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>
+    ${(L.rule.notes || []).map(n => `<div class="note"><span>📌</span><div><p>${bidi(n.ar)}</p><p dir="ltr" class="en">${esc(n.en)} ${spk(n.en)}</p></div></div>`).join("")}</article>`;
+  if (L.examples) h += `<h3 class="sec">💬 أمثلة من الكتاب</h3><div class="exs">${L.examples.map(e => `<div class="ex"><div><p dir="ltr" class="en">${esc(e[0])}</p><p class="ar">${bidi(e[1])}</p></div>${spk(e[0])}</div>`).join("")}</div>`;
+  if (L.extra) L.extra.forEach(x => {
+    h += `<article class="card extra"><h4>${esc(x.t)}</h4>`;
+    if (x.list) h += `<div class="phr">${x.list.map(p => `<div class="ph"><p dir="ltr" class="en">${esc(p[0])}</p><p class="ar">${bidi(p[1])}</p>${spk(p[0])}</div>`).join("")}</div>`;
+    if (x.en) h += `<div class="en-block" dir="ltr">${nl(x.en)} ${spk(x.en)}</div>`;
+    if (x.ar) h += `<div class="ar-block muted">${nl(x.ar)}</div>`;
+    h += `</article>`;
+  });
+  if (L.tip) h += `<div class="tip"><span>💡</span><p>${bidi(L.tip)}</p></div>`;
+  h += `</div><div class="nextrow"><a class="btn primary" href="#/l/${L.id}/play"><span>فهمت! يلا نلعب</span><i class="bi">${ICON.go}</i></a><a class="btn soft" href="#/l/${L.id}/quiz">📝 روح للاختبار</a></div>`;
+  st.innerHTML = h;
+  $$(".langsw button", st).forEach(b => b.onclick = () => { P.lang = b.dataset.lang; save(); learnTab(st, L); });
+}
+
+/* ================= GAMES ================= */
+function playTab(st, L) {
+  const gs = L.games || [];
+  st.innerHTML = `<p class="sub">اختر لعبة. كل لعبة تتمرّن فيها على جزء من الدرس.</p>
+  <div class="glist">${gs.map((g, i) => {
+    const m = GAME_META[g.type], s = P.games[L.id + ":" + i] || 0;
+    const off = g.type === "listen" && !canSpeak;
+    return `<button class="gcard ${off ? "off" : ""}" data-g="${i}" ${off ? "disabled" : ""}><span class="gi">${m[0]}</span><b>${esc(g.title || m[1])}</b><small>${off ? "الصوت غير متاح في هذا المتصفح" : bidi(m[2])}</small><span class="gs">${s ? starStr(s) : "جديدة ✨"}</span></button>`;
+  }).join("")}</div>`;
+  $$(".gcard", st).forEach(b => b.onclick = () => startGame(st, L, +b.dataset.g));
+}
+
+function gameShell(st, L, gi, inner) {
+  const g = L.games[gi], m = GAME_META[g.type];
+  st.innerHTML = `<div class="game card">
+    <div class="ghead"><button class="btn tiny soft" id="gBack">${ICON.back} الألعاب</button>
+    <div class="gtitle"><span>${m[0]}</span><b>${esc(g.title || m[1])}</b></div><span class="gprog" id="gProg"></span></div>
+    <p class="ginst">${esc(m[2])}</p>
+    <div class="gbody">${inner}</div></div>`;
+  $("#gBack").onclick = () => { stopAll(); playTab(st, L); };
+}
+const setProg = t => { const p = $("#gProg"); if (p) p.textContent = t; };
+
+function gameWin(st, L, gi, miss) {
+  stopAll();
+  const s = miss === 0 ? 3 : miss <= 2 ? 2 : 1, k = L.id + ":" + gi;
+  P.games[k] = Math.max(P.games[k] || 0, s); save();
+  sfx.win(); if (s >= 2) confetti();
+  const msgs = ["", "أحسنت! جرّب مرة ثانية لتجمع نجوماً أكثر 💪", "رائع جداً! 🌟", "ممتاز! بدون ولا خطأ 🏅"];
+  const body = $(".gbody", st);
+  body.innerHTML = `<div class="win"><div class="winst">${starStr(s)}</div><h3>${msgs[s]}</h3><p>${miss ? `أخطاؤك: ${miss}` : "كل إجاباتك صحيحة!"}</p>
+    <div class="nextrow"><button class="btn primary" id="again"><span>العب مرة ثانية</span><i class="bi">🔄</i></button><button class="btn soft" id="other">🎮 لعبة أخرى</button><a class="btn soft" href="#/l/${L.id}/quiz">📝 الاختبار</a></div></div>`;
+  $("#again").onclick = () => startGame(st, L, gi);
+  $("#other").onclick = () => playTab(st, L);
+}
+
+function startGame(st, L, gi) {
+  stopAll();
+  const g = L.games[gi];
+  ({ match: gMatch, memory: gMemory, listen: gListen, scramble: gScramble, sort: gSort, build: gBuild, fill: gFill })[g.type](st, L, gi, g);
+  st.scrollIntoView({ behavior: reduced() ? "auto" : "smooth", block: "start" });
+}
+
+/* --- match --- */
+function gMatch(st, L, gi, g) {
+  let pairs = g.pairs ? g.pairs.map(p => [p[0], p[1], isAr(p[0]) ? "" : p[0].replace(/^[^A-Za-z0-9]+/, "")])
+    : L.words.map(w => [w[2] + " " + w[0], w[1], w[0]]);
+  pairs = shuffle(pairs).slice(0, 6);
+  const left = shuffle(pairs.map((p, i) => ({ i, t: p[0], s: p[2] }))), right = shuffle(pairs.map((p, i) => ({ i, t: p[1], s: isAr(p[1]) ? "" : p[1] })));
+  const tile = (x, side) => `<button class="tile" data-side="${side}" data-i="${x.i}" dir="${dirOf(x.t)}" ${x.s ? `data-s="${esc(x.s)}"` : ""}>${esc(x.t)}</button>`;
+  gameShell(st, L, gi, `<div class="match"><div class="col">${left.map(x => tile(x, "l")).join("")}</div><div class="col">${right.map(x => tile(x, "r")).join("")}</div></div>`);
+  let sel = null, got = 0, miss = 0;
+  setProg(`0 / ${pairs.length}`);
+  $$(".tile", st).forEach(b => b.onclick = () => {
+    if (b.classList.contains("done")) return;
+    if (b.dataset.s) say(b.dataset.s);
+    if (!sel || sel.dataset.side === b.dataset.side) {
+      if (sel) sel.classList.remove("sel");
+      sel = sel === b ? null : b; if (sel) { sel.classList.add("sel"); sfx.tap(); } return;
+    }
+    if (sel.dataset.i === b.dataset.i) {
+      [sel, b].forEach(x => { x.classList.remove("sel"); x.classList.add("done"); });
+      sfx.ok(); got++; setProg(`${got} / ${pairs.length}`); sel = null;
+      if (got === pairs.length) later(() => gameWin(st, L, gi, miss), 600);
+    } else { miss++; sfx.no(); shake(b); shake(sel); sel.classList.remove("sel"); sel = null; }
+  });
+}
+
+/* --- memory --- */
+function gMemory(st, L, gi) {
+  const ws = shuffle(L.words).slice(0, 6);
+  const cards = shuffle(ws.flatMap((w, i) => [{ i, f: w[2], e: 1, w: w[0] }, { i, f: w[0], e: 0, w: w[0] }]));
+  gameShell(st, L, gi, `<div class="memory">${cards.map((c, k) => `<button class="mcard" data-k="${k}" aria-label="بطاقة"><span class="face back">?</span><span class="face front ${c.e ? "emo" : ""}" dir="ltr">${esc(c.f)}</span></button>`).join("")}</div>`);
+  let open = [], got = 0, miss = 0, lock = false;
+  setProg(`0 / ${ws.length}`);
+  $$(".mcard", st).forEach(b => b.onclick = () => {
+    if (lock || b.classList.contains("open")) return;
+    const c = cards[+b.dataset.k]; b.classList.add("open"); open.push([b, c]); sfx.tap();
+    if (!c.e) say(c.w);
+    if (open.length === 2) {
+      const [[b1, c1], [b2, c2]] = open; open = [];
+      if (c1.i === c2.i) {
+        got++; setProg(`${got} / ${ws.length}`); later(() => { b1.classList.add("done"); b2.classList.add("done"); sfx.ok(); say(c1.w); }, 250);
+        if (got === ws.length) later(() => gameWin(st, L, gi, Math.max(0, miss - 3)), 1100);
+      } else { miss++; lock = true; later(() => { b1.classList.remove("open"); b2.classList.remove("open"); lock = false; }, 850); }
+    }
+  });
+}
+
+/* --- listen --- */
+function gListen(st, L, gi) {
+  const rounds = shuffle(L.words).slice(0, 8);
+  let r = 0, miss = 0;
+  gameShell(st, L, gi, `<div class="listen"><button class="bigspk" id="lsBtn" aria-label="استمع">🔊</button><div class="lopts" id="lOpts"></div></div>`);
+  const round = () => {
+    const w = rounds[r];
+    const opts = shuffle([w, ...shuffle(L.words.filter(x => x !== w)).slice(0, 3)]);
+    setProg(`${r + 1} / ${rounds.length}`);
+    $("#lOpts").innerHTML = opts.map(o => `<button class="lopt" data-w="${esc(o[0])}"><span>${o[2]}</span><b dir="ltr">${esc(o[0])}</b></button>`).join("");
+    $("#lsBtn").onclick = () => say(w[0]);
+    later(() => say(w[0]), 250);
+    let wrongHere = false;
+    $$(".lopt", st).forEach(b => b.onclick = () => {
+      if (b.dataset.w === w[0]) {
+        b.classList.add("ok"); sfx.ok(); if (wrongHere) miss++;
+        r++; later(() => r < rounds.length ? round() : gameWin(st, L, gi, miss), 650);
+        $$(".lopt", st).forEach(x => x.onclick = null);
+      } else { wrongHere = true; b.classList.add("no"); sfx.no(); shake(b); later(() => say(w[0]), 400); }
+    });
+  };
+  round();
+}
+
+/* --- scramble --- */
+function gScramble(st, L, gi) {
+  const words = shuffle(L.words).slice(0, 6);
+  let r = 0, miss = 0;
+  gameShell(st, L, gi, `<div class="scr"><div class="scr-hint" id="sHint"></div><div class="slots" id="slots" dir="ltr"></div><div class="letters" id="letters" dir="ltr"></div>
+    <div class="scr-tools"><button class="btn tiny soft" id="sDel">⌫ امسح حرف</button><button class="btn tiny soft" id="sClr">مسح الكل</button><button class="btn tiny soft" id="sHelp">💡 ساعدني</button></div></div>`);
+  const round = () => {
+    const w = words[r], chars = [...w[0]];
+    setProg(`${r + 1} / ${words.length}`);
+    $("#sHint").innerHTML = `<span class="se">${w[2]}</span><span>${esc(w[1])}</span>`;
+    const letterIdx = chars.map((c, i) => /[A-Za-z]/.test(c) ? i : -1).filter(i => i >= 0);
+    let tiles = shuffle(letterIdx.map(i => chars[i]));
+    if (tiles.join("") === letterIdx.map(i => chars[i]).join("") && tiles.length > 2) tiles = tiles.reverse();
+    let filled = [];
+    $("#slots").innerHTML = chars.map((c, i) => /[A-Za-z]/.test(c) ? `<span class="slot" data-i="${i}"></span>` : `<span class="fixed">${c === " " ? "&nbsp;" : esc(c)}</span>`).join("");
+    $("#letters").innerHTML = tiles.map((c, k) => `<button class="let" data-k="${k}">${esc(c)}</button>`).join("");
+    const slots = $$(".slot", st);
+    const paint = () => { slots.forEach((s, j) => { s.textContent = filled[j] ? filled[j].c : ""; s.classList.toggle("f", !!filled[j]); }); };
+    const check = () => {
+      if (filled.length < slots.length) return;
+      const guess = filled.map(f => f.c).join(""), target = letterIdx.map(i => chars[i]).join("");
+      if (guess.toLowerCase() === target.toLowerCase()) {
+        $("#slots").classList.add("ok"); sfx.ok(); say(w[0]);
+        r++; later(() => { $("#slots").classList.remove("ok"); r < words.length ? round() : gameWin(st, L, gi, miss); }, 900);
+      } else { miss++; sfx.no(); shake($("#slots")); later(() => { filled.forEach(f => f.b.classList.remove("used")); filled = []; paint(); }, 600); }
+    };
+    $$(".let", st).forEach(b => b.onclick = () => {
+      if (b.classList.contains("used") || filled.length >= slots.length) return;
+      b.classList.add("used"); filled.push({ c: b.textContent, b }); sfx.tap(); paint(); check();
+    });
+    $("#sDel").onclick = () => { const f = filled.pop(); if (f) f.b.classList.remove("used"); paint(); };
+    $("#sClr").onclick = () => { filled.forEach(f => f.b.classList.remove("used")); filled = []; paint(); };
+    $("#sHelp").onclick = () => {
+      // put the correct next letter
+      filled.forEach(f => f.b.classList.remove("used"));
+      const target = letterIdx.map(i => chars[i]); const keep = [];
+      for (let j = 0; j < filled.length && filled[j].c === target[j]; j++) keep.push(filled[j].c);
+      filled = [];
+      const need = [...keep, target[keep.length]].filter(Boolean);
+      need.forEach(c => { const b = $$(".let", st).find(x => !x.classList.contains("used") && x.textContent === c); if (b) { b.classList.add("used"); filled.push({ c, b }); } });
+      miss++; paint(); check();
+    };
+  };
+  round();
+}
+
+/* --- sort --- */
+function gSort(st, L, gi, g) {
+  const items = shuffle(g.items);
+  let r = 0, miss = 0; const counts = g.buckets.map(() => 0);
+  gameShell(st, L, gi, `<div class="sort"><div class="scard" id="sCard" dir="ltr"></div>
+    <div class="buckets" style="--n:${g.buckets.length}">${g.buckets.map((b, i) => `<button class="bucket" data-b="${i}" dir="${dirOf(b)}"><b>${esc(b)}</b><small id="bc${i}">0</small></button>`).join("")}</div></div>`);
+  const show = () => {
+    const it = items[r]; setProg(`${r + 1} / ${items.length}`);
+    const c = $("#sCard"); c.className = "scard in"; c.innerHTML = `${blank(it[0])} ${spk(it[0].replace(/_{3,}/g, "..."))}`;
+  };
+  $$(".bucket", st).forEach(b => b.onclick = () => {
+    const it = items[r]; if (!it || b.classList.contains("wait")) return;
+    const ok = +b.dataset.b === it[1];
+    const right = $(`.bucket[data-b="${it[1]}"]`, st);
+    if (ok) { sfx.ok(); b.classList.add("hit"); } else { miss++; sfx.no(); shake(b); right.classList.add("hint"); }
+    counts[it[1]]++; $("#bc" + it[1]).textContent = counts[it[1]];
+    $$(".bucket", st).forEach(x => x.classList.add("wait"));
+    $("#sCard").className = "scard out";
+    later(() => { $$(".bucket", st).forEach(x => x.classList.remove("hit", "hint", "wait")); r++; r < items.length ? show() : gameWin(st, L, gi, miss); }, ok ? 550 : 1100);
+  });
+  show();
+}
+
+/* --- build --- */
+function gBuild(st, L, gi, g) {
+  const items = shuffle(g.items).slice(0, 4);
+  let r = 0, miss = 0;
+  gameShell(st, L, gi, `<div class="build"><p class="bhint" id="bHint"></p><div class="answer" id="bAns" dir="ltr"></div><div class="bank" id="bBank" dir="ltr"></div>
+  <div class="scr-tools"><button class="btn tiny soft" id="bClr">مسح</button></div></div>`);
+  const round = () => {
+    const [sent, ar] = items[r]; const toks = sent.split(" ");
+    let order = shuffle(toks.map((t, i) => i)); if (order.every((v, i) => v === i) && order.length > 1) order.reverse();
+    setProg(`${r + 1} / ${items.length}`);
+    $("#bHint").innerHTML = "المعنى: " + bidi(ar);
+    const ans = [];
+    const paint = () => {
+      $("#bAns").innerHTML = ans.length ? ans.map((k, j) => `<button class="tok in" data-j="${j}">${esc(toks[k])}</button>`).join("") : `<span class="ph0">اضغط الكلمات هنا بالترتيب…</span>`;
+      $("#bBank").innerHTML = order.map(k => `<button class="tok ${ans.includes(k) ? "used" : ""}" data-k="${k}">${esc(toks[k])}</button>`).join("");
+      $$("#bBank .tok", st).forEach(b => b.onclick = () => { const k = +b.dataset.k; if (ans.includes(k)) return; ans.push(k); sfx.tap(); paint(); check(); });
+      $$("#bAns .tok", st).forEach(b => b.onclick = () => { ans.splice(+b.dataset.j, 1); paint(); });
+    };
+    const check = () => {
+      if (ans.length < toks.length) return;
+      const guess = ans.map(k => toks[k]).join(" ");
+      if (guess === sent) { $("#bAns").classList.add("ok"); sfx.ok(); say(sent); r++; later(() => { $("#bAns").classList.remove("ok"); r < items.length ? round() : gameWin(st, L, gi, miss); }, 1300); }
+      else { miss++; sfx.no(); shake($("#bAns")); later(() => { ans.length = 0; paint(); }, 700); }
+    };
+    $("#bClr").onclick = () => { ans.length = 0; paint(); };
+    paint();
+  };
+  round();
+}
+
+/* --- fill (speed) --- */
+function gFill(st, L, gi, g) {
+  const items = shuffle(g.items); const T = 12000;
+  let r = 0, miss = 0, combo = 0;
+  gameShell(st, L, gi, `<div class="fill"><div class="timer"><i id="tBar"></i></div><div class="combo" id="combo"></div><div class="fq" id="fQ" dir="ltr"></div><div class="fopts" id="fOpts"></div></div>`);
+  const round = () => {
+    const [s, o, a] = items[r]; setProg(`${r + 1} / ${items.length}`);
+    $("#fQ").innerHTML = blank(s);
+    const ord = shuffle(o.map((_, i) => i));
+    $("#fOpts").innerHTML = ord.map(i => `<button class="fopt" data-i="${i}" dir="${dirOf(o[i])}">${esc(o[i])}</button>`).join("");
+    const bar = $("#tBar"); bar.style.transition = "none"; bar.style.transform = "scaleX(1)"; void bar.offsetWidth;
+    bar.style.transition = `transform ${T}ms linear`; bar.style.transform = "scaleX(0)";
+    let done = false;
+    const finish = (ok, b) => {
+      if (done) return; done = true; TIMERS.forEach(clearTimeout); TIMERS = [];
+      bar.style.transition = "none";
+      const right = $(`.fopt[data-i="${a}"]`, st); right.classList.add("ok");
+      if (ok) { combo++; sfx.ok(); } else { combo = 0; miss++; sfx.no(); if (b) { b.classList.add("no"); shake(b); } }
+      $("#combo").textContent = combo >= 2 ? `🔥 ${combo} متتالية!` : "";
+      $("#fQ").innerHTML = esc(s).replace(/_{3,}/g, `<span class="blank filled">${esc(o[a])}</span>`);
+      r++; later(() => r < items.length ? round() : gameWin(st, L, gi, miss), ok ? 700 : 1400);
+    };
+    later(() => finish(false), T);
+    $$(".fopt", st).forEach(b => b.onclick = () => finish(+b.dataset.i === a, b));
+  };
+  round();
+}
+
+/* ================= QUIZ ENGINE ================= */
+function runQuiz(el, qs, opt) {
+  const items = qs.map(q => Object.assign({}, q, { ord: shuffle(q.o.map((_, k) => k)) }));
+  let i = 0; const res = [];
+  const show = () => {
+    const q = items[i];
+    el.innerHTML = `<div class="quiz card">
+      <div class="qtop"><span>سؤال ${i + 1} من ${items.length}</span><div class="bar"><i style="transform:scaleX(${i / items.length})"></i></div></div>
+      ${q.p ? `<details class="passage" ${i === items.findIndex(x => x.p) ? "open" : ""}><summary>${esc(EXAM_PASSAGE.t)} (اضغط لعرض القطعة)</summary><p dir="ltr">${esc(EXAM_PASSAGE.en)}</p>${spk(EXAM_PASSAGE.en)}</details>` : ""}
+      <h3 class="qq" dir="ltr">${blank(q.q)} ${spk(q.q.replace(/_{3,}/g, "..."))}</h3>
+      ${q.h ? `<p class="qh">${esc(q.h)}</p>` : ""}
+      <div class="opts">${q.ord.map((k, n) => `<button class="opt" data-k="${k}" dir="${dirOf(q.o[k])}"><span class="ol">${"ABCD"[n]}</span><span>${esc(q.o[k])}</span></button>`).join("")}</div>
+      <div class="fb" id="fb" aria-live="polite"></div></div>`;
+    $$(".opt", el).forEach(b => b.onclick = () => pick(b, q));
+  };
+  const pick = (b, q) => {
+    if (el.querySelector(".opt.picked")) return;
+    const k = +b.dataset.k, ok = k === q.a;
+    res.push({ q, k, ok }); b.classList.add("picked");
+    if (opt.mode === "exam") {
+      sfx.tap(); later(next, 380); return;
+    }
+    $$(".opt", el).forEach(x => { if (+x.dataset.k === q.a) x.classList.add("ok"); });
+    if (!ok) { b.classList.add("no"); shake(b); sfx.no(); } else sfx.ok();
+    $("#fb", el).innerHTML = `<div class="fbbox ${ok ? "good" : "bad"}"><b>${ok ? pickOne(["صح! 👏", "ممتاز! 🌟", "أحسنت! ✅", "برافو! 🎉"]) : "ليست صحيحة 🙈"}</b><p>${bidi(q.w || "")}</p>
+      <button class="btn primary" id="nextQ"><span>${i + 1 < items.length ? "السؤال التالي" : "النتيجة"}</span><i class="bi">${ICON.go}</i></button></div>`;
+    $("#nextQ").onclick = next; $("#nextQ").focus({ preventScroll: true });
+  };
+  const next = () => { i++; i < items.length ? show() : opt.done(res); };
+  show();
+}
+const pickOne = a => a[Math.floor(Math.random() * a.length)];
+const starsFor = pct => pct >= 90 ? 3 : pct >= 70 ? 2 : pct >= 50 ? 1 : 0;
+
+function quizTab(st, L) {
+  st.innerHTML = `<div class="card qintro"><span class="big">📝</span><h3>اختبار الدرس</h3><p>${L.quiz.length} أسئلة. بعد كل إجابة سترى الشرح.</p>
+    <p class="muted">90٪ = ⭐⭐⭐ · 70٪ = ⭐⭐ · 50٪ = ⭐</p><button class="btn primary" id="qStart"><span>ابدأ الاختبار</span><i class="bi">${ICON.go}</i></button></div>`;
+  $("#qStart").onclick = () => runQuiz(st, shuffle(L.quiz), {
+    mode: "practice", done: res => {
+      const c = res.filter(r => r.ok).length, pct = Math.round(c / res.length * 100), s = starsFor(pct);
+      const before = P.stars[L.id] || 0; P.stars[L.id] = Math.max(before, s); save(); bumpStars();
+      sfx.win(); if (s >= 2) confetti();
+      const ls = unitLessons(L.unit), nx = ls[ls.indexOf(L) + 1];
+      st.innerHTML = `<div class="card result"><div class="winst">${starStr(s)}</div><h3>${c} من ${res.length} صحيحة (${pct}٪)</h3>
+        <p>${s === 3 ? "ممتاز! أنت جاهز لهذا الدرس 🏅" : s === 2 ? "جميل جداً! راجع الأخطاء وجرّب مرة ثانية للنجمة الثالثة ✨" : s === 1 ? "بداية جيدة! ارجع للشرح وللألعاب ثم أعد المحاولة 💪" : "لا بأس! اقرأ الشرح مرة ثانية والعب الألعاب، ثم جرّب 🌱"}</p>
+        ${mistakes(res)}
+        <div class="nextrow"><button class="btn soft" id="qAgain">🔄 أعد الاختبار</button>
+        ${nx ? `<a class="btn primary" href="#/l/${nx.id}/learn"><span>الدرس التالي</span><i class="bi">${ICON.go}</i></a>` : `<a class="btn primary" href="#/u/${L.unit}"><span>ارجع للوحدة</span><i class="bi">${ICON.go}</i></a>`}</div></div>`;
+      $("#qAgain").onclick = () => quizTab(st, L);
+      if (s > before) lessonStarsRefresh(L);
+    }
+  });
+}
+const lessonStarsRefresh = L => { const e = $(".lh-st"); if (e) e.textContent = starStr(P.stars[L.id] || 0); };
+function mistakes(res) {
+  const m = res.filter(r => !r.ok);
+  if (!m.length) return "";
+  return `<details class="mist"><summary>راجع أخطاءك (${m.length})</summary>${m.map(r => `<div class="mi"><p dir="ltr" class="en">${blank(r.q.q)}</p>
+    <p><span class="x">✘ ${esc(r.q.o[r.k])}</span> <span class="v">✔ ${esc(r.q.o[r.q.a])}</span></p><p class="muted">${bidi(r.q.w || "")}</p>
+    ${r.q.lid ? `<a href="#/l/${r.q.lid}/learn">راجع الدرس: <span dir="ltr">${esc(LES[r.q.lid].en)}</span></a>` : ""}</div>`).join("")}</details>`;
+}
+
+/* ================= UNIT REVIEW ================= */
+function reviewView(id) {
+  const u = UNIT[id];
+  const pool = shuffle(unitLessons(id).flatMap(l => l.quiz.map(q => Object.assign({}, q, { lid: l.id })))).slice(0, 10);
+  app().innerHTML = `<nav class="crumbs"><a href="#/">الخريطة</a><span>/</span><a href="#/u/${id}">${esc(u.ar)}</a></nav>
+    <section class="lhead" style="${cvars(u)}"><span class="lh-ic">🔁</span><div><small dir="ltr">${unitNo(id)}</small><h1>مراجعة الوحدة</h1><p dir="ltr">${esc(u.en)}</p></div></section>
+    <div id="stage" style="${cvars(u)}"></div>`;
+  const st = $("#stage");
+  runQuiz(st, pool, { mode: "practice", done: res => {
+    const c = res.filter(r => r.ok).length, pct = Math.round(c / res.length * 100);
+    sfx.win(); if (pct >= 70) confetti();
+    st.innerHTML = `<div class="card result"><div class="winst">${starStr(starsFor(pct))}</div><h3>${c} من ${res.length} (${pct}٪)</h3>${mistakes(res)}
+      <div class="nextrow"><a class="btn soft" href="#/review/${id}" id="rAgain">🔄 مراجعة جديدة</a><a class="btn primary" href="#/u/${id}"><span>ارجع للوحدة</span><i class="bi">${ICON.go}</i></a></div></div>`;
+    $("#rAgain").onclick = e => { e.preventDefault(); reviewView(id); };
+  } });
+}
+
+/* ================= FINAL EXAM ================= */
+function examView() {
+  app().innerHTML = `<nav class="crumbs"><a href="#/">${ICON.back} الخريطة</a></nav>
+  <section class="lhead exam" style="--c:var(--gold);--cs:var(--gold-soft)"><span class="lh-ic">🏆</span><div><small dir="ltr">Final test · 7A</small><h1>الاختبار النهائي</h1><p>تدرّب كأنك في الامتحان الحقيقي!</p></div></section>
+  <div id="stage" style="--c:var(--gold);--cs:var(--gold-soft)">
+    <div class="card qintro"><span class="big">🎯</span><h3>قبل أن تبدأ</h3>
+    <ul class="rules"><li>${EXAM_N} سؤالاً من كل الوحدات: كلمات، قواعد، قصص، وقراءة.</li><li>لن ترى الإجابة الصحيحة أثناء الاختبار، مثل الامتحان الحقيقي.</li><li>في النهاية ترى نتيجتك لكل وحدة، والدروس التي تحتاج مراجعة.</li><li>كل مرة تبدأ، تأتيك أسئلة مختلفة!</li></ul>
+    ${P.exam != null ? `<p class="muted">أفضل نتيجة لك: ${P.exam}٪</p>` : ""}
+    <button class="btn primary" id="eStart"><span>ابدأ الاختبار</span><i class="bi">${ICON.go}</i></button></div></div>`;
+  $("#eStart").onclick = () => {
+    const qs = [];
+    UNITS.forEach(u => unitLessons(u.id).forEach(l => { if (u.id === "w") return; qs.push(Object.assign({}, pickOne(l.quiz), { lid: l.id, unit: u.id })); }));
+    qs.push(Object.assign({}, pickOne(LES.w1.quiz), { lid: "w1", unit: "w" }));
+    const st = $("#stage");
+    runQuiz(st, [...qs, ...EXAM_EXTRA], { mode: "exam", done: res => examResult(st, res) });
+  };
+}
+function examResult(st, res) {
+  const c = res.filter(r => r.ok).length, pct = Math.round(c / res.length * 100);
+  P.exam = Math.max(P.exam || 0, pct); save();
+  sfx.win(); if (pct >= 60) confetti();
+  const groups = [...UNITS.map(u => ({ id: u.id, n: unitNo(u.id), ar: u.ar, c: u.c })), { id: "exam", n: "Reading & dialogues", ar: "القراءة والحوار", c: "gold" }];
+  const rows = groups.map(g => { const rs = res.filter(r => r.q.unit === g.id); if (!rs.length) return ""; const ok = rs.filter(r => r.ok).length;
+    return `<div class="urow" style="--c:var(--${g.c})"><span><b dir="ltr">${g.n}</b> ${g.ar}</span><div class="bar"><i style="transform:scaleX(${ok / rs.length})"></i></div><em>${ok}/${rs.length}</em></div>`; }).join("");
+  const grade = pct >= 90 ? ["🏅", "ممتاز! أنت جاهز تماماً للاختبار النهائي!"] : pct >= 75 ? ["🌟", "جيد جداً! راجع الأخطاء القليلة وستكون جاهزاً."] : pct >= 50 ? ["💪", "جيد! راجع الدروس المقترحة تحت وجرّب مرة ثانية."] : ["🌱", "تحتاج مراجعة أكثر. ابدأ بالدروس المقترحة والعب ألعابها."];
+  const weak = [...new Set(res.filter(r => !r.ok && r.q.lid).map(r => r.q.lid))];
+  st.innerHTML = `<div class="card result"><div class="score" style="--p:${pct}"><span>${pct}٪</span></div>
+    <h3>${grade[0]} ${c} من ${res.length} صحيحة</h3><p>${grade[1]}</p>
+    <div class="urows">${rows}</div>
+    ${weak.length ? `<h4 class="sec">📚 دروس أنصحك تراجعها</h4><div class="weak">${weak.map(id => `<a href="#/l/${id}/learn" style="${cvars(UNIT[LES[id].unit])}"><span>${LES[id].icon}</span><b dir="ltr">${esc(LES[id].en)}</b></a>`).join("")}</div>` : ""}
+    ${mistakes(res)}
+    <div class="nextrow"><button class="btn primary" id="eAgain"><span>اختبار جديد</span><i class="bi">🔄</i></button><a class="btn soft" href="#/">🗺️ الخريطة</a></div></div>`;
+  $("#eAgain").onclick = () => examView();
+}
+
+/* ---------- boot ---------- */
+header();
+route();
+matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", applyTheme);
+
+</script>
+</body>
+</html>

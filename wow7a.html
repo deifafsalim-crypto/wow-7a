@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>منصة WOW! للصف السابع – 7A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#FFF7EC; --bg2:#FDEFDC; --card:#FFFFFF; --ink:#34304A; --muted:#7D7893;
+  --shell:rgba(52,48,74,.05); --line:rgba(52,48,74,.08);
+  --mint:#D3F2E6; --mintD:#1E9A83;
+  --peach:#FFE3D1; --peachD:#E8703F;
+  --sky:#DAEEFC; --skyD:#3389D0;
+  --lemon:#FFF3BF; --lemonD:#C99400;
+  --lilac:#ECE3FC; --lilacD:#7657C7;
+  --rose:#FFE0E7; --roseD:#D94873;
+  --good:#23A57C; --bad:#E05A5A;
+  --ease:cubic-bezier(.32,.72,0,1);
+  --spring:cubic-bezier(.34,1.56,.64,1);
+  --shadow:0 18px 40px -22px rgba(80,60,40,.35), 0 2px 6px -2px rgba(80,60,40,.08);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#1D1A2B; --bg2:#242036; --card:#2B2741; --ink:#F4F0FF; --muted:#B3ADCB;
+    --shell:rgba(255,255,255,.05); --line:rgba(255,255,255,.08);
+    --mint:#1F3D38; --peach:#443027; --sky:#1F3448; --lemon:#40391E; --lilac:#332A4E; --rose:#44263A;
+    --shadow:0 18px 40px -22px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1D1A2B; --bg2:#242036; --card:#2B2741; --ink:#F4F0FF; --muted:#B3ADCB;
+  --shell:rgba(255,255,255,.05); --line:rgba(255,255,255,.08);
+  --mint:#1F3D38; --peach:#443027; --sky:#1F3448; --lemon:#40391E; --lilac:#332A4E; --rose:#44263A;
+  --shadow:0 18px 40px -22px rgba(0,0,0,.6);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Baloo Bhaijaan 2",Tahoma,"Segoe UI",system-ui,sans-serif;font-size:17px;line-height:1.6;min-height:100dvh;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(600px 400px at 90% -5%,var(--peach),transparent 70%),radial-gradient(500px 380px at -5% 30%,var(--mint),transparent 70%),radial-gradient(520px 420px at 80% 105%,var(--sky),transparent 70%);opacity:.8}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+.en{direction:ltr;text-align:left;unicode-bidi:isolate}
+.wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 18px 80px}
+
+/* nav island */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;display:flex;justify-content:center;padding-top:14px}
+.nav-in{display:flex;align-items:center;gap:8px;padding:6px;border-radius:999px;background:color-mix(in srgb,var(--card) 82%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:var(--shadow);outline:1px solid var(--line)}
+.nav a,.nav button{display:flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;text-decoration:none;color:var(--ink);font-weight:700;font-size:15px;transition:transform .5s var(--ease),background .4s var(--ease)}
+.nav a:hover,.nav button:hover{background:var(--shell)}
+.nav a:active,.nav button:active{transform:scale(.96)}
+.logo b{background:var(--peachD);color:#fff;border-radius:999px;padding:0 10px;font-size:14px}
+.starpill{background:var(--lemon)!important}
+
+/* bezel */
+.bz{background:var(--shell);border-radius:30px;padding:6px;outline:1px solid var(--line)}
+.bz>.core{background:var(--card);border-radius:24px;box-shadow:inset 0 1px 1px rgba(255,255,255,.4)}
+
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.3fr 1fr;gap:22px;align-items:center;padding:44px 0 28px}
+.eyebrow{display:inline-block;border-radius:999px;padding:3px 12px;font-size:12px;font-weight:700;letter-spacing:.08em;background:var(--lilac);color:var(--lilacD)}
+.hero h1{font-size:clamp(34px,6vw,58px);line-height:1.1;margin:12px 0 10px;font-weight:800}
+.hero h1 span{color:var(--peachD)}
+.hero p{color:var(--muted);margin:0 0 18px;font-size:18px}
+.owl{font-size:110px;line-height:1;display:inline-block;animation:bob 3.4s var(--ease) infinite}
+@keyframes bob{50%{transform:translateY(-10px) rotate(-4deg)}}
+.hero-card .core{padding:22px;text-align:center}
+.ring{--p:0;width:140px;height:140px;border-radius:50%;margin:0 auto 10px;display:grid;place-items:center;background:conic-gradient(var(--mintD) calc(var(--p)*1%),var(--shell) 0)}
+.ring>div{width:112px;height:112px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-weight:800;font-size:26px}
+.ring small{display:block;font-size:12px;color:var(--muted);font-weight:600;margin-top:-8px}
+
+.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 12px 10px 22px;border-radius:999px;font-weight:800;background:var(--ink);color:var(--bg);text-decoration:none;transition:transform .5s var(--ease)}
+.btn .ic{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.18);transition:transform .5s var(--spring)}
+.btn:hover .ic{transform:translateX(-4px) scale(1.08)}
+.btn:active{transform:scale(.97)}
+.btn.soft{background:var(--card);color:var(--ink);outline:1px solid var(--line)}
+.btn.soft .ic{background:var(--shell)}
+.btn.good{background:var(--mintD);color:#fff}
+
+/* bento */
+.sec-title{display:flex;align-items:end;justify-content:space-between;margin:34px 0 14px}
+.sec-title h2{margin:0;font-size:28px}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.ucard{grid-column:span 4;text-decoration:none;color:inherit;transition:transform .6s var(--ease)}
+.ucard:hover{transform:translateY(-4px) rotate(-.4deg)}
+.ucard.big{grid-column:span 8}
+.ucard .core{padding:22px;height:100%;position:relative;overflow:hidden;min-height:190px;display:flex;flex-direction:column}
+.ucard .emo{font-size:52px;line-height:1}
+.ucard h3{margin:8px 0 0;font-size:24px}
+.ucard .en{color:var(--muted);font-weight:600}
+.ucard .meta{margin-top:auto;display:flex;gap:8px;flex-wrap:wrap;padding-top:12px}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:2px 10px;border-radius:999px;font-size:13px;font-weight:700;background:var(--shell)}
+.bar{height:8px;border-radius:9px;background:var(--shell);overflow:hidden;margin-top:10px}
+.bar i{display:block;height:100%;transform-origin:right;background:currentColor;border-radius:9px;transition:transform 1s var(--ease)}
+
+.t-lemon .core{background:var(--lemon)} .t-lemon{color:var(--lemonD)}
+.t-peach .core{background:var(--peach)} .t-peach{color:var(--peachD)}
+.t-mint .core{background:var(--mint)} .t-mint{color:var(--mintD)}
+.t-sky .core{background:var(--sky)} .t-sky{color:var(--skyD)}
+.t-lilac .core{background:var(--lilac)} .t-lilac{color:var(--lilacD)}
+.t-rose .core{background:var(--rose)} .t-rose{color:var(--roseD)}
+.ucard h3,.ucard p{color:var(--ink)}
+
+/* unit path */
+.uhead{padding:34px 0 10px;display:flex;gap:18px;align-items:center}
+.uhead .emo{font-size:70px}
+.uhead h1{margin:0;font-size:clamp(30px,5vw,44px);line-height:1.1}
+.back{display:inline-flex;align-items:center;gap:6px;margin-top:18px;color:var(--muted);text-decoration:none;font-weight:700}
+.path{display:flex;flex-direction:column;gap:18px;margin-top:22px;position:relative}
+.node{display:flex;align-items:center;gap:16px;text-decoration:none;color:inherit;width:min(560px,100%);transition:transform .6s var(--ease)}
+.node:nth-child(odd){align-self:flex-start}
+.node:nth-child(even){align-self:flex-end}
+.node:hover{transform:scale(1.02)}
+.bubble{flex:none;width:78px;height:78px;border-radius:28px;display:grid;place-items:center;font-size:36px;box-shadow:var(--shadow),inset 0 -6px 0 rgba(0,0,0,.08)}
+.node .core{flex:1;padding:14px 18px}
+.node h4{margin:0;font-size:19px}
+.stars{letter-spacing:2px;font-size:15px}
+.stars .off{opacity:.25;filter:grayscale(1)}
+
+/* lesson */
+.tabs{display:flex;gap:6px;padding:6px;border-radius:999px;background:var(--shell);width:max-content;max-width:100%;margin:18px 0;overflow-x:auto}
+.tabs button{padding:8px 18px;border-radius:999px;font-weight:800;white-space:nowrap;transition:background .5s var(--ease),transform .4s var(--ease)}
+.tabs button.on{background:var(--card);box-shadow:var(--shadow)}
+.langt{display:flex;gap:4px;margin-inline-start:auto}
+.langt button{padding:4px 12px;border-radius:999px;font-size:13px;font-weight:700;background:var(--shell)}
+.langt button.on{background:var(--ink);color:var(--bg)}
+body.l-ar .en-only{display:none} body.l-en .ar-only{display:none}
+
+.blk{margin-bottom:16px}
+.blk .core{padding:20px}
+.blk h3{margin:0 0 10px;font-size:21px;display:flex;align-items:center;gap:8px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.duo>div{padding:14px 16px;border-radius:18px;background:var(--bg2)}
+.duo .lbl{font-size:12px;font-weight:800;color:var(--muted);letter-spacing:.06em}
+body.l-ar .duo,body.l-en .duo{grid-template-columns:1fr}
+.formula{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;direction:ltr;margin:6px 0 4px}
+.formula span{padding:6px 14px;border-radius:14px;font-weight:800;background:var(--sky)}
+.formula span:nth-child(2n){background:var(--peach)}
+.formula span.plus{background:none;padding:6px 0}
+.exs{display:grid;gap:8px}
+.ex{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:16px;background:var(--bg2)}
+.ex .en{flex:1;font-weight:700}
+.ex .ar{color:var(--muted);font-size:15px}
+.spk{flex:none;width:36px;height:36px;border-radius:50%;background:var(--card);display:grid;place-items:center;font-size:16px;box-shadow:0 2px 8px -3px rgba(0,0,0,.2);transition:transform .4s var(--spring)}
+.spk:active{transform:scale(.85)}
+.vgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.vt{padding:14px 10px;border-radius:20px;background:var(--bg2);text-align:center;transition:transform .5s var(--spring)}
+.vt:hover{transform:translateY(-3px) rotate(1deg)}
+.vt .e{font-size:40px;line-height:1.1}
+.vt .w{font-weight:800;direction:ltr}
+.vt .a{font-size:14px;color:var(--muted)}
+.tip{display:flex;gap:12px;padding:14px 16px;border-radius:18px;background:var(--lemon)}
+.tip .e{font-size:28px}
+.book{font-size:13px;font-weight:700;color:var(--muted)}
+
+/* games */
+.glist{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.gcard{text-align:start;transition:transform .6s var(--ease)}
+.gcard:hover{transform:translateY(-4px)}
+.gcard .core{padding:18px;min-height:150px;display:flex;flex-direction:column;gap:4px}
+.gcard .e{font-size:40px}
+.gcard b{font-size:19px}
+.gcard small{color:var(--muted)}
+.stage .core{padding:22px;min-height:340px}
+.gtop{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.gprog{flex:1;height:12px;border-radius:9px;background:var(--shell);overflow:hidden}
+.gprog i{display:block;height:100%;background:linear-gradient(90deg,var(--mintD),var(--skyD));transform-origin:right;transition:transform .7s var(--ease);border-radius:9px}
+.qtext{font-size:22px;font-weight:800;line-height:1.4}
+.qa{color:var(--muted);margin-top:4px}
+.qhead{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;margin-bottom:16px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opt{padding:14px 16px;border-radius:18px;background:var(--bg2);font-weight:700;font-size:18px;text-align:left;direction:ltr;transition:transform .45s var(--spring),background .3s var(--ease);outline:2px solid transparent}
+.opt:hover{transform:translateY(-2px)}
+.opt.ok{background:#CFF3E3;outline-color:var(--good);color:#11563f}
+.opt.no{background:#FBD9D9;outline-color:var(--bad);color:#7a2020;animation:shake .45s}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.fb{margin-top:14px;min-height:10px}
+.fbox{padding:12px 16px;border-radius:16px;display:flex;gap:10px;align-items:center;animation:pop .5s var(--spring)}
+.fbox.g{background:#DDF6EC;color:#11563f}
+.fbox.b{background:#FCE3E3;color:#7a2020}
+@keyframes pop{from{transform:scale(.9);opacity:0}}
+.next{margin-top:14px}
+.mem{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.mc{aspect-ratio:1/1;border-radius:20px;perspective:600px}
+.mc .in{position:relative;width:100%;height:100%;transition:transform .6s var(--ease);transform-style:preserve-3d}
+.mc.f .in,.mc.m .in{transform:rotateY(180deg)}
+.mc .fr,.mc .bk{position:absolute;inset:0;border-radius:20px;display:grid;place-items:center;backface-visibility:hidden;-webkit-backface-visibility:hidden;padding:6px;text-align:center;font-weight:800;font-size:15px;line-height:1.25}
+.mc .fr{background:linear-gradient(135deg,var(--lilac),var(--sky));font-size:30px}
+.mc .bk{background:var(--card);outline:2px solid var(--line);transform:rotateY(180deg)}
+.mc.m .bk{background:#DDF6EC;outline-color:var(--good)}
+.sortitem{margin:10px auto 22px;width:max-content;max-width:100%;padding:14px 24px;border-radius:22px;background:var(--lemon);font-size:22px;font-weight:800;direction:ltr;box-shadow:var(--shadow);animation:pop .5s var(--spring)}
+.buckets{display:grid;gap:10px}
+.bucket{padding:18px 14px;border-radius:22px;font-weight:800;font-size:18px;transition:transform .4s var(--spring)}
+.bucket:active{transform:scale(.96)}
+.bucket small{display:block;font-weight:600;font-size:13px;opacity:.75}
+.bucket.hit{outline:3px solid var(--good)}
+.bucket.miss{animation:shake .45s}
+.ansline{min-height:64px;padding:10px;border-radius:20px;border:2px dashed var(--line);display:flex;flex-wrap:wrap;gap:8px;direction:ltr;align-items:center;margin-bottom:14px;background:var(--bg2)}
+.pool{display:flex;flex-wrap:wrap;gap:8px;direction:ltr;justify-content:center}
+.tok{padding:8px 14px;border-radius:14px;background:var(--card);outline:2px solid var(--line);font-weight:800;font-size:17px;transition:transform .4s var(--spring)}
+.tok:hover{transform:translateY(-2px)}
+.tok.used{opacity:.25;pointer-events:none}
+.pool.stack{flex-direction:column;align-items:stretch}
+.bigemo{font-size:78px;text-align:center;line-height:1.1}
+.letters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;direction:ltr}
+.letters .tok{min-width:46px;text-align:center;font-size:22px}
+.slots{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;direction:ltr;margin:14px 0}
+.slot{width:40px;height:48px;border-radius:12px;background:var(--bg2);display:grid;place-items:center;font-size:22px;font-weight:800;border-bottom:3px solid var(--line)}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+.result{text-align:center;padding:14px 0}
+.result .big{font-size:84px;line-height:1}
+.result h2{margin:6px 0;font-size:32px}
+.result .stars{font-size:40px;letter-spacing:6px}
+.review{text-align:start;margin-top:18px;display:grid;gap:8px}
+.review .it{padding:10px 14px;border-radius:14px;background:var(--bg2);font-size:15px}
+.review .it b{direction:ltr;display:block}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:40}
+.foot{text-align:center;color:var(--muted);font-size:14px;margin-top:50px}
+
+@media (max-width:768px){
+  .hero{grid-template-columns:1fr;text-align:center;padding-top:26px}
+  .bento{grid-template-columns:1fr}
+  .ucard,.ucard.big{grid-column:span 1}
+  .duo{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr}
+  .node,.node:nth-child(odd),.node:nth-child(even){align-self:stretch}
+  .nav a span.hide-m{display:none}
+  .mem{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body class="l-both">
+<canvas id="confetti"></canvas>
+<nav class="nav"><div class="nav-in">
+  <a href="#/" class="logo"><b dir="ltr">WOW!</b><span class="hide-m">7A</span></a>
+  <a href="#/"><span>🏠</span><span class="hide-m">الرئيسية</span></a>
+  <a href="#/exam"><span>🏆</span><span class="hide-m">الاختبار النهائي</span></a>
+  <button class="starpill" id="starpill">⭐ 0</button>
+  <button id="sndbtn" title="الصوت">🔊</button>
+</div></nav>
+<main class="wrap" id="app"></main>
+
+<script>
+/* =================== DATA =================== */
+const V = {
+ jobs:[["presenter","مقدّم برامج","🎤"],["performer","مؤدّي / فنان عرض","🎭"],["comedian","ممثل كوميدي","😂"],["clown","مهرّج","🤡"],["puppeteer","محرّك الدمى","🧸"],["sound editor","محرّر الصوت","🎧"],["stunt performer","مؤدّي المشاهد الخطرة","🏍️"],["animator","رسّام الرسوم المتحركة","✏️"],["writer","كاتب","✍️"],["costume designer","مصمّم الأزياء","👗"],["make-up artist","فنان المكياج","💄"],["camera operator","مصوّر / مشغّل الكاميرا","🎥"]],
+ places:[["soft play centre","مركز اللعب الإسفنجي","🤸"],["science museum","متحف العلوم","🔬"],["3D cinema","سينما ثلاثية الأبعاد","🕶️"],["art gallery","معرض فنون","🖼️"],["planetarium","القبة الفلكية","🪐"],["circus","سيرك","🎪"],["aquarium","حوض الأحياء المائية","🐠"],["bowling alley","صالة البولينغ","🎳"],["ice rink","حلبة التزلج على الجليد","⛸️"],["theme park","مدينة ملاهٍ","🎢"],["adventure playground","ملعب المغامرات","🧗"],["safari park","حديقة السفاري","🦁"]],
+ body:[["beak","منقار","🦜"],["tongue","لسان","👅"],["hump","سنام","🐪"],["whiskers","شوارب","🐱"],["antennae","قرون الاستشعار","🐜"],["spines","أشواك","🦔"],["scales","حراشف","🐍"],["fin","زعنفة","🦈"],["paws","كفوف","🐾"],["claws","مخالب","🦅"],["flippers","زعانف السباحة","🦭"],["horns","قرون","🐐"]],
+ averbs:[["bite","يعضّ","🦷"],["sting","يلسع","🐝"],["roar","يزأر","🦁"],["fight","يتقاتل","🥊"],["dive","يغوص","🤿"],["dig","يحفر","⛏️"],["hide","يختبئ","🙈"],["lay eggs","يبيض","🥚"],["curl up","يلتفّ على نفسه","🦔"],["fly away","يطير بعيدًا","🕊️"],["run away","يهرب","🏃"],["die","يموت","🥀"]],
+ travel:[["passport","جواز سفر","🛂"],["guidebook","دليل سياحي","📘"],["umbrella","مظلّة","☂️"],["flip-flops","شبشب","🩴"],["charger","شاحن","🔌"],["suitcase","حقيبة سفر","🧳"],["raincoat","معطف مطر","🧥"],["medicine","دواء","💊"],["pillow","وسادة","🛏️"],["washbag","حقيبة أدوات النظافة","👝"],["toothbrush","فرشاة أسنان","🪥"],["soap","صابون","🧼"]],
+ tverbs:[["pack your suitcase","يحزم حقيبته","🧳"],["go on a journey","يذهب في رحلة","🗺️"],["travel by train","يسافر بالقطار","🚆"],["catch a bus","يلحق بالحافلة","🚌"],["get on","يركب (الوسيلة)","⬆️"],["get off","ينزل (من الوسيلة)","⬇️"],["take off","تُقلع (الطائرة)","🛫"],["land","تهبط (الطائرة)","🛬"],["arrive","يصل","📍"],["leave","يغادر","👋"],["explore","يستكشف","🔭"],["take a seat","يجلس / يأخذ مقعده","💺"]],
+ months:[["January","يناير","❄️"],["February","فبراير","🌬️"],["March","مارس","🌱"],["April","أبريل","🌷"],["May","مايو","🌼"],["June","يونيو","☀️"],["July","يوليو","🏖️"],["August","أغسطس","🍉"],["September","سبتمبر","🎒"],["October","أكتوبر","🍂"],["November","نوفمبر","🍁"],["December","ديسمبر","⛄"]],
+ seasons:[["spring","الربيع","🌸"],["summer","الصيف","☀️"],["autumn","الخريف","🍂"],["winter","الشتاء","❄️"]]
+};
+const TF=["True","False"];
+
+const UNITS=[
+{id:"w",emo:"👋",en:"Welcome",ar:"الترحيب والمراجعة",tone:"lemon",pages:"10–13",lessons:[
+ {id:"w1",emo:"🦉",en:"Meet the WOW! Team",ar:"تعرّف على فريق WOW!",
+  learn:[
+   {t:"rule",h:"👋 فريق مجلة WOW!",en:"The new WOW! Team are Majid, Frank, Bayan and Emily. They write the World of Wonder! Magazine. This year the topics are: entertainment, animals and travel.",ar:"فريق WOW! الجديد هم: ماجد وفرانك وبيان وإميلي. يكتبون مجلة عالم العجائب. مواضيع هذا الفصل: الترفيه، والحيوانات، والسفر."},
+   {t:"ex",h:"🗣️ جمل للتعارف",items:[["My name's Majid.","اسمي ماجد."],["It's nice to meet you.","سعيد بلقائك."],["I'm pleased to meet you, too.","وأنا أيضًا سعيد بلقائك."],["I'm twelve and I have short dark hair.","عمري 12 سنة وشعري قصير وداكن."],["I love animals and I want to see some when I go camping.","أحب الحيوانات وأريد رؤية بعضها عندما أذهب للتخييم."]]},
+   {t:"story",h:"📖 من هو؟ (About us)",en:"Frank is 13 and loves travelling and food from different countries. Majid wears an Omani hat and dishdasha, goes camping and learned first aid. Bayan wears a hijab, loves animals, but last time camping they didn't take enough food. Emily loves reading and comfortable clothes.",ar:"فرانك عمره 13 ويحب السفر وأكل البلدان المختلفة. ماجد يلبس الكمّة والدشداشة ويخيّم وتعلّم الإسعافات الأولية. بيان تلبس الحجاب وتحب الحيوانات، لكن في آخر تخييم لم يأخذوا طعامًا كافيًا. إميلي تحب القراءة والملابس المريحة.",book:"Class Book ص 12"}
+  ],
+  games:[{type:"build",en:"Build the sentence",ar:"رتّب الجملة",emo:"🧩",items:["It's nice to meet you.","I love learning about technology.","Egyptian food tastes like Spanish food.","Next time, we'll take everything that we need!"]}],
+  quiz:[
+   {q:"Who is thirteen and loves travelling with his parents?",opts:["Frank","Majid","Bayan","Emily"],a:0},
+   {q:"Who learned about first aid at school?",opts:["Majid","Emily","Frank","Bayan"],a:0},
+   {q:"Why was Bayan hungry when she went camping before?",opts:["They didn't take enough food.","The food was cold.","She didn't like the food.","They forgot the kitchen."],a:0,w:"لأنهم لم يأخذوا طعامًا كافيًا."},
+   {q:"Why doesn't Emily usually wear her long coat?",opts:["It's not usually cold enough in Oman.","It's too small.","It's too old.","She doesn't like it."],a:0},
+   {q:"Which food tastes like Spanish food?",opts:["Egyptian food","Omani food","Indian food","Italian food"],a:0},
+   {q:"Basim is going to Egypt by plane. What does he need?",opts:["Tips on what to take","A new camera","A job","A pet"],a:0,w:"باسم يحتاج نصائح عن السفر وماذا يأخذ معه."},
+   {q:"Who loves animals and wants to see some when camping?",opts:["Bayan","Frank","Majid","Emily"],a:0}
+  ]}
+]},
+{id:"u1",emo:"🎭",en:"Unit 1 · Entertainment",ar:"الوحدة 1 · الترفيه",tone:"peach",pages:"14–39",lessons:[
+ {id:"u1a",emo:"🤡",en:"Jobs in entertainment",ar:"وظائف الترفيه",
+  learn:[
+   {t:"vocab",h:"🎬 كلمات الدرس (12 وظيفة)",list:"jobs"},
+   {t:"tip",ar:"اضغط على أي بطاقة لتسمع نطق الكلمة. لاحظ أن كثيرًا من الوظائف تنتهي بـ -er أو -or مثل performer و animator.",en:"Tap a card to hear it. Many jobs end in -er or -or: performer, animator."},
+   {t:"story",h:"📖 مدوّنة WOW! – عرض المواهب",en:"Emily wants to be the presenter. Bayan is going to be the costume designer. Frank is the clown and a puppeteer. Majid loves technology, so he'll be the camera operator.",ar:"إميلي تريد أن تكون المقدّمة. بيان ستكون مصمّمة الأزياء. فرانك هو المهرّج ومحرّك الدمى. ماجد يحب التقنية لذلك سيكون المصوّر.",book:"Class Book ص 16"}
+  ],
+  games:[{type:"memory",list:"jobs",en:"Memory match",ar:"لعبة الذاكرة",emo:"🃏"},{type:"listen",list:"jobs",en:"Listen & choose",ar:"استمع واختر",emo:"👂"},{type:"spell",list:"jobs",en:"Spelling bee",ar:"تهجئة الكلمات",emo:"🐝"}],
+  quiz:[
+   {q:"These people wear wigs, red noses and big shoes. They're funny. Who are they?",opts:["clowns","writers","sound editors","animators"],a:0},
+   {q:"Who wants to be the presenter in the WOW! Talent Show?",opts:["Emily","Bayan","Frank","Majid"],a:0},
+   {q:"Bayan is going to design amazing costumes. She is the …",opts:["costume designer","make-up artist","camera operator","comedian"],a:0},
+   {q:"Majid loves technology. He'll be the …",opts:["camera operator","clown","puppeteer","writer"],a:0},
+   {q:"Which job needs people who are very fit?",opts:["stunt performer","writer","sound editor","animator"],a:0,w:"مؤدّي المشاهد الخطرة يحتاج لياقة بدنية عالية."},
+   {q:"Who makes the pictures move in a cartoon?",opts:["animator","presenter","comedian","clown"],a:0},
+   {q:"Frank is great with puppets. He is a …",opts:["puppeteer","presenter","writer","sound editor"],a:0},
+   {q:"Which person do you NOT see on a stage?",opts:["sound editor","clown","comedian","performer"],a:0,w:"محرّر الصوت يعمل خلف الكواليس."}
+  ]},
+ {id:"u1b",emo:"⏳",en:"Present perfect: since & for",ar:"المضارع التام مع since و for",
+  learn:[
+   {t:"rule",h:"🧠 القاعدة",en:"We use the Present perfect to talk about something that started in the past and is still true now.\nhave / has + past participle (been, had, lived, seen).",ar:"نستخدم المضارع التام للحديث عن شيء بدأ في الماضي وما زال مستمرًا الآن.\nالتركيب: have / has + التصريف الثالث للفعل (been, had, lived, seen)."},
+   {t:"formula",parts:["I / You / We / They","have ('ve)","+","been / had / lived"]},
+   {t:"formula",parts:["He / She / It","has ('s)","+","been / had / lived"]},
+   {t:"rule",h:"⏱️ since أم for؟",en:"since + a POINT in time: since lunchtime, since 6 o'clock, since April, since I was eight.\nfor + a PERIOD of time: for a long time, for ten years, for two days, for a week.",ar:"since + نقطة بداية في الزمن (منذ): منذ الغداء، منذ الساعة 6، منذ أبريل، منذ كنت في الثامنة.\nfor + مدة زمنية (لمدة): لمدة طويلة، لمدة عشر سنوات، لمدة يومين، لمدة أسبوع."},
+   {t:"tip",ar:"سؤال سريع يساعدك: هل تستطيع أن تضع إصبعك على التاريخ في التقويم؟ إذا نعم ← since. إذا كانت مدة تُحسب ← for.",en:"Can you point to it on a calendar? Yes → since. Is it an amount of time? → for."},
+   {t:"ex",h:"💬 أمثلة من حوار الدرس",items:[["Frank has had his costume for a long time.","فرانك يملك زيّه منذ مدة طويلة."],["He has been a puppeteer since he was eight.","هو محرّك دمى منذ كان في الثامنة."],["Majid's uncle has been a comedian for ten years.","عم ماجد ممثل كوميدي منذ عشر سنوات."],["He hasn't seen his show since he was five.","لم يرَ عرضه منذ كان في الخامسة."],["I've been ready since lunchtime!","أنا جاهز منذ وقت الغداء!"],["How long have you been a puppeteer?","منذ متى وأنت محرّك دمى؟"]]}
+  ],
+  games:[
+   {type:"sort",en:"since or for?",ar:"since أم for؟",emo:"🗂️",buckets:[["since","نقطة بداية"],["for","مدة زمنية"]],items:[["lunchtime",0],["6 o'clock",0],["April",0],["I was eight",0],["2004",0],["September",0],["Monday",0],["a long time",1],["ten years",1],["two days",1],["a week",1],["three hours",1],["many years",1],["five minutes",1]]},
+   {type:"build",en:"Build the sentence",ar:"رتّب الجملة",emo:"🧩",items:["I've been a comedian for a long time.","He's lived here since he was eight.","Frank has been ready since lunchtime.","How long have you had that costume?","I haven't been to the cinema since I was seven."]}
+  ],
+  quiz:[
+   {q:"I've lived in my house ___ five years.",opts:["for","since"],a:0,noshuf:1,w:"five years مدة ← for"},
+   {q:"I haven't eaten noodles ___ February.",opts:["for","since"],a:1,noshuf:1,w:"February نقطة بداية ← since"},
+   {q:"How long ___ you had that costume?",opts:["have","has","did","are"],a:0},
+   {q:"She ___ been a puppeteer since 2020.",opts:["has","have","is","was"],a:0},
+   {q:"True or False? Frank's costume is too big.",opts:TF,a:1,noshuf:1,w:"خطأ: زيّه أصبح صغيرًا قليلًا (a bit small)."},
+   {q:"True or False? Majid's uncle is a sound editor.",opts:TF,a:1,noshuf:1,w:"خطأ: عمه ممثل كوميدي."},
+   {q:"True or False? Frank can make puppets move.",opts:TF,a:0,noshuf:1},
+   {q:"True or False? Frank isn't ready.",opts:TF,a:1,noshuf:1,w:"خطأ: هو جاهز منذ وقت الغداء."},
+   {q:"We use FOR before …",opts:["a period of time","a point in time"],a:0,noshuf:1}
+  ]},
+ {id:"u1c",emo:"📔",en:"Book Club: My Muscat diary",ar:"نادي الكتاب: مذكّراتي في مسقط",
+  learn:[
+   {t:"rule",h:"📔 ما هي المذكّرات؟ (A diary)",en:"A diary has DATES at the beginning of each part. The writer uses the FIRST person: I, my, we.",ar:"المذكّرات تبدأ كل جزء منها بـ تاريخ، والكاتب يتحدث عن نفسه بصيغة المتكلّم: I, my, we."},
+   {t:"story",h:"📖 ملخّص القصة",en:"A family from Khasab spends a holiday in Muscat. Sunday: Al-Qurum park, an art gallery, the aquarium (the writer loved the turtles) and the cinema. Monday: the National Museum and a planetarium. Tuesday: shopping at the biggest mall, then a show at the Royal Opera House – Dad has had the tickets since September! The little sister and brother fell asleep and snored in the taxi.",ar:"عائلة من خصب تقضي عطلة في مسقط. الأحد: حديقة القرم ومعرض فني وحوض الأحياء المائية (أحب الكاتب السلاحف) ثم السينما. الاثنين: المتحف الوطني والقبة الفلكية. الثلاثاء: التسوق في أكبر مجمّع ثم عرض في دار الأوبرا السلطانية – أبي معه التذاكر منذ سبتمبر! وأخواه الصغيران ناما وشخّرا في سيارة الأجرة.",book:"Class Book ص 20–21"}
+  ],
+  games:[{type:"order",en:"Order the holiday",ar:"رتّب أحداث الرحلة",emo:"🗓️",items:[["Arrive in Muscat","Al-Qurum park","The aquarium","National Museum & planetarium","Shopping at the mall","Show at the Royal Opera House","Fly home to Khasab"]]}],
+  quiz:[
+   {q:"Why did the family go to Muscat?",opts:["for a holiday","for school","to work","to visit a doctor"],a:0},
+   {q:"Which evening did they go to the Royal Opera House?",opts:["Tuesday","Sunday","Monday","Saturday"],a:0},
+   {q:"What did the writer love at the aquarium?",opts:["the turtles","the sharks","the dolphins","the crabs"],a:0},
+   {q:"Where did they go on Monday?",opts:["the National Museum and a planetarium","the zoo","the beach","a circus"],a:0},
+   {q:"Dad has had the tickets since …",opts:["September","Monday","last year","lunchtime"],a:0},
+   {q:"Where is the family's home?",opts:["Khasab","Muscat","Salalah","Sohar"],a:0},
+   {q:"Why was the writer embarrassed?",opts:["The little sister was snoring in the taxi.","They were late.","They lost the tickets.","The show was bad."],a:0},
+   {q:"A diary is written in the …",opts:["first person (I, my, we)","third person (he, she, they)"],a:0,noshuf:1}
+  ]},
+ {id:"u1d",emo:"🎢",en:"Places & future plans",ar:"أماكن الترفيه والخطط المستقبلية",
+  learn:[
+   {t:"vocab",h:"🎡 أماكن الترفيه (12 مكانًا)",list:"places"},
+   {t:"rule",h:"🧠 المضارع المستمر للمستقبل",en:"We use the Present continuous for future ARRANGEMENTS – things we have already decided or arranged.\nam / is / are + verb-ing + future time",ar:"نستخدم المضارع المستمر للحديث عن خطط مرتّبة في المستقبل (قررناها أو حجزناها مسبقًا).\nam / is / are + الفعل مع ing + كلمة تدل على المستقبل"},
+   {t:"formula",parts:["We're","watching a film","tonight / tomorrow / next week / on Saturday"]},
+   {t:"ex",h:"💬 أمثلة من المذكّرات",items:[["Tomorrow we're visiting Al-Qurum park.","غدًا سنزور حديقة القرم."],["Tonight we aren't going out.","الليلة لن نخرج."],["On Tuesday we're watching a show.","يوم الثلاثاء سنشاهد عرضًا."],["On Wednesday we're flying home.","يوم الأربعاء سنطير عائدين للبيت."]]}
+  ],
+  games:[{type:"memory",list:"places",en:"Memory match",ar:"لعبة الذاكرة",emo:"🃏"},{type:"listen",list:"places",en:"Listen & choose",ar:"استمع واختر",emo:"👂"},{type:"build",en:"Build the plan",ar:"رتّب الخطة",emo:"🧩",items:["We're seeing the lions at a safari park.","I'm going to the museum on Saturday.","They aren't going out tonight.","She's flying to Cairo next week."]}],
+  quiz:[
+   {q:"Where can you see fish, sharks and turtles?",opts:["aquarium","ice rink","art gallery","circus"],a:0},
+   {q:"Where can you learn about stars and planets?",opts:["planetarium","bowling alley","soft play centre","theme park"],a:0},
+   {q:"Where can you see lions from a car?",opts:["safari park","3D cinema","science museum","ice rink"],a:0},
+   {q:"We ___ watching a film tonight.",opts:["are","is","am","be"],a:0},
+   {q:"She's ___ to Cairo next week.",opts:["flying","fly","flies","flew"],a:0},
+   {q:"They ___ going out tonight. They're tired.",opts:["aren't","isn't","don't","not"],a:0},
+   {q:"We use the Present continuous for the future when we ___ arranged something.",opts:["have","haven't"],a:0,noshuf:1},
+   {q:"Where do you need special glasses to watch a film?",opts:["3D cinema","art gallery","aquarium","circus"],a:0}
+  ]},
+ {id:"u1e",emo:"🎟️",en:"Culture, tickets & sounds",ar:"الثقافة وشراء التذاكر والنطق",
+  learn:[
+   {t:"story",h:"🌍 فنانون حول العالم",en:"Al Haboot is a traditional Omani performance, popular in the mountains, especially in Dhofar. Performers sing a poem to a rhythm, carry swords and jump.\nCirque du Soleil is a big circus from Canada. The name means 'circus of the sun'. It started in 1984 and has had a theatre in Las Vegas since 1993.",ar:"الهبوت فنّ عُماني تقليدي، مشهور في الجبال وخاصة في محافظة ظفار. يغنّي المؤدّون قصيدة على إيقاع ويحملون السيوف ويقفزون.\nسيرك دو سوليه سيرك كبير من كندا، معنى اسمه «سيرك الشمس». بدأ عام 1984 وله مسرح في لاس فيغاس منذ 1993.",book:"Class Book ص 24"},
+   {t:"ex",h:"🎟️ شراء التذاكر (Say it!)",items:[["Can I have four tickets, please?","هل يمكنني الحصول على أربع تذاكر من فضلك؟"],["One adult and three children, please.","بالغ واحد وثلاثة أطفال من فضلك."],["How much is a guide?","كم سعر المرشد؟"],["That's 29 rials in total.","المجموع 29 ريالًا."],["Here are your tickets. Enjoy the fort!","تفضّل تذاكرك. استمتع بالقلعة!"]]},
+   {t:"tip",ar:"🔢 احسبها مثل الحوار: البالغ 7 ريال والطفل 4 ريال. بالغ + 3 أطفال = 7 + 12 = 19 ريالًا. مع المرشد (10) = 29 ريالًا.",en:"Adult 7 + 3 children (3×4=12) = 19 rials. + guide 10 = 29 rials."},
+   {t:"rule",h:"🔊 النطق: صوت /ə/ في نهاية الوظائف",en:"The endings -er and -or sound like a soft /ə/: performer, designer, editor, operator.",ar:"النهايات -er و -or تُنطق صوتًا خفيفًا /ə/ (شوا) ولا نشدّد على حرف r: performer, designer, editor, operator."}
+  ],
+  games:[{type:"order",en:"Order the dialogue",ar:"رتّب حوار شراء التذاكر",emo:"💬",items:[["Hello, can I help you?","Can I have four tickets, please?","Adults or children?","One adult and three children, please.","OK. That's 19 rials.","Here you are.","Thanks. Enjoy the fort!"]]}],
+  quiz:[
+   {q:"Al Haboot is especially popular in which governorate?",opts:["Dhofar","Muscat","Musandam","Al Batinah"],a:0},
+   {q:"What do Al Haboot performers often carry?",opts:["swords","umbrellas","puppets","drums only"],a:0},
+   {q:"Cirque du Soleil is from …",opts:["Canada","Oman","Egypt","Spain"],a:0},
+   {q:"'Cirque du Soleil' means …",opts:["circus of the sun","circus of the moon","big circus","happy circus"],a:0},
+   {q:"Adults 7 OMR, children 4 OMR. One adult and three children = ?",opts:["19 rials","22 rials","16 rials","29 rials"],a:0,w:"7 + (3×4) = 19"},
+   {q:"Performers have used make-up for about …",opts:["2,500 years","250 years","25 years","25,000 years"],a:0},
+   {q:"Which word ends with the soft /ə/ sound?",opts:["performer","clown","show","puppet"],a:0},
+   {q:"The customer says: 'Can I ___ four tickets, please?'",opts:["have","give","take","make"],a:0}
+  ]},
+ {id:"u1f",emo:"📢",en:"Literacy: adverts",ar:"القراءة والكتابة: الإعلانات",
+  learn:[
+   {t:"rule",h:"✍️ كيف تكتب إعلانًا؟ (How to write an advert)",en:"Give the important information. Think about the design. Use big and small letters and colours. You can use bullet points (•), a logo (Treetops), a slogan (Hours of fun for all the family) and special offers.",ar:"اكتب المعلومات المهمة، واهتم بالتصميم، واستخدم أحجام حروف وألوانًا مختلفة. يمكنك استخدام النقاط (•) وشعار (logo) وعبارة جذابة (slogan) وعروض خاصة (special offers)."},
+   {t:"tip",ar:"استخدم أفعالًا (ride, climb, jump, visit) وصفات (amazing, exciting, the biggest) لتجعل إعلانك مشوّقًا!",en:"Use verbs and adjectives to make your advert exciting!"},
+   {t:"ex",h:"🌳 كلمات في السياق",items:[["zip wire","الحبل المنزلق"],["trampoline","الترامبولين"],["harness","حزام الأمان"],["maze","المتاهة"],["climbing wall","جدار التسلق"],["tunnel","نفق"]]},
+   {t:"story",h:"📖 إعلان Treetops",en:"Treetops Adventure Playground has zip wires, a high swing, ropes, a 15-metre climbing wall, trampolines and a new maze with tunnels. Children aged six or under play in the Tiny-Tots Playground. Special offer: 2 tickets for the price of 1!",ar:"ملعب Treetops فيه حبال منزلقة وأرجوحة عالية وحبال وجدار تسلق بارتفاع 15 مترًا وترامبولين ومتاهة جديدة فيها أنفاق. الأطفال بعمر ست سنوات أو أقل يلعبون في ملعب الصغار. عرض خاص: تذكرتان بسعر واحدة!",book:"Class Book ص 28"}
+  ],
+  games:[{type:"mcq",en:"Complete the aquarium advert",ar:"أكمل إعلان حوض الأسماك",emo:"🐠",items:[
+   {q:"• ___ through the glass tunnel: see fish, sharks and rays above your head!",opts:["Walk","Relax","Take","Learn"],a:0},
+   {q:"• ___ divers swimming under the water, feeding the animals.",opts:["Watch","Walk","Relax","Take"],a:0},
+   {q:"• ___ about the most dangerous animals in the sea.",opts:["Learn","Take","Walk","Relax"],a:0},
+   {q:"• ___ the 3D cinema and watch our new film.",opts:["Visit","Learn","Relax","Walk"],a:0},
+   {q:"• ___ a photo of yourself in front of the biggest crocodile!",opts:["Take","Watch","Visit","Learn"],a:0},
+   {q:"• ___ in the Ocean Café and enjoy a meal.",opts:["Relax","Walk","Learn","Take"],a:0}]}],
+  quiz:[
+   {q:"Treetops: 'The climbing wall is 20 metres high.'",opts:["Yes","No","Doesn't say"],a:1,noshuf:1,w:"لا – ارتفاعه 15 مترًا."},
+   {q:"Treetops: 'If you're ten, you can play in the Tiny-Tots Playground.'",opts:["Yes","No","Doesn't say"],a:1,noshuf:1,w:"لا – للأطفال بعمر 6 أو أقل."},
+   {q:"Treetops: 'There are tunnels in the maze.'",opts:["Yes","No","Doesn't say"],a:0,noshuf:1},
+   {q:"Treetops: 'You can phone a number to find out more.'",opts:["Yes","No","Doesn't say"],a:0,noshuf:1},
+   {q:"What is the Treetops special offer?",opts:["2 tickets for the price of 1","Free ice cream","Half-price in May","Free parking"],a:0},
+   {q:"'Hours of fun for all the family' is a …",opts:["slogan","logo","bullet point","special offer"],a:0},
+   {q:"Fahad: 'Can I come with you?' Yousuf: …",opts:["Of course you can!","In the morning, I think.","To the safari park.","I like them all!"],a:0},
+   {q:"Fahad: 'Are you going to have lunch in the café?' Yousuf: …",opts:["No, we're taking a picnic.","Of course you can!","I like them all!","To the safari park."],a:0}
+  ]}
+]},
+{id:"u2",emo:"🦔",en:"Unit 2 · Awesome animals",ar:"الوحدة 2 · حيوانات رائعة",tone:"mint",pages:"40–65",lessons:[
+ {id:"u2a",emo:"🦜",en:"Animal body parts",ar:"أجزاء أجسام الحيوانات",
+  learn:[
+   {t:"vocab",h:"🐾 كلمات الدرس (12 كلمة)",list:"body"},
+   {t:"tip",ar:"انتبه: بعض الكلمات تأتي بالجمع دائمًا تقريبًا: whiskers, antennae, spines, scales, paws, claws, flippers, horns.",en:"Many body words are usually plural: whiskers, antennae, spines, scales…"},
+   {t:"story",h:"❓ اختبار WOW! – خمّن الحيوان",en:"Majid: a big desert animal with one hump. Bayan: flippers, huge eyes, long whiskers, stays under water for two hours. Emily: animals in the park pond with a beak. Frank: small, helps plants grow, six legs, five eyes, two antennae.",ar:"ماجد: حيوان صحراوي كبير له سنام واحد. بيان: زعانف وعيون كبيرة وشوارب طويلة ويبقى تحت الماء ساعتين. إميلي: حيوانات في بركة الحديقة لها منقار. فرانك: صغير يساعد النباتات على النمو، له ست أرجل وخمس عيون وقرنا استشعار.",book:"Class Book ص 42"}
+  ],
+  games:[{type:"memory",list:"body",en:"Memory match",ar:"لعبة الذاكرة",emo:"🃏"},{type:"listen",list:"body",en:"Listen & choose",ar:"استمع واختر",emo:"👂"},{type:"spell",list:"body",en:"Spelling bee",ar:"تهجئة الكلمات",emo:"🐝"}],
+  quiz:[
+   {q:"This big animal lives in the desert. In Oman it has one hump.",opts:["camel","seal","duck","bee"],a:0},
+   {q:"It has flippers, huge eyes and long whiskers. It can stay under water for two hours.",opts:["seal","camel","hedgehog","bee"],a:0},
+   {q:"They live in the park pond. They have a beak. Some have green heads.",opts:["ducks","bees","seals","snakes"],a:0},
+   {q:"Very small, helps plants grow, six legs, five eyes and two antennae.",opts:["bee","duck","lizard","camel"],a:0},
+   {q:"It has scales and a long tongue.",opts:["lizard","bird","camel","hedgehog"],a:0},
+   {q:"Which animal has spines?",opts:["hedgehog","seal","duck","camel"],a:0},
+   {q:"Which part does a fish use to swim?",opts:["fin","hump","beak","claws"],a:0},
+   {q:"Insects use their ___ to smell.",opts:["antennae","paws","horns","flippers"],a:0}
+  ]},
+ {id:"u2b",emo:"🕵️",en:"Modals: must, may, might, could, can't",ar:"أفعال الاستنتاج",
+  learn:[
+   {t:"rule",h:"🕵️ كن محققًا!",en:"must → we are SURE something is true.\ncan't → we are SURE something is NOT true.\nmay / might / could → we are NOT SURE (maybe).",ar:"must ← متأكد أن الشيء صحيح (لا بد أنه).\ncan't ← متأكد أن الشيء غير صحيح (مستحيل أن يكون).\nmay / might / could ← لست متأكدًا (ربما)."},
+   {t:"formula",parts:["It","must / may / might / could / can't","+","be / have"]},
+   {t:"tip",ar:"بعد هذه الأفعال يأتي الفعل بدون to وبدون s: It must be… / It could have fur. ✔️ (وليس It must is ❌)",en:"After modals use the base verb: It must be… It could have fur."},
+   {t:"ex",h:"💬 من حوار الدرس",items:[["It can't be a bear. Bears don't live here.","مستحيل أن يكون دبًا، الدببة لا تعيش هنا."],["It could be a bird. I can hear birds.","ربما يكون طائرًا، أسمع أصوات طيور."],["It can't be a snake. It doesn't have scales.","مستحيل أن يكون أفعى، ليس له حراشف."],["It has spines! It must be a hedgehog.","له أشواك! لا بد أنه قنفذ."],["It isn't moving. It may be scared.","إنه لا يتحرك، ربما هو خائف."]]}
+  ],
+  games:[
+   {type:"sort",en:"Sure or not sure?",ar:"متأكد أم لا؟",emo:"🗂️",buckets:[["must ✔️","متأكد أنه صحيح"],["can't ❌","متأكد أنه خطأ"],["may / might / could 🤔","ربما"]],items:[["It has spines. It ___ be a hedgehog.",0],["It has feathers and a beak. It ___ be a bird.",0],["Bears don't live here. It ___ be a bear.",1],["It doesn't have scales. It ___ be a snake.",1],["It's brown and small… it ___ be a mouse.",2],["I can't see it well. It ___ have fur.",2],["It's crying. It ___ be sad.",0],["It lives in the sea. It ___ be a camel.",1],["It isn't moving. It ___ be scared.",2]]},
+   {type:"mcq",en:"Detective clues",ar:"أدلة المحقق",emo:"🔍",items:[
+    {q:"It has a hump and lives in the desert. It ___ be a camel.",opts:["must","can't","might"],a:0,noshuf:1},
+    {q:"It has wings but I can't see it well. It ___ be a bird or a bat.",opts:["could","must","can't"],a:0,noshuf:1},
+    {q:"It lives in the water and has no legs. It ___ be a lion.",opts:["can't","must","may"],a:0,noshuf:1},
+    {q:"Look! Long ears and it's jumping. It ___ be a rabbit.",opts:["must","can't"],a:0,noshuf:1},
+    {q:"I heard something in the tree. It ___ be a cat, or a bird.",opts:["might","must","can't"],a:0,noshuf:1}]}
+  ],
+  quiz:[
+   {q:"Why can't the animal be a bear?",opts:["Bears don't live there.","It's too small.","It has wings.","It's green."],a:0},
+   {q:"Why can't it be a snake?",opts:["It doesn't have scales.","It can fly.","It's too big.","It has fur."],a:0},
+   {q:"How does Bayan know it's a hedgehog?",opts:["It has spines.","It has a beak.","It can swim.","It has a hump."],a:0},
+   {q:"What does Nawal want to do?",opts:["pick it up","take a photo","run away","feed it"],a:0},
+   {q:"How does Emily think the hedgehog feels?",opts:["scared","happy","hungry","angry"],a:0},
+   {q:"We use MUST when we are ___ something is true.",opts:["sure","not sure"],a:0,noshuf:1},
+   {q:"We use MAY, MIGHT or COULD when we are ___.",opts:["not sure","sure"],a:0,noshuf:1},
+   {q:"It doesn't have wings. It ___ be a bird.",opts:["can't","must","might","may"],a:0}
+  ]},
+ {id:"u2c",emo:"🦫",en:"Book Club: The platypus folk tale",ar:"نادي الكتاب: حكاية خلد الماء",
+  learn:[
+   {t:"rule",h:"📜 ما هي الحكاية الشعبية؟ (Folk tale)",en:"Folk tales are OLD stories. They teach important things.",ar:"الحكايات الشعبية قصص قديمة، وهدفها أن تعلّمنا أشياء مهمة (حِكمة)."},
+   {t:"story",h:"📖 ملخّص الحكاية",en:"Long ago the animals were fighting to be the best group. The lions (fur, can run), the fish (swim and dive) and the birds (beaks, lay eggs) all asked the platypus to join them, because she has fur, swims, has a beak and lays eggs. But she can't bite, can't breathe underwater and can't fly. The next day she said: 'You are all special in different ways, and I am special in my own way, too.' Then she curled up and went to sleep.",ar:"قديمًا كانت الحيوانات تتشاجر لتكون أفضل مجموعة. الأسود (فرو وجري) والأسماك (سباحة وغوص) والطيور (مناقير وبيض) دعت كلها خلد الماء للانضمام إليها، لأن له فروًا ويسبح وله منقار ويبيض. لكنه لا يعضّ ولا يتنفس تحت الماء ولا يطير. في اليوم التالي قال: «كلكم مميزون بطرق مختلفة، وأنا مميز بطريقتي أيضًا». ثم التفّ ونام.",book:"Class Book ص 46–47"},
+   {t:"tip",ar:"💡 العبرة: كل واحد منا مميز بطريقته، ولا نحتاج أن نكون مثل غيرنا.",en:"Everyone is special in their own way."}
+  ],
+  games:[{type:"sort",en:"Can the platypus…?",ar:"هل يستطيع خلد الماء…؟",emo:"🦫",buckets:[["Yes ✔️","يستطيع / لديه"],["No ❌","لا يستطيع / ليس لديه"]],items:[["have fur",0],["run",0],["swim and dive",0],["lay eggs",0],["have a beak",0],["bite with teeth",1],["breathe underwater",1],["fly",1],["jump like a frog",1]]}],
+  quiz:[
+   {q:"Which group does the platypus join?",opts:["no group","the lions","the fish","the birds"],a:0},
+   {q:"Why can't the platypus bite like the lions?",opts:["She doesn't have teeth.","She is too small.","She is scared.","She is asleep."],a:0},
+   {q:"What can the fish do that the platypus can't?",opts:["breathe underwater","swim","dive","lay eggs"],a:0},
+   {q:"The birds say they have beaks and they …",opts:["lay eggs","have fur","can run","can bite"],a:0},
+   {q:"What did the platypus do at the end?",opts:["curled up and went to sleep","flew away","joined the lions","ran away"],a:0},
+   {q:"Folk tales are ___ stories.",opts:["old","new"],a:0,noshuf:1},
+   {q:"What can we learn from the story?",opts:["Everyone is special in their own way.","Lions are the best.","Fish are angry.","Birds can't fly."],a:0}
+  ]},
+ {id:"u2d",emo:"🐝",en:"Animal verbs & First conditional",ar:"أفعال الحيوانات والجملة الشرطية الأولى",
+  learn:[
+   {t:"vocab",h:"🐍 أفعال الحيوانات (12 فعلًا)",list:"averbs"},
+   {t:"rule",h:"🧠 الجملة الشرطية الأولى (First conditional)",en:"We use it for something that might happen in the FUTURE.\nIf + Present simple, … will / won't + verb",ar:"نستخدمها للحديث عن شيء ممكن أن يحدث في المستقبل.\nIf + مضارع بسيط ، ثم will / won't + الفعل"},
+   {t:"formula",parts:["If you come with us,","you'll be with the best animals."]},
+   {t:"tip",ar:"❌ لا نضع will بعد If مباشرة! نقول If you join us ✔️ وليس If you will join us ❌",en:"No 'will' in the If part!"},
+   {t:"ex",h:"💬 أمثلة",items:[["If you join us, you'll be in the best group.","إذا انضممت إلينا ستكون في أفضل مجموعة."],["If I join the lions, the birds won't be happy.","إذا انضممت للأسود فلن تكون الطيور سعيدة."],["If I don't join the fish, they'll be angry.","إذا لم أنضم للأسماك فستغضب."],["If we plant more flowers, more bees will come.","إذا زرعنا زهورًا أكثر ستأتي نحلات أكثر."]]}
+  ],
+  games:[{type:"memory",list:"averbs",en:"Memory match",ar:"لعبة الذاكرة",emo:"🃏"},{type:"mcq",en:"Match the halves",ar:"صِل نصفي الجملة",emo:"🔗",items:[
+    {q:"If you come with us, …",opts:["you'll be with the best animals.","they'll be angry.","I'll decide tomorrow."],a:0},
+    {q:"If you come and see me tomorrow, …",opts:["I'll tell you.","the birds won't be happy.","they'll be angry."],a:0},
+    {q:"If you wait, …",opts:["I'll decide tomorrow.","you'll be in the best group.","the birds won't be happy."],a:0},
+    {q:"If I join the lions, …",opts:["the birds won't be happy.","I'll tell you.","you'll be with the best animals."],a:0},
+    {q:"If I don't join the fish, …",opts:["they'll be angry.","I'll decide tomorrow.","I'll tell you."],a:0},
+    {q:"If we put bird food outdoors, …",opts:["more birds will come.","the bees will sting.","the fish will die."],a:0}]},
+   {type:"build",en:"Build the sentence",ar:"رتّب الجملة",emo:"🧩",items:["If you look up, you'll see an eagle.","If we plant more flowers, more bees will come.","If there is water, animals will come."]}],
+  quiz:[
+   {q:"If it ___ another animal, that animal will die.",opts:["bites","will bite","bite","biting"],a:0},
+   {q:"If you look carefully, you ___ see lots of camels.",opts:["'ll","are","do","did"],a:0},
+   {q:"If I don't join the fish, they ___ angry.",opts:["'ll be","are be","be","were"],a:0},
+   {q:"The if part of the sentence is in the …",opts:["present","future with will"],a:0,noshuf:1},
+   {q:"Bees can ___ you.",opts:["sting","roar","dive","dig"],a:0},
+   {q:"Lions ___ loudly.",opts:["roar","sting","lay eggs","curl up"],a:0},
+   {q:"When a hedgehog is scared, it will ___.",opts:["curl up","roar","fly away","dive"],a:0},
+   {q:"Birds, turtles and the platypus ___.",opts:["lay eggs","roar","sting","dig"],a:0}
+  ]},
+ {id:"u2e",emo:"🇴🇲",en:"National animals & likes",ar:"الحيوانات الوطنية والتعبير عن الإعجاب",
+  learn:[
+   {t:"story",h:"🌍 حيوانات وطنية",en:"The Arabian oryx is the national animal of Oman. It has white fur and long horns, eats grass and acacia leaves, gets water from its food and lives in groups of 15–30.\nRing-tailed lemurs (Madagascar) communicate with their tails, loud noises and horrible smells.\nThe Komodo dragon (Indonesia) tastes the air with its tongue and has venom. It is the largest lizard in the world – some are three metres long!",ar:"المها العربي هو الحيوان الوطني لسلطنة عُمان. له فرو أبيض وقرون طويلة، يأكل العشب وأوراق السمر، ويحصل على الماء من طعامه، ويعيش في مجموعات من 15 إلى 30.\nالليمور حلقي الذيل (مدغشقر) يتواصل بذيله وأصوات عالية وروائح كريهة.\nتنين كومودو (إندونيسيا) يتذوّق الهواء بلسانه وفي فمه سم، وهو أكبر سحلية في العالم – بعضها طوله 3 أمتار!",book:"Class Book ص 50"},
+   {t:"ex",h:"😍➡️😖 التعبير عمّا تحب وتكره",items:[["I'm crazy about sea animals.","أنا أعشق الحيوانات البحرية."],["I find ants really interesting.","أجد النمل ممتعًا جدًا."],["I quite like cats.","أحب القطط نوعًا ما."],["I don't mind spiders.","لا أمانع العناكب."],["I'm not keen on ants.","لست متحمسًا للنمل."],["I don't like sharks at all.","لا أحب أسماك القرش أبدًا."],["I can't stand them!","لا أطيقها!"]]},
+   {t:"rule",h:"🔊 النطق: المقطع المشدّد",en:"We say one part of a word more strongly: DOLphin, giRAFFE, JELlyfish, goRILla, kangaROO, ALligator, koAla, ELephant.",ar:"نضغط على مقطع واحد في الكلمة بصوت أقوى: DOLphin, giRAFFE, JELlyfish, goRILla, kangaROO, ALligator, koAla, ELephant."}
+  ],
+  games:[{type:"order",en:"From love to hate",ar:"رتّب من أحب إلى أكره",emo:"🌡️",items:[["I'm crazy about …","I find … really interesting.","I quite like …","I don't mind …","I'm not keen on …","I don't like … at all.","I can't stand …"]]}],
+  quiz:[
+   {q:"What is the national animal of Oman?",opts:["Arabian oryx","camel","Arabian leopard","falcon"],a:0},
+   {q:"Where does the Arabian oryx get its water?",opts:["from its food","from the sea","from rivers","from people"],a:0},
+   {q:"Arabian oryx usually live in groups of …",opts:["15–30","2–3","100–200","5–8"],a:0},
+   {q:"How does the Komodo dragon find animals?",opts:["It tastes the air with its tongue.","It listens with big ears.","It flies high.","It uses its tail."],a:0},
+   {q:"The national animal of Madagascar is the …",opts:["ring-tailed lemur","Komodo dragon","kiwi","oryx"],a:0},
+   {q:"'I can't stand spiders!' means …",opts:["I really don't like them.","I love them.","I don't mind them.","I find them interesting."],a:0},
+   {q:"Which sentence is the MOST positive?",opts:["I'm crazy about it.","I quite like it.","I don't mind it.","I'm not keen on it."],a:0},
+   {q:"Where is the stress in 'kangaroo'?",opts:["kanga-ROO","KAN-garoo","kan-GA-roo"],a:0,noshuf:1}
+  ]},
+ {id:"u2f",emo:"🐢",en:"Literacy: information texts",ar:"القراءة والكتابة: النص المعلوماتي",
+  learn:[
+   {t:"rule",h:"🦴 فقاريات ولا فقاريات",en:"Vertebrates have a backbone (fish, reptiles, mammals, birds). Invertebrates have no backbone (insects, spiders, snails, jellyfish).",ar:"الفقاريات لها عمود فقري (أسماك، زواحف، ثدييات، طيور). اللافقاريات ليس لها عمود فقري (حشرات، عناكب، حلزون، قناديل البحر)."},
+   {t:"story",h:"📄 ملفات المعلومات (Fact files)",en:"Mata mata turtle: vertebrate reptile, lakes and rivers in South America, up to 45 cm and 15 kg, very long neck and nose – it breathes through its nose while hiding in water.\nGiant prickly stick insect: invertebrate, forests in Australia, eats leaves, up to 20 cm and 20 g – it looks like dead leaves or wood.\nHammerhead shark: fish, up to 6 m and 450 kg, babies are called pups, uses a sixth sense to find stingrays in the sand.",ar:"سلحفاة ماتا ماتا: زاحف فقاري، تعيش في بحيرات وأنهار أمريكا الجنوبية، طولها حتى 45 سم ووزنها حتى 15 كغ، لها رقبة وأنف طويلان جدًا وتتنفس من أنفها وهي مختبئة في الماء.\nحشرة العصا الشوكية العملاقة: لافقارية، في غابات أستراليا، تأكل الأوراق، طولها حتى 20 سم ووزنها 20 غرامًا، تشبه الأوراق الميتة أو الخشب.\nالقرش المطرقة: سمكة، طوله حتى 6 أمتار ووزنه 450 كغ، صغاره تسمى pups، ويستخدم حاسة سادسة ليجد اللخمة في الرمل.",book:"Class Book ص 54–55"},
+   {t:"tip",ar:"✍️ عند كتابة نص معلوماتي: استخدم كل معلومات ملف الحقائق، واكتب جملًا كاملة، ولا تستخدم الاختصارات (اكتب centimetres بدل cm)، وأضف صفات.",en:"Use all the fact-file info, write full sentences, no abbreviations, add adjectives."}
+  ],
+  games:[{type:"sort",en:"Vertebrate or invertebrate?",ar:"فقاري أم لافقاري؟",emo:"🦴",buckets:[["vertebrate","له عمود فقري"],["invertebrate","بلا عمود فقري"]],items:[["mata mata turtle",0],["hammerhead shark",0],["camel",0],["lizard",0],["eagle",0],["stick insect",1],["bee",1],["spider",1],["snail",1],["jellyfish",1],["ant",1]]}],
+  quiz:[
+   {q:"Where does the mata mata turtle live?",opts:["South America","Australia","Oman","Africa"],a:0},
+   {q:"The mata mata turtle uses its long nose to …",opts:["breathe","eat","dig","fight"],a:0},
+   {q:"Why is it easy for the stick insect to hide?",opts:["It looks like dead leaves or wood.","It can fly fast.","It lives underground.","It is very big."],a:0},
+   {q:"Baby hammerhead sharks are called …",opts:["pups","cubs","chicks","kids"],a:0},
+   {q:"A hammerhead shark can be up to …",opts:["6 metres long","45 centimetres long","20 centimetres long","60 metres long"],a:0},
+   {q:"Thuriya has been a writer ___ twenty years.",opts:["for","since"],a:0,noshuf:1},
+   {q:"How often does Thuriya cook dinner for the team?",opts:["twice a week","once a month","every day"],a:0,w:"كل اثنين وجمعة = مرتين في الأسبوع."},
+   {q:"What does Thuriya think about Antarctica?",opts:["It's too cold.","It's too warm.","It's boring."],a:0}
+  ]}
+]},
+{id:"u3",emo:"🧳",en:"Unit 3 · Travel",ar:"الوحدة 3 · السفر",tone:"sky",pages:"66–91",lessons:[
+ {id:"u3a",emo:"🛂",en:"Things for travel",ar:"أغراض السفر",
+  learn:[
+   {t:"vocab",h:"🧳 أغراض السفر (12 كلمة)",list:"travel"},
+   {t:"story",h:"📖 نصائح فرانك للسفر",en:"Remember your passport, ticket and money. Children need a new passport every five years. Put your name and address on your bag so you won't lose it. Take light clothes and flip-flops for sunny days, and a raincoat or umbrella for rainy days. Don't take guidebooks – they're heavy; download apps instead. Take a charger, and a pillow if you travel at night.",ar:"تذكّر جواز السفر والتذكرة والمال. الأطفال يحتاجون جوازًا جديدًا كل خمس سنوات. اكتب اسمك وعنوانك على حقيبتك كي لا تضيع. خذ ملابس خفيفة وشبشبًا للأيام المشمسة، ومعطف مطر أو مظلة للأيام الممطرة. لا تأخذ الأدلة السياحية لأنها ثقيلة، حمّل تطبيقات بدلًا منها. خذ الشاحن، ووسادة إذا سافرت ليلًا.",book:"Class Book ص 68"}
+  ],
+  games:[{type:"memory",list:"travel",en:"Memory match",ar:"لعبة الذاكرة",emo:"🃏"},{type:"listen",list:"travel",en:"Listen & choose",ar:"استمع واختر",emo:"👂"},{type:"spell",list:"travel",en:"Spelling bee",ar:"تهجئة الكلمات",emo:"🐝"},
+   {type:"sort",en:"Pack the washbag!",ar:"جهّز حقيبة النظافة!",emo:"👝",buckets:[["washbag 👝","في حقيبة النظافة"],["suitcase 🧳","في حقيبة السفر"]],items:[["toothbrush",0],["soap",0],["toothpaste",0],["shampoo",0],["raincoat",1],["flip-flops",1],["pillow",1],["sweatshirts",1]]}],
+  quiz:[
+   {q:"Children need a new passport every …",opts:["five years","ten years","year","month"],a:0},
+   {q:"Why should you put your name and address on your bag?",opts:["so you won't lose it","so it looks nice","so it's heavy","so you can sleep"],a:0},
+   {q:"Why doesn't Frank take guidebooks?",opts:["They're heavy.","They're expensive.","They're boring.","They're wet."],a:0},
+   {q:"If you're travelling at night, take a …",opts:["pillow","umbrella","soap","flip-flops"],a:0},
+   {q:"What do you need for rainy days?",opts:["a raincoat or an umbrella","flip-flops","a charger","soap"],a:0},
+   {q:"What do you need to charge your phone?",opts:["a charger","a washbag","a pillow","a passport"],a:0},
+   {q:"Which thing can you wear?",opts:["flip-flops","soap","guidebook","charger"],a:0}
+  ]},
+ {id:"u3b",emo:"🤔",en:"going to & will",ar:"going to و will",
+  learn:[
+   {t:"rule",h:"🧠 الفرق بينهما",en:"going to → a plan we have ALREADY DECIDED.\nwill ('ll) → we decide AT THE TIME OF SPEAKING.",ar:"going to ← خطة قررناها مسبقًا قبل الكلام.\nwill ('ll) ← قرار نأخذه لحظة الكلام (فجأة)."},
+   {t:"formula",parts:["I'm / We're","going to","+","visit London"]},
+   {t:"formula",parts:["I","'ll / won't","+","take a small bag"]},
+   {t:"ex",h:"💬 من حوار فرانك وماجد",items:[["I'm going to take a small rucksack. (Frank)","سآخذ حقيبة ظهر صغيرة (خطة مسبقة)."],["Good idea. I'll take a small bag, too. (Majid)","فكرة جيدة، سآخذ حقيبة صغيرة أيضًا (قرار الآن)."],["We're going to visit London.","سنزور لندن (خطة)."],["Don't worry. I'll take one. We can share it.","لا تقلق، سآخذ واحدة ونتشاركها (قرار الآن)."],["I'll go home and look for that now.","سأذهب للبيت وأبحث عنه الآن."]]}
+  ],
+  games:[{type:"sort",en:"Planned or decided now?",ar:"خطة مسبقة أم قرار الآن؟",emo:"🗂️",buckets:[["going to 📅","قررته مسبقًا"],["will ⚡","قررته الآن"]],items:[["We bought the tickets. We ___ visit Salalah.",0],["The phone is ringing! I ___ answer it.",1],["I'm hungry. I think I ___ have a sandwich.",1],["My family ___ move to the city next year.",0],["You don't have an umbrella? I ___ take one.",1],["I've packed my bag. I ___ travel by plane.",0],["It's hot! I ___ open the window.",1]]},
+   {type:"build",en:"Build the sentence",ar:"رتّب الجملة",emo:"🧩",items:["I'm going to take a guidebook.","I'll take a small bag, too.","She won't look for it now.","We aren't going to visit London."]}],
+  quiz:[
+   {q:"Where are Frank and Majid going to go?",opts:["London","Cairo","Salalah","Muscat"],a:0},
+   {q:"Why doesn't Majid need to take toothpaste, soap and shampoo?",opts:["Frank will bring them and they can share.","He doesn't like them.","The hotel has them.","They're heavy."],a:0},
+   {q:"Who will get some sweets for the plane?",opts:["Majid","Frank","Mum","Bayan"],a:0},
+   {q:"How are they going to travel?",opts:["by plane","by train","by bus","by boat"],a:0},
+   {q:"The phone is ringing. 'I ___ answer it!'",opts:["'ll","'m going to"],a:0,noshuf:1,w:"قرار لحظي ← will"},
+   {q:"We bought the tickets last week. We ___ visit Salalah.",opts:["'re going to","'ll"],a:0,noshuf:1,w:"خطة مسبقة ← going to"},
+   {q:"We use GOING TO for things we have ___ decided to do.",opts:["already","just now"],a:0,noshuf:1},
+   {q:"Majid doesn't have an umbrella. Frank says: 'Don't worry. I ___ take one.'",opts:["'ll","'m going to","am","won't"],a:0}
+  ]},
+ {id:"u3c",emo:"🚀",en:"Book Club: A holiday on the Moon",ar:"نادي الكتاب: عطلة على القمر",
+  learn:[
+   {t:"rule",h:"🚀 قصص الخيال العلمي (Science fiction)",en:"Science fiction stories are usually in the FUTURE, in a world DIFFERENT from ours.",ar:"قصص الخيال العلمي تحدث غالبًا في المستقبل، في عالم مختلف عن عالمنا."},
+   {t:"story",h:"📖 ملخّص القصة",en:"Issa is bored in the holidays. Dad says they're going on an exciting journey. They catch a train to the launch pad and get on a rocket. They land on the Moon and travel by Moon train to a space hotel – they can see Mars from the window! It's fun at first, but there isn't much to do, the food isn't fresh and the helmets are uncomfortable. Issa can't wait to go home, ride his bike and go to the park.",ar:"عيسى يشعر بالملل في الإجازة. يقول أبوه إنهم سيذهبون في رحلة مثيرة. يركبون قطارًا إلى منصة الإطلاق ثم الصاروخ. يهبطون على القمر ويركبون قطار القمر إلى فندق فضائي، ويرون المريخ من النافذة! في البداية كان ممتعًا، لكن لا يوجد الكثير لفعله، والطعام ليس طازجًا، والخوذ غير مريحة. عيسى متشوّق للعودة للبيت ليركب دراجته ويذهب للحديقة.",book:"Class Book ص 72–73"}
+  ],
+  games:[{type:"order",en:"Order the story",ar:"رتّب أحداث القصة",emo:"🌙",items:[["Issa is bored at home.","They catch a train to the launch pad.","The rocket takes off.","They land on the Moon.","They stay in the space hotel.","They go on a Moon walk.","They want to go back to Earth."]]}],
+  quiz:[
+   {q:"Where did the family go on holiday?",opts:["the Moon","Mars","London","the beach"],a:0},
+   {q:"Where did they stay?",opts:["in a space hotel","in a tent","at Grandma's","on the rocket"],a:0},
+   {q:"What could they see from the bedroom window?",opts:["Mars","the sea","the Sun","a forest"],a:0},
+   {q:"What was the problem with the food?",opts:["It wasn't fresh.","It was too hot.","There wasn't any.","It was too sweet."],a:0},
+   {q:"What time was the Moon walk?",opts:["three o'clock","ten o'clock","six o'clock","midnight"],a:0},
+   {q:"What does Issa want to do at home?",opts:["ride his bike and go to the park","go to the Moon again","sleep","read a book"],a:0},
+   {q:"Science fiction stories are usually in …",opts:["the future","the past"],a:0,noshuf:1}
+  ]},
+ {id:"u3d",emo:"🛫",en:"Transport verbs & timetables",ar:"أفعال التنقل والمضارع البسيط للمستقبل",
+  learn:[
+   {t:"vocab",h:"🚆 أفعال التنقل (12 عبارة)",list:"tverbs"},
+   {t:"rule",h:"🧠 المضارع البسيط للمستقبل",en:"We use the Present simple for TIMETABLES and fixed plans (trains, buses, flights, school).",ar:"نستخدم المضارع البسيط للحديث عن الجداول والمواعيد الثابتة في المستقبل (القطارات، الحافلات، الرحلات الجوية)."},
+   {t:"formula",parts:["The train","leaves","in 15 minutes / at 6 o'clock"]},
+   {t:"formula",parts:["What time","does","the flight land?"]},
+   {t:"tip",ar:"تذكّر إضافة s للمفرد: The flight leaves ✔️ / The bus arrives ✔️. وفي السؤال: does + فعل بدون s.",en:"Remember -s with he/she/it: The flight leaves."},
+   {t:"ex",h:"🔄 أزواج متعاكسة",items:[["get on ↔ get off","يركب ↔ ينزل"],["take off ↔ land","تُقلع ↔ تهبط"],["arrive ↔ leave","يصل ↔ يغادر"]]}
+  ],
+  games:[{type:"memory",list:"tverbs",en:"Memory match",ar:"لعبة الذاكرة",emo:"🃏"},{type:"listen",list:"tverbs",en:"Listen & choose",ar:"استمع واختر",emo:"👂"},{type:"build",en:"Build the timetable",ar:"رتّب الجملة",emo:"🧩",items:["The flight leaves in ten minutes.","What time does the flight land?","We land in fifteen minutes.","When do we go back to Earth?"]}],
+  quiz:[
+   {q:"The flight ___ in ten minutes.",opts:["leaves","leave","leaving","is leave"],a:0},
+   {q:"What time ___ the flight land?",opts:["does","do","is","are"],a:0},
+   {q:"When ___ we arrive?",opts:["do","does","is","are"],a:0},
+   {q:"The opposite of 'take off' is …",opts:["land","get on","leave","explore"],a:0},
+   {q:"The opposite of 'get on' is …",opts:["get off","arrive","take a seat","pack"],a:0},
+   {q:"'Please ___ your seats. The flight leaves in ten minutes.'",opts:["take","catch","pack","land"],a:0},
+   {q:"We use the Present simple for the future when we talk about …",opts:["timetables","feelings"],a:0,noshuf:1}
+  ]},
+ {id:"u3e",emo:"🚄",en:"Famous railways & feelings",ar:"سكك حديد شهيرة والتعبير عن المشاعر",
+  learn:[
+   {t:"story",h:"🚄 قطاران مشهوران",en:"The Haramain High-Speed railway (Saudi Arabia) runs between Makkah and Madinah and stops at Jeddah. Trains travel at 300 km an hour on a 450 km line. It opened in 2018 and has more than 50 bridges and 12 places where camels can cross!\nThe Trans-Siberian railway (Russia) goes from Moscow to Vladivostok – more than 9,000 km, the longest in the world. You get on in Europe and get off in Asia! It passes Lake Baikal, the deepest lake in the world.",ar:"قطار الحرمين السريع (السعودية) بين مكة المكرمة والمدينة المنورة ويتوقف في جدة. سرعته 300 كم/ساعة على خط طوله 450 كم. افتُتح عام 2018 وفيه أكثر من 50 جسرًا و12 ممرًا لعبور الجِمال!\nالقطار العابر لسيبيريا (روسيا) من موسكو إلى فلاديفوستوك – أكثر من 9000 كم، الأطول في العالم. تركب في أوروبا وتنزل في آسيا! ويمرّ ببحيرة بايكال أعمق بحيرة في العالم.",book:"Class Book ص 76"},
+   {t:"ex",h:"😃😟 كيف تشعر تجاه المستقبل؟",items:[["I'm really looking forward to the trip.","أنا متشوّق جدًا للرحلة."],["I can't wait for the summer holidays.","لا أطيق الانتظار للعطلة الصيفية."],["I'm excited about camping.","أنا متحمّس للتخييم."],["I'm not looking forward to the long journey.","لست متشوّقًا للرحلة الطويلة."],["I'm worried about the journey.","أنا قلق بشأن الرحلة."]]},
+   {t:"rule",h:"🔊 النطق في الأسئلة",en:"In questions we say the important words clearly: WHAT are you going to DO? HOW are you going to TRAVEL?",ar:"في الأسئلة ننطق الكلمات المهمة بوضوح وقوة: كلمة السؤال والفعل الأخير."}
+  ],
+  games:[{type:"sort",en:"Happy or worried?",ar:"متحمّس أم قلق؟",emo:"🎭",buckets:[["😃 positive","مشاعر إيجابية"],["😟 negative","مشاعر سلبية"]],items:[["I can't wait for …",0],["I'm excited about …",0],["I'm really looking forward to …",0],["I'm worried about …",1],["I'm not looking forward to …",1]]}],
+  quiz:[
+   {q:"How fast can Haramain trains travel?",opts:["300 km an hour","30 km an hour","900 km an hour","50 km an hour"],a:0},
+   {q:"The Haramain railway opened in …",opts:["2018","1984","2004","1993"],a:0},
+   {q:"Which is the longest railway in the world?",opts:["Trans-Siberian","Haramain","Muscat Metro","London Underground"],a:0},
+   {q:"Lake Baikal is the ___ lake in the world.",opts:["deepest","biggest","hottest","smallest"],a:0},
+   {q:"On the Trans-Siberian, you get on in Europe and get off in …",opts:["Asia","Africa","America","Australia"],a:0},
+   {q:"Helen: 'I'm worried about the journey.' Why?",opts:["She doesn't like long car journeys.","She loves coaches.","She has no suitcase.","It's raining."],a:0},
+   {q:"'I can't wait for the holidays!' means …",opts:["I'm very excited.","I'm worried.","I'm bored.","I'm late."],a:0},
+   {q:"How long is Katy's coach journey to Salalah?",opts:["about nine hours","two hours","one day","thirty minutes"],a:0}
+  ]},
+ {id:"u3f",emo:"📧",en:"Literacy: an email",ar:"القراءة والكتابة: البريد الإلكتروني",
+  learn:[
+   {t:"rule",h:"📧 كيف تكتب إيميلًا؟",en:"Write who it is to at the top. Complete the subject. Start with Dear (name). In the first paragraph, say why you are writing. Divide it into paragraphs. End correctly (Yours, …).",ar:"اكتب اسم المرسَل إليه في الأعلى، واملأ خانة الموضوع، وابدأ بـ Dear + الاسم، وفي الفقرة الأولى اذكر سبب كتابتك، وقسّم الإيميل إلى فقرات، واختمه بشكل صحيح (…,Yours)."},
+   {t:"ex",h:"👔 رسمي 🆚 غير رسمي",items:[["Dear … (formal)","عزيزي… (رسمي)"],["Hi … (informal)","مرحبًا… (غير رسمي)"],["We are now ready to send you information. (formal)","جملة رسمية"],["Yours, (formal)","المخلص، (رسمي)"]]},
+   {t:"story",h:"📖 رحلة المدرسة إلى بهلاء",en:"The trip is on Sunday 16th April. Arrive at school at 4 p.m.; the express coach leaves at 4.30 and arrives at 6.30. The hotel is near Bahla fort and has a brand-new pool (bring a swimsuit and flip-flops). On Monday they visit the fort – a UNESCO World Heritage site since 1987. Bring money, a sunhat, light clothes and comfortable shoes. On Tuesday the coach leaves at 9 a.m.",ar:"الرحلة يوم الأحد 16 أبريل. الحضور للمدرسة الساعة 4 عصرًا، والحافلة السريعة تنطلق 4:30 وتصل 6:30. الفندق قرب قلعة بهلاء وفيه مسبح جديد (أحضر ملابس السباحة والشبشب). يوم الاثنين زيارة القلعة – موقع تراث عالمي لليونسكو منذ 1987. أحضر نقودًا وقبعة شمس وملابس خفيفة وحذاءً مريحًا. يوم الثلاثاء تنطلق الحافلة الساعة 9 صباحًا.",book:"Class Book ص 80"}
+  ],
+  games:[{type:"mcq",en:"Complete the Moon email",ar:"أكمل إيميل رحلة القمر",emo:"🌕",items:[
+    {q:"We're going to travel by ___ rocket to the Moon.",opts:["express","delicious","heavy","small"],a:0},
+    {q:"Bring a ___ suitcase because the rocket isn't very big!",opts:["small","big","amazing","express"],a:0},
+    {q:"The Space Hotel isn't very ___, but it's quite comfortable.",opts:["big","delicious","express","heavy"],a:0},
+    {q:"Space food looks funny, but it's ___!",opts:["delicious","heavy","express","small"],a:0},
+    {q:"Everyone needs to wear spacesuits with big helmets and ___ boots.",opts:["heavy","delicious","small","express"],a:0},
+    {q:"If you look through the windows, you'll see ___ views of Earth!",opts:["amazing","heavy","small","express"],a:0}]},
+   {type:"sort",en:"Formal or informal?",ar:"رسمي أم غير رسمي؟",emo:"👔",buckets:[["formal 👔","رسمي"],["informal 👕","غير رسمي"]],items:[["Dear students,",0],["Hi Sara!",1],["Yours, Mr Sultan",0],["See you soon!",1],["We are now ready to send you information.",0],["Guess what?!",1],["We look forward to seeing you soon.",0]]}],
+  quiz:[
+   {q:"When is the school trip to Bahla?",opts:["Sunday 16th April","Monday 5th May","Tuesday 1st January","Friday 9th May"],a:0},
+   {q:"What time does the express coach leave?",opts:["4.30 p.m.","4 p.m.","6.30 p.m.","9 a.m."],a:0},
+   {q:"Why do they need to bring a swimsuit?",opts:["The hotel has a brand-new pool.","They're going to the sea.","It's going to rain.","For the fort."],a:0},
+   {q:"Bahla fort has been a UNESCO World Heritage site since …",opts:["1987","2018","1993","2004"],a:0},
+   {q:"How should a formal email start?",opts:["Dear …","Hi …","Hey!","What's up?"],a:0},
+   {q:"Zahran: 'My wallet is empty! Please could you get a guidebook for me?' This means …",opts:["Zahran doesn't have any money.","Zahran wants Nawaf's guidebook.","Zahran often reads about paintings."],a:0},
+   {q:"Circus tickets are 10 rials. Monday tickets are half-price. So …",opts:["You can go to the circus for 5 rials on Monday.","You must buy tickets online.","The circus starts at 5.30 p.m."],a:0}
+  ]}
+]},
+{id:"lc",emo:"🌍",en:"WOW! Learning Club 1",ar:"نادي التعلّم 1 + العلوم",tone:"lilac",pages:"92–95",lessons:[
+ {id:"lca",emo:"🗓️",en:"Months, seasons & time",ar:"الأشهر والفصول والوقت",
+  learn:[
+   {t:"vocab",h:"🗓️ أشهر السنة",list:"months"},
+   {t:"vocab",h:"🌸 الفصول الأربعة",list:"seasons"},
+   {t:"story",h:"🌍 أرض مدهشة",en:"The Earth turns around every 24 hours – that's why we have day and night, and why time is different around the world: when it's 7 p.m. in Muscat, it's 11 a.m. in New York. The Earth goes around the Sun in 365 days (a year). In Europe, June, July and August are in summer. Australia has the opposite seasons!",ar:"الأرض تدور حول نفسها كل 24 ساعة، لذلك عندنا ليل ونهار، والوقت يختلف حول العالم: عندما تكون الساعة 7 مساءً في مسقط تكون 11 صباحًا في نيويورك. والأرض تدور حول الشمس في 365 يومًا (سنة). في أوروبا يونيو ويوليو وأغسطس صيف، وأستراليا عكسها تمامًا!",book:"Class Book ص 92"},
+   {t:"ex",h:"🕓 قول الوقت",items:[["It's four o'clock. (4:00)","الساعة الرابعة تمامًا"],["It's quarter past four. (4:15)","الرابعة والربع"],["It's half past four. (4:30)","الرابعة والنصف"],["It's quarter to five. (4:45)","الخامسة إلا ربعًا"]]}
+  ],
+  games:[{type:"order",en:"Order the months",ar:"رتّب الأشهر",emo:"📅",items:[["January","February","March","April","May","June"],["July","August","September","October","November","December"]]},{type:"spell",list:"months",en:"Spell the months",ar:"تهجئة الأشهر",emo:"🐝"}],
+  quiz:[
+   {q:"4:15 = It's …",opts:["quarter past four","quarter to four","half past four","four fifteen to"],a:0},
+   {q:"4:45 = It's …",opts:["quarter to five","quarter past five","half past four","quarter past four"],a:0},
+   {q:"How many days are there in a year?",opts:["365","24","12","366 always"],a:0},
+   {q:"In Europe, June, July and August are in …",opts:["summer","winter","spring","autumn"],a:0},
+   {q:"True or False? In Australia, December, January and February are in summer.",opts:TF,a:0,noshuf:1},
+   {q:"True or False? When it's 9 a.m. in Muscat, it's 7 p.m. in New York.",opts:TF,a:1,noshuf:1,w:"خطأ: نيويورك متأخرة عن مسقط 8 ساعات."},
+   {q:"Which month comes after September?",opts:["October","August","November","December"],a:0}
+  ]},
+ {id:"lcb",emo:"🔌",en:"Science: Carroll diagrams",ar:"العلوم: مخطط كارول",
+  learn:[
+   {t:"rule",h:"🔬 ما هو مخطط كارول؟",en:"A Carroll diagram sorts things with 'yes' and 'no' information. For example: it needs light / it doesn't need light; it needs sound / it doesn't need sound.",ar:"مخطط كارول جدول يصنّف الأشياء بمعلومات «نعم» و«لا». مثلًا: يحتاج ضوءًا / لا يحتاج ضوءًا، يحتاج صوتًا / لا يحتاج صوتًا."},
+   {t:"rule",h:"🧠 need / doesn't need + اسم",en:"A cinema needs sound and it needs light.\nA bowling alley needs sound, but it doesn't need light.\nA zip wire doesn't need any light and it doesn't need any sound.",ar:"السينما تحتاج صوتًا وتحتاج ضوءًا.\nصالة البولينغ تحتاج صوتًا لكنها لا تحتاج ضوءًا.\nالحبل المنزلق لا يحتاج ضوءًا ولا صوتًا."},
+   {t:"tip",ar:"مع he/she/it نقول needs ✔️ وفي النفي doesn't need ✔️ (بدون s بعد doesn't).",en:"It needs… / It doesn't need…"},
+   {t:"ex",h:"⚙️ آلات تحوّل الكهرباء",items:[["A toaster makes heat.","المحمصة تنتج حرارة."],["A food mixer makes movement.","الخلاط ينتج حركة."],["A hair dryer makes heat and movement.","مجفف الشعر ينتج حرارة وحركة."]]}
+  ],
+  games:[{type:"sort",en:"Fill the Carroll diagram",ar:"املأ مخطط كارول",emo:"🔲",buckets:[["🔊 sound ✔ · 💡 light ✔","صوت وضوء"],["🔊 sound ✔ · 💡 light ✘","صوت فقط"],["🔊 sound ✘ · 💡 light ✘","لا صوت ولا ضوء"]],items:[["cinema",0],["theatre",0],["bowling alley",1],["zip wire",2],["trampoline",2]]},
+   {type:"build",en:"Build the sentence",ar:"رتّب الجملة",emo:"🧩",items:["A cinema needs sound and it needs light.","A bowling alley needs sound, but it doesn't need light.","A toaster makes heat."]}],
+  quiz:[
+   {q:"True or False? A cinema needs sound and it needs light.",opts:TF,a:0,noshuf:1},
+   {q:"True or False? A zip wire doesn't need any light and it doesn't need any sound.",opts:TF,a:0,noshuf:1},
+   {q:"True or False? A theatre doesn't need any sound and it doesn't need any light.",opts:TF,a:1,noshuf:1},
+   {q:"A bowling alley ___ sound, but it ___ light.",opts:["needs / doesn't need","need / don't need","doesn't need / needs"],a:0},
+   {q:"A toaster makes …",opts:["heat","movement","sound only","nothing"],a:0},
+   {q:"A Carroll diagram uses ___ information.",opts:["yes and no","only numbers","only pictures"],a:0}
+  ]}
+]}
+];
+
+/* =================== STATE =================== */
+const S={stars:{},exam:null,lang:"both",snd:true};
+try{Object.assign(S,JSON.parse(localStorage.getItem("wow7a")||"{}"))}catch(e){}
+function save(){try{localStorage.setItem("wow7a",JSON.stringify(S))}catch(e){}}
+const ALL=[];UNITS.forEach(u=>u.lessons.forEach(l=>{l.unit=u;ALL.push(l)}));
+const $=s=>document.querySelector(s);
+const app=$("#app");
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+
+/* speech + sfx */
+function say(t){try{if(!("speechSynthesis" in window))return;speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(String(t).replace(/_+/g," blank ").replace(/[•…]/g," "));u.lang="en-GB";u.rate=.88;const v=speechSynthesis.getVoices().find(v=>/en-GB/i.test(v.lang))||speechSynthesis.getVoices().find(v=>/^en/i.test(v.lang));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
+let AC;function tone(f,d=.12,t="sine",delay=0,vol=.12){if(!S.snd)return;try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const o=AC.createOscillator(),g=AC.createGain();o.type=t;o.frequency.value=f;g.gain.value=vol;o.connect(g);g.connect(AC.destination);const s=AC.currentTime+delay;g.gain.setValueAtTime(vol,s);g.gain.exponentialRampToValueAtTime(.001,s+d);o.start(s);o.stop(s+d)}catch(e){}}
+const sfx={ok(){tone(660,.1);tone(880,.16,"sine",.09)},no(){tone(220,.18,"triangle")},flip(){tone(520,.05,"triangle",0,.06)},win(){[523,659,784,1046].forEach((f,i)=>tone(f,.18,"sine",i*.1))}};
+
+/* confetti */
+const cv=$("#confetti"),cx=cv.getContext("2d");let parts=[];
+function confetti(n=120){cv.width=innerWidth;cv.height=innerHeight;const cols=["#F2784B","#1E9A83","#3389D0","#C99400","#7657C7","#D94873"];for(let i=0;i<n;i++)parts.push({x:innerWidth/2,y:innerHeight/3,vx:(Math.random()-.5)*14,vy:Math.random()*-12-4,r:Math.random()*6+4,c:cols[i%6],a:Math.random()*6,life:0});if(parts.length===n)requestAnimationFrame(tick)}
+function tick(){cx.clearRect(0,0,cv.width,cv.height);parts.forEach(p=>{p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.a+=.2;p.life++;cx.save();cx.translate(p.x,p.y);cx.rotate(p.a);cx.fillStyle=p.c;cx.fillRect(-p.r/2,-p.r/2,p.r,p.r*.6);cx.restore()});parts=parts.filter(p=>p.y<cv.height+20&&p.life<260);if(parts.length)requestAnimationFrame(tick);else cx.clearRect(0,0,cv.width,cv.height)}
+
+/* helpers */
+function starsOf(id){return S.stars[id]||0}
+function starStr(n,max=3){let s="";for(let i=0;i<max;i++)s+=i<n?"⭐":'<span class="off">⭐</span>';return `<span class="stars">${s}</span>`}
+function totalStars(){return ALL.reduce((a,l)=>a+starsOf(l.id),0)}
+function updPill(){$("#starpill").textContent="⭐ "+totalStars();$("#sndbtn").textContent=S.snd?"🔊":"🔇"}
+function reveal(){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.08});document.querySelectorAll(".reveal").forEach((el,i)=>{el.style.transitionDelay=Math.min(i*60,400)+"ms";io.observe(el)})}
+function setLang(l){S.lang=l;save();document.body.className="l-"+l;document.querySelectorAll(".langt button").forEach(b=>b.classList.toggle("on",b.dataset.l===l))}
+$("#sndbtn").onclick=()=>{S.snd=!S.snd;save();updPill()};
+$("#starpill").onclick=()=>location.hash="#/";
+
+/* =================== VIEWS =================== */
+function home(){
+ const tot=totalStars(),max=ALL.length*3,p=Math.round(tot/max*100);
+ const msg=p===0?"ابدأ رحلتك الآن! 🚀":p<40?"بداية رائعة، استمر! 💪":p<80?"أنت تتقدّم بسرعة! 🔥":"أنت جاهز للاختبار النهائي! 🏆";
+ app.innerHTML=`
+ <section class="hero">
+  <div class="reveal">
+   <span class="eyebrow">GRADE 7 · SEMESTER 1 · 7A</span>
+   <h1>أهلًا يا بطل <span>الصف السابع!</span></h1>
+   <p>تعلّم دروس كتاب <b class="en" style="display:inline">WOW! 7A</b> بالشرح العربي والإنجليزي، والعب، واختبر نفسك درسًا درسًا، ثم اهزم الاختبار النهائي 🎯</p>
+   <a class="btn" href="#/unit/${nextUnit()}">كمّل التعلّم <span class="ic">←</span></a>
+  </div>
+  <div class="bz hero-card reveal"><div class="core">
+   <div class="owl">🦉</div>
+   <div class="ring" style="--p:${p}"><div>${p}%<small>تقدّمك</small></div></div>
+   <div><b>⭐ ${tot}</b> من ${max} نجمة</div>
+   <div style="color:var(--muted)">${msg}</div>
+  </div></div>
+ </section>
+ <div class="sec-title reveal"><h2>🗺️ خريطة الدروس</h2><span class="chip">${ALL.length} درسًا</span></div>
+ <div class="bento">
+  ${UNITS.map((u,i)=>{const got=u.lessons.reduce((a,l)=>a+starsOf(l.id),0),mx=u.lessons.length*3;return `
+  <a class="bz ucard reveal t-${u.tone} ${i===1||i===4?"big":""}" href="#/unit/${u.id}"><div class="core">
+   <div class="emo">${u.emo}</div><h3>${u.ar}</h3><div class="en">${u.en}</div>
+   <div class="meta"><span class="chip">📚 ${u.lessons.length} دروس</span><span class="chip">⭐ ${got}/${mx}</span><span class="chip">📖 ص ${u.pages}</span></div>
+   <div class="bar"><i style="transform:scaleX(${got/mx})"></i></div>
+  </div></a>`}).join("")}
+  <a class="bz ucard reveal t-rose big" href="#/exam"><div class="core">
+   <div class="emo">🏆</div><h3>الاختبار النهائي</h3><div class="en">Final Exam · All units</div>
+   <p style="margin:6px 0 0;color:var(--muted)">30 سؤالًا من كل الوحدات مثل الاختبار الحقيقي.</p>
+   <div class="meta"><span class="chip">${S.exam!=null?"🥇 أفضل نتيجة: "+S.exam+"%":"لم تجرّبه بعد"}</span></div>
+  </div></a>
+ </div>
+ <p class="foot">📖 المحتوى مبني على كتاب Class Book 7A · يُحفظ تقدّمك على هذا الجهاز</p>`;
+ reveal();
+}
+function nextUnit(){for(const u of UNITS)for(const l of u.lessons)if(starsOf(l.id)<2)return u.id;return "u1"}
+
+function unitView(id){
+ const u=UNITS.find(x=>x.id===id);if(!u)return home();
+ app.innerHTML=`
+ <a class="back" href="#/">→ الرئيسية</a>
+ <div class="uhead reveal"><div class="emo">${u.emo}</div><div><span class="eyebrow">📖 Class Book · pages ${u.pages}</span><h1>${u.ar}</h1><div class="en" style="color:var(--muted);font-weight:700">${u.en}</div></div></div>
+ <div class="path">
+ ${u.lessons.map((l,i)=>`
+  <a class="node reveal" href="#/lesson/${l.id}/learn">
+   <div class="bubble" style="background:var(--${u.tone})">${l.emo}</div>
+   <div class="bz" style="flex:1"><div class="core">
+    <div class="book">الدرس ${i+1}</div><h4>${l.ar}</h4><div class="en" style="color:var(--muted);font-size:14px">${l.en}</div>
+    ${starStr(starsOf(l.id))}
+   </div></div>
+  </a>`).join("")}
+ </div>`;
+ reveal();
+}
+
+function lessonView(id,tab){
+ const l=ALL.find(x=>x.id===id);if(!l)return home();const u=l.unit;
+ const idx=u.lessons.indexOf(l),nx=u.lessons[idx+1];
+ app.innerHTML=`
+ <a class="back" href="#/unit/${u.id}">→ ${u.ar}</a>
+ <div class="uhead reveal" style="padding-top:18px"><div class="bubble" style="background:var(--${u.tone});width:84px;height:84px;font-size:44px">${l.emo}</div>
+  <div><h1 style="font-size:clamp(26px,4.5vw,38px)">${l.ar}</h1><div class="en" style="color:var(--muted);font-weight:700">${l.en}</div>${starStr(starsOf(l.id))}</div></div>
+ <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+  <div class="tabs">
+   <button data-t="learn" class="${tab==="learn"?"on":""}">📖 الشرح</button>
+   <button data-t="play" class="${tab==="play"?"on":""}">🎮 العب</button>
+   <button data-t="quiz" class="${tab==="quiz"?"on":""}">✅ اختبر نفسك</button>
+  </div>
+  ${tab==="learn"?`<div class="langt"><button data-l="both">عربي + EN</button><button data-l="ar">عربي</button><button data-l="en">EN</button></div>`:""}
+ </div>
+ <div id="pane"></div>
+ ${nx?`<div class="row" style="justify-content:flex-start;margin-top:26px"><a class="btn soft" href="#/lesson/${nx.id}/learn">الدرس التالي: ${nx.ar} <span class="ic">←</span></a></div>`:""}`;
+ document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>location.hash=`#/lesson/${id}/${b.dataset.t}`);
+ document.querySelectorAll(".langt button").forEach(b=>b.onclick=()=>setLang(b.dataset.l));setLang(S.lang);
+ const pane=$("#pane");
+ if(tab==="learn")renderLearn(pane,l);
+ else if(tab==="play")renderPlayList(pane,l);
+ else renderQuizIntro(pane,l);
+ reveal();
+}
+
+function renderLearn(el,l){
+ el.innerHTML=l.learn.map(b=>{
+  if(b.t==="rule")return `<div class="bz blk reveal"><div class="core"><h3>${b.h}</h3><div class="duo">
+   <div class="en en-only"><div class="lbl">ENGLISH</div>${esc(b.en).replace(/\n/g,"<br>")}</div>
+   <div class="ar-only"><div class="lbl">بالعربي</div>${esc(b.ar).replace(/\n/g,"<br>")}</div></div></div></div>`;
+  if(b.t==="story")return `<div class="bz blk reveal"><div class="core"><h3>${b.h}</h3><div class="duo">
+   <div class="en en-only"><div class="lbl">ENGLISH</div>${esc(b.en).replace(/\n/g,"<br><br>")}</div>
+   <div class="ar-only"><div class="lbl">بالعربي</div>${esc(b.ar).replace(/\n/g,"<br><br>")}</div></div>
+   ${b.book?`<div class="book" style="margin-top:10px">📖 اقرأ النص كاملًا في ${b.book}</div>`:""}</div></div>`;
+  if(b.t==="formula")return `<div class="formula reveal">${b.parts.map(p=>p==="+"?'<span class="plus">+</span>':`<span>${esc(p)}</span>`).join("")}</div>`;
+  if(b.t==="tip")return `<div class="tip blk reveal"><div class="e">💡</div><div><div class="ar-only">${esc(b.ar)}</div><div class="en en-only" style="color:var(--muted);font-size:15px">${esc(b.en)}</div></div></div>`;
+  if(b.t==="ex")return `<div class="bz blk reveal"><div class="core"><h3>${b.h}</h3><div class="exs">${b.items.map(x=>`
+   <div class="ex"><button class="spk" data-say="${esc(x[0])}">🔊</button><div style="flex:1"><div class="en en-only">${esc(x[0])}</div><div class="ar ar-only">${esc(x[1])}</div></div></div>`).join("")}</div></div></div>`;
+  if(b.t==="vocab")return `<div class="bz blk reveal"><div class="core"><h3>${b.h}</h3><div class="vgrid">${V[b.list].map(w=>`
+   <button class="vt" data-say="${esc(w[0])}"><div class="e">${w[2]}</div><div class="w">${esc(w[0])}</div><div class="a">${esc(w[1])}</div></button>`).join("")}</div></div></div>`;
+  return "";
+ }).join("")+`<div class="row reveal" style="justify-content:flex-start"><a class="btn good" href="#/lesson/${l.id}/play">فهمت! يلّا نلعب 🎮 <span class="ic">←</span></a></div>`;
+ el.querySelectorAll("[data-say]").forEach(b=>b.onclick=()=>say(b.dataset.say));
+}
+
+function renderPlayList(el,l){
+ el.innerHTML=`<div class="glist">${l.games.map((g,i)=>`
+  <button class="bz gcard reveal" data-i="${i}"><div class="core"><div class="e">${g.emo}</div><b>${g.ar}</b><small class="en">${g.en}</small></div></button>`).join("")}
+  <a class="bz gcard reveal" href="#/lesson/${l.id}/quiz" style="text-decoration:none;color:inherit"><div class="core" style="background:var(--rose)"><div class="e">✅</div><b>اختبار الدرس</b><small>احصل على 3 نجوم!</small></div></a></div>`;
+ el.querySelectorAll(".gcard[data-i]").forEach(b=>b.onclick=()=>startGame(el,l,l.games[+b.dataset.i]));
+ reveal();
+}
+
+function stage(el){el.innerHTML=`<div class="bz stage"><div class="core" id="stg"></div></div>`;return $("#stg")}
+function startGame(el,l,g){
+ const st=stage(el);
+ const done=(s,t,rev)=>result(st,s,t,{again:()=>startGame(el,l,g),back:()=>renderPlayList(el,l),label:g.ar,review:rev});
+ ({memory:gMemory,listen:gListen,spell:gSpell,sort:gSort,build:gBuild,order:gOrder,mcq:(st,g,d)=>runMCQ(st,g.items,d)})[g.type](st,g,done);
+ el.scrollIntoView({behavior:"smooth",block:"start"});
+}
+function gtop(i,n,extra=""){return `<div class="gtop"><div class="gprog"><i style="transform:scaleX(${n?i/n:0})"></i></div><b>${Math.min(i+1,n)}/${n}</b>${extra}</div>`}
+function fb(st,ok,msg){const f=st.querySelector(".fb");f.innerHTML=`<div class="fbox ${ok?"g":"b"}">${ok?"🎉":"💡"} <div>${msg}</div></div>`}
+const praise=["رائع! 🌟","ممتاز! 👏","أحسنت! 🎯","بطل! 💪","مذهل! 🚀","Great job!","Awesome!"];
+const pr=()=>praise[Math.random()*praise.length|0];
+
+/* MCQ engine */
+function prepQ(q){if(q.noshuf||q.opts.length<3)return {...q};const ord=shuffle(q.opts.map((o,i)=>i));return {...q,opts:ord.map(i=>q.opts[i]),a:ord.indexOf(q.a)}}
+function runMCQ(st,qs,done){
+ qs=qs.map(prepQ);let i=0,sc=0;const rev=[];
+ function show(){
+  const q=qs[i];
+  st.innerHTML=gtop(i,qs.length)+`<div class="qhead"><div class="qtext en">${esc(q.q)}</div><button class="spk">🔊</button></div>
+   <div class="opts">${q.opts.map((o,k)=>`<button class="opt" data-k="${k}">${esc(o)}</button>`).join("")}</div><div class="fb"></div><div class="nx"></div>`;
+  st.querySelector(".qhead .spk").onclick=()=>say(q.q);
+  st.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+   const k=+b.dataset.k,ok=k===q.a;st.querySelectorAll(".opt").forEach(x=>x.disabled=true);
+   st.querySelector(`.opt[data-k="${q.a}"]`).classList.add("ok");
+   if(ok){sc++;sfx.ok();fb(st,1,pr()+(q.w?" · "+esc(q.w):""))}else{b.classList.add("no");sfx.no();fb(st,0,`الإجابة الصحيحة: <b class="en" style="display:inline">${esc(q.opts[q.a])}</b>${q.w?"<br>"+esc(q.w):""}`);rev.push([q.q,q.opts[q.a]])}
+   st.querySelector(".nx").innerHTML=`<button class="btn next">${i<qs.length-1?"التالي":"النتيجة"} <span class="ic">←</span></button>`;
+   st.querySelector(".next").onclick=()=>{i++;i<qs.length?show():done(sc,qs.length,rev)};
+  });
+ }show();
+}
+
+/* Memory */
+function gMemory(st,g,done){
+ const words=shuffle(V[g.list]).slice(0,6);let cards=[];
+ words.forEach((w,i)=>{cards.push({p:i,t:`<span class="en" style="text-align:center">${esc(w[0])}</span>`});cards.push({p:i,t:`<div><div style="font-size:30px">${w[2]}</div>${esc(w[1])}</div>`})});
+ cards=shuffle(cards);let open=[],matched=0,moves=0,lock=false;
+ st.innerHTML=`<div class="gtop"><b>🃏 طابق الكلمة الإنجليزية مع معناها</b><span class="chip" id="mv" style="margin-inline-start:auto">المحاولات: 0</span></div><div class="mem">${cards.map((c,i)=>`<button class="mc" data-i="${i}"><div class="in"><div class="fr">❓</div><div class="bk">${c.t}</div></div></button>`).join("")}</div>`;
+ st.querySelectorAll(".mc").forEach(b=>b.onclick=()=>{
+  if(lock||b.classList.contains("f")||b.classList.contains("m"))return;
+  b.classList.add("f");sfx.flip();open.push(b);
+  const c=cards[+b.dataset.i];if(/en/.test(c.t)&&c.t.indexOf("font-size:30px")<0)say(words[c.p][0]);
+  if(open.length===2){moves++;st.querySelector("#mv").textContent="المحاولات: "+moves;const[a,b2]=open;
+   if(cards[+a.dataset.i].p===cards[+b2.dataset.i].p){a.classList.add("m");b2.classList.add("m");open=[];matched++;sfx.ok();if(matched===words.length)setTimeout(()=>done(Math.max(words.length*2-(moves-words.length),Math.ceil(words.length*1.2)),words.length*2),600)}
+   else{lock=true;setTimeout(()=>{a.classList.remove("f");b2.classList.remove("f");open=[];lock=false},900)}}
+ });
+}
+/* Listen */
+function gListen(st,g,done){
+ const list=V[g.list],rounds=shuffle(list).slice(0,6);let i=0,sc=0;const rev=[];
+ function show(){
+  const w=rounds[i],opts=shuffle([w,...shuffle(list.filter(x=>x!==w)).slice(0,3)]);
+  st.innerHTML=gtop(i,rounds.length)+`<div style="text-align:center"><button class="btn" id="play" style="font-size:22px">اضغط واستمع 🔊 <span class="ic">▶</span></button><p style="color:var(--muted)">اختر الصورة الصحيحة للكلمة التي تسمعها</p></div>
+  <div class="opts">${opts.map((o,k)=>`<button class="opt" data-k="${k}" style="text-align:center;direction:rtl"><div style="font-size:40px">${o[2]}</div>${esc(o[1])}</button>`).join("")}</div><div class="fb"></div><div class="nx"></div>`;
+  st.querySelector("#play").onclick=()=>say(w[0]);setTimeout(()=>say(w[0]),350);
+  st.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+   const o=opts[+b.dataset.k],ok=o===w;st.querySelectorAll(".opt").forEach(x=>x.disabled=true);
+   st.querySelector(`.opt[data-k="${opts.indexOf(w)}"]`).classList.add("ok");
+   if(ok){sc++;sfx.ok();fb(st,1,`${pr()} <b class="en" style="display:inline">${esc(w[0])}</b>`)}else{b.classList.add("no");sfx.no();fb(st,0,`الكلمة كانت <b class="en" style="display:inline">${esc(w[0])}</b> = ${esc(w[1])}`);rev.push([w[0],w[1]])}
+   st.querySelector(".nx").innerHTML=`<button class="btn next">${i<rounds.length-1?"التالي":"النتيجة"} <span class="ic">←</span></button>`;
+   st.querySelector(".next").onclick=()=>{i++;i<rounds.length?show():done(sc,rounds.length,rev)};
+  });
+ }show();
+}
+/* Spell */
+function gSpell(st,g,done){
+ const pool=V[g.list].filter(w=>/^[A-Za-z]+$/.test(w[0])&&w[0].length<=11);const rounds=shuffle(pool).slice(0,5);let i=0,sc=0;const rev=[];
+ function show(){
+  const w=rounds[i],word=w[0].toLowerCase(),letters=shuffle(word.split("").map((c,k)=>({c,k})));let typed=[],miss=false;
+  const draw=()=>{
+   st.innerHTML=gtop(i,rounds.length)+`<div class="bigemo">${w[2]}</div><div style="text-align:center;color:var(--muted);font-weight:700">${esc(w[1])} <button class="spk" style="display:inline-grid;vertical-align:middle" id="sp">🔊</button></div>
+   <div class="slots">${word.split("").map((c,k)=>`<div class="slot">${typed[k]?typed[k].c:""}</div>`).join("")}</div>
+   <div class="letters">${letters.map((o,k)=>`<button class="tok ${typed.includes(o)?"used":""}" data-k="${k}">${o.c}</button>`).join("")}</div>
+   <div class="row"><button class="btn soft" id="undo">↩️ تراجع</button><button class="btn soft" id="hint">💡 تلميح</button></div><div class="fb"></div><div class="nx"></div>`;
+   st.querySelector("#sp").onclick=()=>say(w[0]);
+   st.querySelector("#undo").onclick=()=>{typed.pop();draw()};
+   st.querySelector("#hint").onclick=()=>{miss=true;say(w[0]);const f=st.querySelector(".fb");f.innerHTML=`<div class="fbox g">💡 أول حرف: <b class="en" style="display:inline">${word[0].toUpperCase()}</b> · عدد الحروف: ${word.length}</div>`};
+   st.querySelectorAll(".letters .tok").forEach(b=>b.onclick=()=>{sfx.flip();typed.push(letters[+b.dataset.k]);
+    if(typed.length===word.length){const ans=typed.map(t=>t.c).join("");draw();st.querySelectorAll(".letters .tok,#undo,#hint").forEach(x=>x.disabled=true);
+     if(ans===word){if(!miss)sc++;sfx.ok();fb(st,1,pr()+` <b class="en" style="display:inline">${esc(w[0])}</b>`);say(w[0])}else{sfx.no();fb(st,0,`التهجئة الصحيحة: <b class="en" style="display:inline">${esc(word)}</b>`);rev.push([word,w[1]])}
+     st.querySelector(".nx").innerHTML=`<button class="btn next">${i<rounds.length-1?"التالي":"النتيجة"} <span class="ic">←</span></button>`;
+     st.querySelector(".next").onclick=()=>{i++;i<rounds.length?show():done(sc,rounds.length,rev)};
+    }else draw()});
+  };draw();
+ }show();
+}
+/* Sort */
+function gSort(st,g,done){
+ const items=shuffle(g.items);let i=0,sc=0;const rev=[];
+ const tones=["peach","mint","sky","lilac"];
+ function show(){
+  const it=items[i];
+  st.innerHTML=gtop(i,items.length)+`<p style="text-align:center;color:var(--muted);margin:0">ضع البطاقة في المكان الصحيح 👇</p><div class="sortitem">${esc(it[0])}</div>
+  <div class="buckets" style="grid-template-columns:repeat(${Math.min(g.buckets.length,3)},1fr)">${g.buckets.map((b,k)=>`<button class="bucket" data-k="${k}" style="background:var(--${tones[k]})"><span class="en" style="text-align:center">${esc(b[0])}</span><small>${esc(b[1])}</small></button>`).join("")}</div><div class="fb"></div><div class="nx"></div>`;
+  st.querySelectorAll(".bucket").forEach(b=>b.onclick=()=>{
+   const k=+b.dataset.k,ok=k===it[1];st.querySelectorAll(".bucket").forEach(x=>x.disabled=true);
+   st.querySelector(`.bucket[data-k="${it[1]}"]`).classList.add("hit");
+   if(ok){sc++;sfx.ok();fb(st,1,pr());setTimeout(nextQ,700)}else{b.classList.add("miss");sfx.no();fb(st,0,`مكانها الصحيح: <b class="en" style="display:inline">${esc(g.buckets[it[1]][0])}</b>`);rev.push([it[0],g.buckets[it[1]][0]]);
+    st.querySelector(".nx").innerHTML=`<button class="btn next">التالي <span class="ic">←</span></button>`;st.querySelector(".next").onclick=nextQ}
+  });
+ }
+ function nextQ(){i++;i<items.length?show():done(sc,items.length,rev)}
+ show();
+}
+/* Build & Order share engine */
+function gBuild(st,g,done){wordEngine(st,g.items.map(s=>s.split(" ")),done,false)}
+function gOrder(st,g,done){wordEngine(st,g.items,done,true)}
+function wordEngine(st,sets,done,stack){
+ sets=shuffle(sets).slice(0,5);let i=0,sc=0;const rev=[];
+ function show(){
+  const target=sets[i];let pool=shuffle(target.map((t,k)=>({t,k})));if(pool.every((p,k)=>p.k===k)&&pool.length>1)pool=pool.reverse();let ans=[];
+  const draw=()=>{
+   st.innerHTML=gtop(i,sets.length)+`<p style="text-align:center;color:var(--muted);margin:0 0 10px">${stack?"اضغط على البطاقات بالترتيب الصحيح (من الأول للأخير)":"اضغط على الكلمات لتكوين جملة صحيحة"}</p>
+   <div class="ansline ${stack?"pool stack":""}" style="${stack?"flex-direction:column;align-items:stretch":""}">${ans.map((a,k)=>`<button class="tok" data-a="${k}">${stack?(k+1)+". ":""}${esc(a.t)}</button>`).join("")||'<span style="color:var(--muted);margin:auto">…</span>'}</div>
+   <div class="pool ${stack?"stack":""}">${pool.map((p,k)=>`<button class="tok ${ans.includes(p)?"used":""}" data-p="${k}">${esc(p.t)}</button>`).join("")}</div>
+   <div class="row"><button class="btn good" id="chk" ${ans.length<target.length?"disabled style='opacity:.4'":""}>تحقّق ✔️ <span class="ic">←</span></button></div><div class="fb"></div><div class="nx"></div>`;
+   st.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>{sfx.flip();ans.push(pool[+b.dataset.p]);if(!stack&&ans.length===1)say(ans[0].t);draw()});
+   st.querySelectorAll("[data-a]").forEach(b=>b.onclick=()=>{ans.splice(+b.dataset.a,1);draw()});
+   st.querySelector("#chk").onclick=()=>{
+    const ok=ans.map(a=>a.t).join("|")===target.join("|");st.querySelectorAll(".tok,#chk").forEach(x=>x.disabled=true);
+    if(ok){sc++;sfx.ok();fb(st,1,pr());if(!stack)say(target.join(" "))}else{sfx.no();fb(st,0,`الترتيب الصحيح:<br><b class="en">${esc(target.join(stack?" → ":" "))}</b>`);rev.push([target.join(stack?" → ":" "),""])}
+    st.querySelector(".nx").innerHTML=`<button class="btn next">${i<sets.length-1?"التالي":"النتيجة"} <span class="ic">←</span></button>`;
+    st.querySelector(".next").onclick=()=>{i++;i<sets.length?show():done(sc,sets.length,rev)};
+   };
+  };draw();
+ }show();
+}
+
+/* Result */
+function result(st,s,t,o){
+ const r=s/t,stars=r>=.9?3:r>=.7?2:r>=.5?1:0;
+ const face=stars===3?"🏆":stars===2?"🥳":stars===1?"🙂":"💪";
+ const msg=stars===3?"ممتاز جدًا! أنت نجم ⭐":stars===2?"رائع! قريب جدًا من العلامة الكاملة":stars===1?"جيد! جرّب مرة أخرى لتحصل على نجوم أكثر":"لا بأس، راجع الشرح وحاول مرة أخرى 💪";
+ if(o.saveId&&stars>starsOf(o.saveId)){S.stars[o.saveId]=stars;save();updPill()}
+ if(stars>=2){sfx.win();confetti()}
+ st.innerHTML=`<div class="result"><div class="big">${face}</div><h2 dir="ltr">${s} / ${t}</h2>${starStr(stars)}<p style="font-size:19px;font-weight:700">${msg}</p>
+  <div class="row"><button class="btn" id="ag">إعادة 🔁 <span class="ic">↻</span></button><button class="btn soft" id="bk">${o.backLabel||"رجوع للألعاب"} <span class="ic">←</span></button></div>
+  ${o.review&&o.review.length?`<div class="review"><b>📝 راجع هذه الإجابات:</b>${o.review.map(x=>`<div class="it"><b>${esc(x[0])}</b>${x[1]?"✅ "+esc(x[1]):""}</div>`).join("")}</div>`:""}</div>`;
+ st.querySelector("#ag").onclick=o.again;st.querySelector("#bk").onclick=o.back;
+}
+
+/* Quiz */
+function renderQuizIntro(el,l){
+ el.innerHTML=`<div class="bz stage reveal"><div class="core" style="text-align:center">
+  <div class="bigemo">✅</div><h2 style="margin:6px 0">اختبار: ${l.ar}</h2>
+  <p style="color:var(--muted)">${l.quiz.length} أسئلة من تمارين الكتاب · احصل على 90% لتربح 3 نجوم ⭐⭐⭐</p>
+  <div style="margin-bottom:14px">أفضل نتيجة لك: ${starStr(starsOf(l.id))}</div>
+  <button class="btn" id="go">ابدأ الاختبار <span class="ic">←</span></button></div></div>`;
+ $("#go").onclick=()=>startQuiz(el,l);reveal();
+}
+function startQuiz(el,l){
+ const st=stage(el);
+ runMCQ(st,l.quiz,(s,t,rev)=>result(st,s,t,{saveId:l.id,again:()=>startQuiz(el,l),back:()=>location.hash="#/unit/"+l.unit.id,backLabel:"رجوع للوحدة",review:rev}));
+}
+
+/* Final exam */
+function examView(){
+ app.innerHTML=`<a class="back" href="#/">→ الرئيسية</a>
+ <div class="uhead reveal"><div class="emo">🏆</div><div><span class="eyebrow">FINAL EXAM · 7A</span><h1>الاختبار النهائي</h1><div style="color:var(--muted)">30 سؤالًا عشوائيًا من كل الوحدات · كل مرة أسئلة مختلفة!</div></div></div>
+ <div id="pane"></div>`;
+ const pane=$("#pane");
+ pane.innerHTML=`<div class="bz stage reveal"><div class="core">
+  <h3 style="margin-top:0">📋 تعليمات الاختبار</h3>
+  <div class="exs">
+   <div class="ex">📚 أسئلة من: الترحيب، الوحدة 1، الوحدة 2، الوحدة 3، ونادي التعلّم.</div>
+   <div class="ex">🧠 قواعد + مفردات + قراءة + تمارين الامتحان (A2 Flyers / Key).</div>
+   <div class="ex">🔊 اضغط على السمّاعة لتسمع السؤال بالإنجليزي.</div>
+   <div class="ex">🎯 النتيجة 80% أو أكثر = أنت جاهز للاختبار الحقيقي!</div>
+  </div>
+  <div class="row" style="justify-content:flex-start;margin-top:18px"><button class="btn" id="go">ابدأ الاختبار النهائي <span class="ic">←</span></button>
+  ${S.exam!=null?`<span class="chip" style="align-self:center">🥇 أفضل نتيجة: ${S.exam}%</span>`:""}</div>
+  <h3>📊 جاهزيتك حسب الوحدة</h3>
+  <div class="exs">${UNITS.map(u=>{const g=u.lessons.reduce((a,l)=>a+starsOf(l.id),0),m=u.lessons.length*3;return `<div class="ex t-${u.tone}"><span style="font-size:24px">${u.emo}</span><div style="flex:1;color:var(--ink)"><b>${u.ar}</b><div class="bar"><i style="transform:scaleX(${g/m})"></i></div></div><b style="color:var(--ink)">${g}/${m}⭐</b></div>`}).join("")}</div>
+ </div></div>`;
+ $("#go").onclick=()=>startExam(pane);reveal();
+}
+function startExam(pane){
+ const per={w:3,u1:8,u2:8,u3:8,lc:3},qs=[];
+ UNITS.forEach(u=>{const pool=u.lessons.flatMap(l=>l.quiz);qs.push(...shuffle(pool).slice(0,per[u.id]))});
+ const st=stage(pane);
+ runMCQ(st,shuffle(qs),(s,t,rev)=>{
+  const pc=Math.round(s/t*100);if(S.exam==null||pc>S.exam){S.exam=pc;save()}
+  result(st,s,t,{again:()=>startExam(pane),back:()=>location.hash="#/",backLabel:"الرئيسية",review:rev});
+  const h=st.querySelector("h2");h.insertAdjacentHTML("afterend",`<div class="chip" style="font-size:18px;margin:4px 0">${pc}% · ${pc>=80?"جاهز للاختبار الحقيقي! 🎓":"راجع الدروس ذات النجوم القليلة ثم حاول مجددًا 📚"}</div>`);
+ });
+}
+
+/* Router */
+function route(){
+ updPill();const h=location.hash.replace(/^#\/?/,"").split("/");
+ window.scrollTo({top:0});
+ if(h[0]==="unit")unitView(h[1]);
+ else if(h[0]==="lesson")lessonView(h[1],h[2]||"learn");
+ else if(h[0]==="exam")examView();
+ else home();
+}
+addEventListener("hashchange",route);
+if("speechSynthesis" in window)speechSynthesis.onvoiceschanged=()=>{};
+setLang(S.lang);route();
+</script>
+</body>
+</html>
